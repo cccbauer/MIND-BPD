@@ -1,0 +1,4 @@
+
+/bin/cp /home/rt/REMIND/murfi-rt-PyProject/scripts/../subjects/remind3333/rest/remind3333_ses-lo1_task-rest_run-01_bold.fsf design.fsf
+
+mkdir .files;cp /usr/local/fsl/doc/fsl.css .files;cp -r /usr/local/fsl/doc/images .files/images
