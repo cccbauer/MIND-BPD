@@ -1,0 +1,10 @@
+[2025-02-07_12:22:04] source feedback.sh remind3333 setup
+[2025-02-07_12:23:53] source feedback.sh remind3333 resting_state
+[2025-02-07_12:30:28] source feedback.sh remind3333 resting_state
+[2025-02-07_12:30:38] source feedback.sh remind3333 resting_state
+[2025-02-07_12:31:39] source feedback.sh remind3333 extract_rs_networks
+[2025-02-07_12:39:30] source feedback.sh remind3333 process_roi_masks
+[2025-02-07_12:42:03] source feedback.sh remind3333 2vol
+[2025-02-07_12:43:03] source feedback.sh remind3333 register
+[2025-02-07_12:47:42] source feedback.sh remind3333 feedback
+[2025-02-07_12:49:23] source feedback.sh remind3333 feedback
