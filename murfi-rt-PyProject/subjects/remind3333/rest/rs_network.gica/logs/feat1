@@ -1,0 +1,28 @@
+
+/bin/cp /home/rt/REMIND/murfi-rt-PyProject/scripts/../subjects/remind3333/rest/remind3333_ses-lo1_task-rest_run-01_bold.fsf design.fsf
+
+mkdir .files;cp /usr/local/fsl/doc/fsl.css .files;cp -r /usr/local/fsl/doc/images .files/images
+
+/usr/local/fsl/bin/fsl_sub -T 10 -l logs -N feat1a_init   /usr/local/fsl/bin/feat /home/rt/REMIND/murfi-rt-PyProject/subjects/remind3333/rest/remind3333_ses-lo1_task-rest_run-01_bold_mcflirt_masked.nii_rs_network.ica/design.fsf -D /home/rt/REMIND/murfi-rt-PyProject/subjects/remind3333/rest/remind3333_ses-lo1_task-rest_run-01_bold_mcflirt_masked.nii_rs_network.ica -I 1 -init
+5480
+
+/usr/local/fsl/bin/fsl_sub -T 3 -l logs -N feat2_pre -j 5480  /usr/local/fsl/bin/feat /home/rt/REMIND/murfi-rt-PyProject/subjects/remind3333/rest/remind3333_ses-lo1_task-rest_run-01_bold_mcflirt_masked.nii_rs_network.ica/design.fsf -D /home/rt/REMIND/murfi-rt-PyProject/subjects/remind3333/rest/remind3333_ses-lo1_task-rest_run-01_bold_mcflirt_masked.nii_rs_network.ica -I 1 -prestats
+5794
+
+/usr/local/fsl/bin/fsl_sub -T 1 -l logs -N feat5_stop -j 5794  /usr/local/fsl/bin/feat /home/rt/REMIND/murfi-rt-PyProject/subjects/remind3333/rest/remind3333_ses-lo1_task-rest_run-01_bold_mcflirt_masked.nii_rs_network.ica/design.fsf -D /home/rt/REMIND/murfi-rt-PyProject/subjects/remind3333/rest/remind3333_ses-lo1_task-rest_run-01_bold_mcflirt_masked.nii_rs_network.ica -stop
+7121
+
+/usr/local/fsl/bin/fsl_sub -T 10 -l logs -N feat1a_init   /usr/local/fsl/bin/feat /home/rt/REMIND/murfi-rt-PyProject/subjects/remind3333/rest/remind3333_ses-lo1_task-rest_run-02_bold_mcflirt_run1space_masked.nii_rs_network.ica/design.fsf -D /home/rt/REMIND/murfi-rt-PyProject/subjects/remind3333/rest/remind3333_ses-lo1_task-rest_run-02_bold_mcflirt_run1space_masked.nii_rs_network.ica -I 2 -init
+7309
+
+/usr/local/fsl/bin/fsl_sub -T 3 -l logs -N feat2_pre -j 7309  /usr/local/fsl/bin/feat /home/rt/REMIND/murfi-rt-PyProject/subjects/remind3333/rest/remind3333_ses-lo1_task-rest_run-02_bold_mcflirt_run1space_masked.nii_rs_network.ica/design.fsf -D /home/rt/REMIND/murfi-rt-PyProject/subjects/remind3333/rest/remind3333_ses-lo1_task-rest_run-02_bold_mcflirt_run1space_masked.nii_rs_network.ica -I 2 -prestats
+7388
+
+/usr/local/fsl/bin/fsl_sub -T 1 -l logs -N feat5_stop -j 7388  /usr/local/fsl/bin/feat /home/rt/REMIND/murfi-rt-PyProject/subjects/remind3333/rest/remind3333_ses-lo1_task-rest_run-02_bold_mcflirt_run1space_masked.nii_rs_network.ica/design.fsf -D /home/rt/REMIND/murfi-rt-PyProject/subjects/remind3333/rest/remind3333_ses-lo1_task-rest_run-02_bold_mcflirt_run1space_masked.nii_rs_network.ica -stop
+8171
+
+/usr/local/fsl/bin/fsl_sub -T 180 -l logs -N feat4_gica -j 5794,7388  /usr/local/fsl/bin/feat /home/rt/REMIND/murfi-rt-PyProject/subjects/remind3333/rest/rs_network.gica/design.fsf -D /home/rt/REMIND/murfi-rt-PyProject/subjects/remind3333/rest/rs_network.gica -gica
+8314
+
+/usr/local/fsl/bin/fsl_sub -T 1 -l logs -N feat5_stop -j 8314  /usr/local/fsl/bin/feat /home/rt/REMIND/murfi-rt-PyProject/subjects/remind3333/rest/remind3333_ses-lo1_task-rest_run-02_bold_mcflirt_run1space_masked.nii_rs_network.ica/design.fsf -D /home/rt/REMIND/murfi-rt-PyProject/subjects/remind3333/rest/rs_network.gica -stop
+9096
