@@ -129,6 +129,37 @@ roi_number= str('%s') %(expInfo['No_of_ROIs'])
 roi_number=int(roi_number)
 
 '''
+For Sham subjects read the ROI values from the csv file for the matching run in the 'feedback' folder
+There should exist a folder by the same subject number within the 'feedback' folder and it should 
+contain csv files from matched experimental subject having 'Feedback_{run_number}' in their name
+Each run should have a corresponding csv file
+'''
+
+if SHAM:
+    # Construct the folder path dynamically
+    sham_folder_path = os.path.join("feedback", expInfo['participant'])
+
+    # Ensure the folder exists
+    if not os.path.exists(sham_folder_path):
+        raise FileNotFoundError(f"Folder '{sham_folder_path}' does not exist.")
+
+    # Use fnmatch to match filenames like "*Feedback_<run>*.csv"
+    pattern = f"*Feedback_{expInfo['run']}*.csv"
+    matching_files = [f for f in os.listdir(sham_folder_path) if fnmatch.fnmatch(f, pattern)]
+
+    # Ensure exactly one match exists
+    if len(matching_files) == 0:
+        raise FileNotFoundError(f"No CSV file found in '{sham_folder_path}' matching pattern '{pattern}'")
+    elif len(matching_files) > 1:
+        raise ValueError(f"Multiple CSV files found in '{sham_folder_path}' matching pattern '{pattern}'")
+
+    # Read CSV file
+    csv_file = os.path.join(sham_folder_path, matching_files[0])
+    df_csv = pd.read_csv(csv_file)
+    #cen_dmn_df = df_csv[['cen', 'dmn']]
+    print(f"Loaded file: {csv_file}")
+
+'''
 Minimum and maximum number of "hits" to targets for which scale factor won't be adjusted
 Fewer hits than min_hits --> scale factor goes up and ball moves faster
 More hits than max_hits (in either direction) --> scale factor goes down and ball moves more slowly
@@ -164,8 +195,9 @@ while os.path.exists(filename + '_roi_outputs.csv'):
     warning_box.addText(f'Already have data for {expInfo["participant"]} run {expInfo["run"]}!\nClick OK to write to Run {int(expInfo["run"]) + 1} instead \
         \nTo overwrite run {expInfo["run"]}, select this option from the dropdown menu \
         \nOr, click Cancel to exit')
-    warning_box.addField(label='Choose Run #',choices = [f"Run {int(expInfo['run']) + 1}", 
-                                      f"Overwrite Run {int(expInfo['run'])}"])
+    # warning_box.addField(label='Choose Run #',choices = [f"Run {int(expInfo['run']) + 1}",
+    #                                   f"Overwrite Run {int(expInfo['run'])}"])
+
     warning_box_data=warning_box.show()
     if not warning_box.OK:
         core.quit()
@@ -188,6 +220,10 @@ while os.path.exists(filename + '_roi_outputs.csv'):
 
 # If first run, use default scale factor
 # Otherwise, adjust scale factor up/down if needed
+# for SHAM read scale_factor from csv
+if SHAM:
+    expInfo['scale_factor'] = df_csv[['scale_factor']].iloc[25].values[0]
+
 if int(expInfo['run']) == 1:
     print('Run 1: starting with default scale scale factor')
     expInfo['scale_factor'] = default_scale_factor
@@ -245,35 +281,6 @@ else:
         print('ERROR: could not pull scale factor from previous run. Settting to default scale factor.')
         expInfo['scale_factor'] = default_scale_factor
 
-'''
-For Sham subjects read the frame data from the csv file for the matching run in the 'feedback' folder
-There should exist a folder by the same subject number within the 'feedback' folder and it should 
-contain csv files from matched experimental subject having 'Feedback_{run_number}' in their name
-Each run should have a corresponding csv file
-'''
-
-if SHAM:
-    # Construct the folder path dynamically
-    sham_folder_path = os.path.join("feedback", expInfo['participant'])
-
-    # Ensure the folder exists
-    if not os.path.exists(sham_folder_path):
-        raise FileNotFoundError(f"Folder '{sham_folder_path}' does not exist.")
-
-    # Use fnmatch to match filenames like "*Feedback_<run>*.csv"
-    pattern = f"*Feedback_{expInfo['run']}*.csv"
-    matching_files = [f for f in os.listdir(sham_folder_path) if fnmatch.fnmatch(f, pattern)]
-
-    # Ensure exactly one match exists
-    if len(matching_files) == 0:
-        raise FileNotFoundError(f"No CSV file found in '{sham_folder_path}' matching pattern '{pattern}'")
-    elif len(matching_files) > 1:
-        raise ValueError(f"Multiple CSV files found in '{sham_folder_path}' matching pattern '{pattern}'")
-
-    # Read CSV file
-    csv_file = os.path.join(sham_folder_path, matching_files[0])
-    df_csv = pd.read_csv(csv_file)
-    print(f"Loaded file: {csv_file}")
 
 RUN_TIME= str('%s') %(expInfo['Run_Time'])
 RUN_TIME=int(RUN_TIME)
@@ -305,7 +312,7 @@ endExpNow = False  # flag for 'escape' or other condition => quit the exp
 
 # Start Code - component code to be run before the window creation
 # Setup the Window
-win = visual.Window(size=(1080,1080), fullscr=True, screen=1, allowGUI=False, allowStencil=False,#1024, 1024
+win = visual.Window(size=(1080,1080), fullscr=True, screen=0, allowGUI=False, allowStencil=False,#1024, 1024
     monitor='testMonitor', color=[-1,-1,-1], colorSpace='rgb',
     blendMode='avg', useFBO=True,
     )
@@ -521,10 +528,11 @@ def calculate_ball_position(circle_reference_position, activation, ball_x_positi
     # New cursor position (of ball) will be dot product of position (negative if DMN, positive if CEN) and activity (always positive)
     cursor_position = np.dot(circle_reference_position, activation)
 
+
     # only update ball position if the PDA metric isn't an outlier
     if not outlier:
         # The position of the target circle cumulatively adds the scaled cursor position on each frame
-        ball_y_position =ball_y_position+ (np.real(cursor_position) * (scale_factor_z2pixels/internal_scaler) / tr_to_frame_ratio) 
+        ball_y_position =ball_y_position+ (np.real(cursor_position) * (scale_factor_z2pixels/internal_scaler) / tr_to_frame_ratio)
         ball_x_position=ball_x_position+ (np.imag(cursor_position) * scale_factor_z2pixels/internal_scaler / tr_to_frame_ratio )
     
     ball_position=(ball_x_position,ball_y_position)
@@ -600,9 +608,9 @@ if not SHAM:
     communicator = MurfiActivationCommunicator('192.168.2.5',
                                                15001, 210,
                                                roi_names,expInfo['tr'],murfi_FAKE)
-    print ("murfi communicator ok")
+print ("murfi communicator ok")
 
-thisExp.addData('temporal_resolution', expInfo['tr'])
+thisExp.addData('temporal_resolution', expInfo['tr']) # check for sham case
 
 
 #------Prepare to start Routine "trigger"-------
@@ -709,36 +717,48 @@ for thisComponent in baselineComponents:
 
 #-------Start Routine "baseline"-------
 continueRoutine = True
+sham_time = 0
 print("starting baseline")
 while continueRoutine and routineTimer.getTime() > 0:
     # During baseline period, we still want to record MURFI outputs
     # get current time
     if not SHAM:
         communicator.update()
-        roi_raw_activations=[]
+    roi_raw_activations=[]
 
-        # Where ROI activation first comes in
-        # CEN, DMN
-        try:
+    # Where ROI activation first comes in
+    # CEN, DMN
+    try:
+        if not SHAM:
             for i in range(n_roi):
-                roi_raw_i=communicator.get_roi_activation(roi_names_list[i], frame)
+                roi_raw_i = communicator.get_roi_activation(roi_names_list[i], frame)
                 roi_raw_activations.append(roi_raw_i)
-        except:
-            print (f"Did not get data for frame {frame}")
-            roi_raw_activations = [np.nan, np.nan]
-
-        # check for any missing values (nan) in the roi_raw_activatinp.isnan(roi_raw_activations[0])ons pulled for the current frame
-        # If there is a nan value, this most likely indicates that data hasn't been acquired yet for the current volume.
-        # In this case, continue, and keep trying to acquire roi_raw_activations from MURFI (without advancing the frame)
-        if np.isnan(roi_raw_activations[0]) or np.isnan(roi_raw_activations[1]):
-            pass
+        # elif sham_time == 0 or triggerClock.getTime() - sham_time >= expInfo['tr']:
+        elif triggerClock.getTime() >= df_csv[['time']].iloc[frame].values[0]:
+            print(
+                f"triggerClock.getTime() {triggerClock.getTime()} - sham_time{sham_time} = {triggerClock.getTime() - sham_time}")
+            roi_raw_activations = df_csv[['cen', 'dmn']].iloc[frame].values.tolist()
+            print(
+                f"roi_raw_activations =  {roi_raw_activations}, {np.isnan(roi_raw_activations[0])}, {np.isnan(roi_raw_activations[1])}")
+            sham_time = triggerClock.getTime()
         else:
-            # If there is a new volume of output from MURFI, record it, and advance frame
-            with open(filename+'_roi_outputs.csv', 'a') as csvfile:
-                stim_writer = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-                print(([frame, triggerClock.getTime(), roi_raw_activations[0], roi_raw_activations[1]]))
-                stim_writer.writerow([frame, expInfo['scale_factor'], triggerClock.getTime(), triggerClock.getTime() + 1.2, roi_raw_activations[0], roi_raw_activations[1], 'baseline', 0, 0, np.nan, np.nan, np.nan, np.nan])
-            frame +=1
+            roi_raw_activations = [np.nan, np.nan]
+    except:
+        print (f"Did not get data for frame {frame}")
+        roi_raw_activations = [np.nan, np.nan]
+
+    # check for any missing values (nan) in the roi_raw_activatinp.isnan(roi_raw_activations[0])ons pulled for the current frame
+    # If there is a nan value, this most likely indicates that data hasn't been acquired yet for the current volume. 
+    # In this case, continue, and keep trying to acquire roi_raw_activations from MURFI (without advancing the frame)
+    if np.isnan(roi_raw_activations[0]) or np.isnan(roi_raw_activations[1]):
+        pass
+    else:
+        # If there is a new volume of output from MURFI, record it, and advance frame
+        with open(filename+'_roi_outputs.csv', 'a') as csvfile:
+            stim_writer = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+            print(([frame, triggerClock.getTime(), roi_raw_activations[0], roi_raw_activations[1]]))
+            stim_writer.writerow([frame, expInfo['scale_factor'], triggerClock.getTime(), triggerClock.getTime() + 1.2, roi_raw_activations[0], roi_raw_activations[1], 'baseline', 0, 0, np.nan, np.nan, np.nan, np.nan])      
+        frame +=1       
 
 
     t = baselineClock.getTime()
@@ -804,13 +824,12 @@ ball.draw()
 win.flip()
 
 pda_outlier=False
-frame_data = []  # List to store all frame details
 #-------Start Routine "feedback"-------
 # initialize last_acquired_frame_time
 last_acquired_frame_time = feedbackClock.getTime()
 continueRoutine = True
 # Loop keeps going until RUN_TIME is up
-while not SHAM and continueRoutine and routineTimer.getTime() > 0:
+while continueRoutine and routineTimer.getTime() > 0:
     # get current time
     t = feedbackClock.getTime()
     run_stop_time=t
@@ -837,16 +856,25 @@ while not SHAM and continueRoutine and routineTimer.getTime() > 0:
             subject_key_target.keys = theseKeys[-1]  # just the last key pressed
             subject_key_target.rt = subject_key_target.clock.getTime()
     
-    # get updated data from MURFI    
-    communicator.update()
+
     roi_raw_activations=[]
 
+    # get updated data from MURFI
     # Where ROI activation first comes in
     # CEN, DMN
-    for i in range(n_roi):
-        roi_raw_i=communicator.get_roi_activation(roi_names_list[i], frame)
-        roi_raw_activations.append(roi_raw_i)
-       
+    if not SHAM:
+        communicator.update()
+        for i in range(n_roi):
+            roi_raw_i=communicator.get_roi_activation(roi_names_list[i], frame)
+            roi_raw_activations.append(roi_raw_i)
+    # elif triggerClock.getTime() - sham_time >= expInfo['tr']:
+    elif triggerClock.getTime() >= df_csv[['time']].iloc[frame].values[0]:
+        roi_raw_activations = df_csv[['cen', 'dmn']].iloc[frame].values.tolist()
+        sham_time = triggerClock.getTime()
+        print("scale_factor_z2pixels:", scale_factor_z2pixels)
+    else:
+        roi_raw_activations = [np.nan, np.nan] # for sham - if its not yet time to read the next value
+
     '''
     Check for any missing values (nan) from MURFI on the current frame. If there is a nan value, this most likely
     indicates that data hasn't been acquired yet for the current volume. In this case, continue, and keep trying to acquire
@@ -892,6 +920,7 @@ while not SHAM and continueRoutine and routineTimer.getTime() > 0:
             if roi_activities.index(np.nanmax(roi_activities))==i and np.nanmean(roi_activities)!=0:
                 # Activity=absolute difference between ROI activations (always positive)
                 activity=abs(np.nanmax(roi_activities)-(np.nanmin(roi_activities)))/10
+                # activity = abs(np.nanmax(roi_activities) - (np.nanmin(roi_activities)))*.06857 # sham testing
                 print ("activity",activity, " roi_activities",roi_activities)
 
                 # activity will always be positive (PDA)
@@ -938,7 +967,7 @@ while not SHAM and continueRoutine and routineTimer.getTime() > 0:
                     ball_center=ball.pos[1]):
             pause_ball_movement=True
 
-    if not pause_ball_movement:
+    if not pause_ball_movement: # and (not np.isnan(roi_raw_activations[0])): # sham testing
         ball.pos = calculate_ball_position(circle_reference_position=direction, activation=activity, ball_x_position=ball.pos[0], ball_y_position=ball.pos[1], outlier=pda_outlier)             
 
     # Draw stimuli (if on feedback mode)
@@ -950,173 +979,17 @@ while not SHAM and continueRoutine and routineTimer.getTime() > 0:
         # flip window
         win.flip()
 
-        frame_info = {}
-        # Store frame data including details for all circles and the ball
-        # Save ball attributes as before (assuming ball.fillColor is a numeric array or text)
-        frame_info["time"] = globalClock.getTime()
-        frame_info["ball_x"] = ball.pos[0]
-        frame_info["ball_y"] = ball.pos[1]
-        frame_info["ball_radius"] = ball.radius
-
-        # Here, if ball.fillColor is a string, save it as is:
-        if ball.fillColor is None:
-            ball_fill = [-1, -1, -1]  # black
-        else:
-            ball_fill = ball.fillColor
-        frame_info["ball_color_r"] = ball_fill[0]
-        frame_info["ball_color_g"] = ball_fill[1]
-        frame_info["ball_color_b"] = ball_fill[2]
-
-        # Save details for each of the three ROIs (target circles)
-        for i, roi in enumerate(target_circles):
-            frame_info[f"roi{i + 1}_x"] = roi.pos[0]
-            frame_info[f"roi{i + 1}_y"] = roi.pos[1]
-            frame_info[f"roi{i + 1}_radius"] = roi.radius
-            # Fill Color
-            if roi.fillColor is None:
-                # Force black for 'no fill' to ensure no mid-gray
-                fill_color = [-1, -1, -1]
-            else:
-                fill_color = roi.fillColor
-
-            # If fill_color is [0,0,0] for some reason, also force it to black
-            if (fill_color[0] == 0 and fill_color[1] == 0 and fill_color[2] == 0):
-                fill_color = [-1, -1, -1]
-
-            frame_info[f"roi{i + 1}_color_r"] = fill_color[0]
-            frame_info[f"roi{i + 1}_color_g"] = fill_color[1]
-            frame_info[f"roi{i + 1}_color_b"] = fill_color[2]
-
-            # Line Color
-            line_color = roi.lineColor
-            frame_info[f"roi{i + 1}_lineColor_r"] = line_color[0]
-            frame_info[f"roi{i + 1}_lineColor_g"] = line_color[1]
-            frame_info[f"roi{i + 1}_lineColor_b"] = line_color[2]
-
-        frame_data.append(frame_info)
-
     # quit if escape pressed
     if endExpNow or event.getKeys(keyList=["escape"]):
         core.quit()
-    
+
+    # Sham EOF
+    if SHAM and frame >= df_csv.shape[0]:
+        continueRoutine = False
+
 
 #END OF FEEDBACK LOOP
-
-# SHAM feedback display
-if SHAM:
-    # Load the sham feedback CSV (make sure the path and filename match your saving code)
-    df_sham = pd.read_csv(csv_file)
-    print(f"Loaded sham feedback data from {csv_file}")
-
-    # Reset the clock if desired (or use the existing globalClock)
-    # Compute offset: first frame's time value
-    time_offset = df_sham.iloc[0]["time"]
-
-    # Start a dedicated playback clock
-    playbackClock = core.Clock()
-    playbackClock.reset()
-    # Loop over each saved frame (each row of the CSV)
-    for idx, row in df_sham.iterrows():
-
-        # Check if Esc was pressed; if so, end the entire script.
-        if event.getKeys(keyList=["escape"]):
-            core.quit()
-
-        t = playbackClock.getTime()
-        run_stop_time = t # check about this with Clemens
-        # Update the ball's properties 4using the CSV data
-        ball.pos = (row["ball_x"], row["ball_y"])
-        ball.radius = row["ball_radius"]
-        ball.fillColor = [
-            row["ball_color_r"],
-            row["ball_color_g"],
-            row["ball_color_b"]
-        ]
-
-        # Update each target circle's properties.
-        # (Assuming you have, for example, 2 or 3 circles in target_circles.)
-        for i, circle in enumerate(target_circles):
-            circle.pos = (row[f"roi{i+1}_x"], row[f"roi{i+1}_y"])
-            circle.radius = row[f"roi{i+1}_radius"]
-            circle.fillColor = [
-                row[f"roi{i + 1}_color_r"],
-                row[f"roi{i + 1}_color_g"],
-                row[f"roi{i + 1}_color_b"]
-            ]
-            circle.lineColor = [
-                row[f"roi{i + 1}_lineColor_r"],
-                row[f"roi{i + 1}_lineColor_g"],
-                row[f"roi{i + 1}_lineColor_b"]
-            ]
-
-        # Draw all visual elements
-        for circle in target_circles:
-            circle.draw()
-        ball.draw()
-
-        # Flip the window to update the display
-        win.flip()
-
-        frame_info = {}
-        # Store frame data including details for all circles and the ball
-        # Save ball attributes as before (assuming ball.fillColor is a numeric array or text)
-        frame_info["time"] = globalClock.getTime()
-        frame_info["ball_x"] = ball.pos[0]
-        frame_info["ball_y"] = ball.pos[1]
-        frame_info["ball_radius"] = ball.radius
-
-        # Here, if ball.fillColor is a string, save it as is:
-        if ball.fillColor is None:
-            ball_fill = [-1, -1, -1]  # black
-        else:
-            ball_fill = ball.fillColor
-        frame_info["ball_color_r"] = ball_fill[0]
-        frame_info["ball_color_g"] = ball_fill[1]
-        frame_info["ball_color_b"] = ball_fill[2]
-
-        # Save details for each of the three ROIs (target circles)
-        for i, roi in enumerate(target_circles):
-            frame_info[f"roi{i + 1}_x"] = roi.pos[0]
-            frame_info[f"roi{i + 1}_y"] = roi.pos[1]
-            frame_info[f"roi{i + 1}_radius"] = roi.radius
-            # Fill Color
-            if roi.fillColor is None:
-                # Force black for 'no fill' to ensure no mid-gray
-                fill_color = [-1, -1, -1]
-            else:
-                fill_color = roi.fillColor
-
-            # If fill_color is [0,0,0] for some reason, also force it to black
-            if (fill_color[0] == 0 and fill_color[1] == 0 and fill_color[2] == 0):
-                fill_color = [-1, -1, -1]
-
-            frame_info[f"roi{i + 1}_color_r"] = fill_color[0]
-            frame_info[f"roi{i + 1}_color_g"] = fill_color[1]
-            frame_info[f"roi{i + 1}_color_b"] = fill_color[2]
-
-            # Line Color
-            line_color = roi.lineColor
-            frame_info[f"roi{i + 1}_lineColor_r"] = line_color[0]
-            frame_info[f"roi{i + 1}_lineColor_g"] = line_color[1]
-            frame_info[f"roi{i + 1}_lineColor_b"] = line_color[2]
-
-        frame_data.append(frame_info)
-
-        # Adjust the target time so the first frame is at 0
-        target_time = row["time"] - time_offset
-        current_time = playbackClock.getTime()
-        wait_time = target_time - current_time
-        if wait_time > 0:
-            core.wait(wait_time)
-
-# End SHAM feedback loop
-
-# save frame data
-df = pd.DataFrame(frame_data)  # Convert list to DataFrame
-csv_filename = filename+'_frames.csv'
-df.to_csv(csv_filename, index=False)  # Save CSV without index
-print(f"Feedback frames saved to {csv_filename}")
-
+      
 #------Prepare to start Routine "baseline"-------
 t = 0
 baselineClock.reset()  # clock 
