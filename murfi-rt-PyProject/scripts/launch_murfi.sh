@@ -11,14 +11,14 @@ then
 
 	# parse zenity output using space as delimiter
 	read -a input_array <<< $input_string
-	partcipant_id=remind${input_array[0]}
+	partcipant_id=sub-mindbpd${input_array[0]}
 	step=${input_array[1]}
 	
 else
 	input_string=$(zenity --forms --title="MURFI GUI" \
 	--text="PARTICIPANT NAME: ${MURFI_SUBJECT_NAME}" \
 	--separator=" " \
-	--add-combo="Step" --combo-values "setup|resting_state|2vol|extract_rs_networks|feedback|process_roi_masks|register|cleanup|backup_reg_mni_masks_to_2vol" \
+	--add-combo="Step" --combo-values "setup|resting_state|2vol|extract_rs_networks|process_roi_masks|register|feedback|cleanup|backup_reg_mni_masks_to_2vol" \
 	--cancel-label "Exit" --ok-label "Run Selected Step")
 	ret=$?
 	# parse zenity output using space as delimiter
