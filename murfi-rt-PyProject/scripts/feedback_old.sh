@@ -33,7 +33,7 @@ template_lps_path=${SCRIPT_PATH}/MNI152_T1_2mm_LPS_brain
 # Set paths & check that computers are properly connected with scanner via Ethernet
 if [ ${step} = setup ]
 then
-    clear
+    #clear
     echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     echo "+ Wellcome to MURFI real-time Neurofeedback"
     echo "+ running " ${step}
@@ -45,8 +45,8 @@ then
     #ifdown wlan0
     echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     echo "checking the presence of scanner and stim computer"
-    ping -c 3 192.168.2.1
-    ping -c 3 192.168.2.6
+    #ping -c 3 192.168.2.1
+    #ping -c 3 192.168.2.6
     echo "make sure Wi-Fi is off"
     echo "make sure you are Wired Connected to rt-fMRI"
     echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
@@ -56,16 +56,8 @@ fi
 if [ ${step} = 2vol ]
 then
     clear
-    echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-    if [ -d "tmp/murfi_input" ] && [ "$(ls -A tmp/murfi_input)" ]; then
-        echo "+ clearing tmp/murfi_input to start murfi ..."
-        rm -rf tmp/murfi_input/{*,.*} 2>/dev/null || true
-    else
-        echo "+ ready to receive 2 volume scan"
-    fi
-        singularity exec -B /BOLD_DICOM:/BOLD_DICOM /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/2vol.xml
-        #for tmp folder
-    #singularity exec /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/2vol.xml
+    echo "ready to receive 2 volume scan"
+    /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/2vol.xml
 fi
 
 
@@ -73,18 +65,10 @@ if  [ ${step} = feedback ]
 then
 clear
     echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-    if [ -d "tmp/murfi_input" ] && [ "$(ls -A tmp/murfi_input)" ]; then
-        echo "+ clearing tmp/murfi_input to start murfi ..."
-        rm -rf tmp/murfi_input/{*,.*} 2>/dev/null || true
-    else
-        echo "+ ready to receive feedback volumes"
-    fi
+    echo "ready to receive rtdmn feedback scan"
     export MURFI_SUBJECTS_DIR="${absolute_path}/subjects/"
     export MURFI_SUBJECT_NAME=$subj 
-    #scanner setup
-    #singularity exec -B /BOLD_DICOM:/BOLD_DICOM /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/2vol.xml
-   #simulator
-   singularity exec /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir_absolute/xml/rtdmn.xml
+    /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir_absolute/xml/rtdmn.xml
 fi
 
 
@@ -92,16 +76,10 @@ if  [ ${step} = resting_state ]
 then
 clear
     echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-    if [ -d "tmp/murfi_input" ] && [ "$(ls -A tmp/murfi_input)" ]; then
-        echo "+ clearing tmp/murfi_input to start murfi ..."
-        rm -rf tmp/murfi_input/{*,.*} 2>/dev/null || true
-    else
-        echo "+ ready to receive resting state volumes"
-    fi
+    echo "ready to receive resting state scan"
     export MURFI_SUBJECTS_DIR="${absolute_path}/subjects/"
     export MURFI_SUBJECT_NAME=$subj
-    singularity exec -B /BOLD_DICOM:/BOLD_DICOM /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/2vol.xml
-    #singularity exec /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/rest.xml
+    /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/rest.xml
 
 fi
 
@@ -119,11 +97,9 @@ clear
     do
         # Find # of volumes in each run
         run_volumes=$(find ${subj_dir_absolute}/img/ -type f \( -iname "img-0000${i}*" \) | wc -l)
-	Tw1_image=$(find ${subj_dir_absolute}/rest/ -type f \( -iname "*Tw1*" \) | wc -l)
-	if [ ${run_volumes} -ne 0 ]
+        if [ ${run_volumes} -ne 0 ]
         then
             runstring="${runstring}\nRun ${i}: ${run_volumes} volumes"
-	    Tw1_runstring="${Tw1_runstring}\nTw1 image: ${Tw1_image}"
         fi
     done
 
@@ -238,7 +214,6 @@ clear
         ica_run1_input=$subj_dir_absolute/rest/$subj'_'$ses'_task-rest_run-01_bold_mcflirt_masked.nii.gz'
         ica_run2_input=$subj_dir_absolute/rest/$subj'_'$ses'_task-rest_run-02_bold_mcflirt_run1space_masked.nii.gz'
         reference_vol_for_ica=$subj_dir_absolute/rest/$subj'_'$ses'_task-rest_run-01_bold_mcflirt_median_bet.nii.gz'
-	#reference_vol_for_ica=$template_lps_path
 
         # update FEAT template with paths and # of volumes of resting state run
         cp $fsl_scripts/basic_ica_template.fsf $subj_dir_absolute/rest/$subj'_'$ses'_task-rest_'$run'_bold'.fsf
@@ -315,11 +290,10 @@ then
     # Set up file paths needed for mask creation
     # first look for ICA feat directory based on multiple runs (.gica directory)
     ica_directory=$subj_dir/rest/rs_network.gica/groupmelodic.ica/
-
     if [ -d $ica_directory ]
     then
         ica_version='multi_run'
-   
+
     # if ICA feat dir for multi-run ICA isn't present, look for single-run version
     elif [ -d "${subj_dir}/rest/rs_network.ica/filtered_func_data.ica/" ] 
     then
@@ -329,7 +303,7 @@ then
         echo "Error: no ICA directory found for ${subj}. Exiting now..."
         exit 0
     fi
-    echo "+ ICA is: ${ica_version}"
+    echo "ICA is: ${ica_version}"
 
 
     # Make output file to store correlations with template networks
@@ -337,17 +311,17 @@ then
     touch ${correlfile}
     template_networks='template_networks.nii.gz'
 
+
     # If single-session, then ICA was done in native space, and registration is needed
     if [ $ica_version == 'single_run' ]
     then
         # ICs in native space
-	infile=$ica_directory/filtered_func_data.ica/melodic_IC.nii.gz
-        
+        infile=$ica_directory/filtered_func_data.ica/melodic_IC.nii.gz 
+
     else # Multi run
         # ICs in "template" space - template is median of first resting state run used in ICA
-        infile=$ica_directory/melodic_IC.nii.gz
-        #generate folder for registration matrices
-        mkdir ${ica_directory}/reg
+        infile=$ica_directory/melodic_IC
+        mkdir -p ${ica_directory}/reg
     fi
 
     # Create filepaths for registration files
@@ -363,20 +337,6 @@ then
     # This registration will be used to bring template networks to native space
     flirt -in ${examplefunc} -ref MNI152_T1_2mm_LPS_brain -out ${example_func2mni_lps} -omat ${example_func2mni_lps_mat}
     convert_xfm -omat ${mni_lps2example_func_mat} -inverse ${example_func2mni_lps_mat}
-
-    #check if examplefunc is 2mm isometric
-    if [ "$(python check_isometric.py "$examplefunc")" = "True" ]
-    then
-	echo + examplefunc is isometric, proceeding with mask creation
-	cp $infile $ica_directory/melodic_IC_mni.nii.gz
-
-    else
-	echo + examplefunc is not isometric, converting melodic_IC to native space before creating masks
-	cp $infile $ica_directory/melodic_IC_examplefunc.nii.gz
-	flirt -in $infile -ref $examplefunc -out $ica_directory/melodic_IC_examplefunc.nii.gz -init $mni_lps2example_func_mat -applyxfm -interp trilinear
-	infile=$ica_directory/melodic_IC_examplefunc.nii.gz
-    
-    fi
 
 
     # Set paths for files needed for the next few steps 
@@ -401,10 +361,6 @@ then
 
     # Correlate (spatially) ICA components (not thresholded) with DMN & CEN template files
     rm -f ${correlfile}
-    #echo ${examplefunc_mask}
-    #echo ${infile}
-    #echo ${template2example_func}
-    #echo ${correlfile}
     fslcc --noabs -p 8 -t -1 -m ${examplefunc_mask} ${infile} ${template2example_func}>>${correlfile}
 
     # Split ICs to separate files
@@ -426,45 +382,21 @@ then
     fslmaths ${dmn_uthresh} -mul ${dmn2example_func} ${dmn_uthresh}
     fslmaths ${cen_uthresh} -mul ${cen2example_func} ${cen_uthresh}
 
-    # get number of non-zero voxels in masks, calculate percentile and absolute percentile cutoff needed for the desired absolute number of voxelsnum_voxels_desired
-    
+
+    # get number of non-zero voxels in masks, calculate percentile cutofff needed for the desired absolute number of voxels
     voxels_in_dmn=$(fslstats ${dmn_uthresh} -V | awk '{print $1}')
-    echo "DMN voxels:" $voxels_in_dmn
-    if [ $voxels_in_dmn  -ge $num_voxels_desired ]; then
-        percentile_dmn=$(python -c "print(100*(1-${num_voxels_desired}/${voxels_in_dmn}))")
-        echo "DMN percentile:" $percentile_dmn
-        echo "Thresholding DMN mask to desired percentile"
-        # # Calculate the absolute value of the percentile
-        percentile_dmn_abs=$(python -c "print(abs(${percentile_dmn}))")
-        dmn_thresh_value=$(fslstats ${dmn_uthresh} -P ${percentile_dmn_abs})
-        
-        # threshold masks 
-    	fslmaths ${dmn_uthresh} -thr ${dmn_thresh_value} -bin ${dmn_thresh} -odt short
-    else
-        echo "DMN mask below 2000 voxels, leaving as is."
-        fslmaths ${dmn_uthresh} -bin ${dmn_thresh} -odt short  
-    fi
-    	
+    percentile_dmn=$(python -c "print(100*(1-${num_voxels_desired}/${voxels_in_dmn}))")
     voxels_in_cen=$(fslstats ${cen_uthresh} -V | awk '{print $1}')
-    echo "CEN voxels:" $voxels_in_cen
-    if [ $voxels_in_cen  -ge $num_voxels_desired ]; then
-        percentile_cen=$(python -c "print(100*(1-${num_voxels_desired}/${voxels_in_cen}))")
-        echo "CEN percentile:" $percentile_cen
-        echo "Thresholding CEN mask to desired percentile"
-        # # Calculate the absolute value of the percentile
-        percentile_cen_abs=$(python -c "print(abs(${percentile_cen}))")
-        cen_thresh_value=$(fslstats ${cen_uthresh} -P ${percentile_cen_abs})
-        
-        # threshold masks 
-        fslmaths ${cen_uthresh} -thr ${cen_thresh_value} -bin ${cen_thresh} -odt short
+    percentile_cen=$(python -c "print(100*(1-${num_voxels_desired}/${voxels_in_cen}))")
 
-    else
-        echo "CEN mask below 2000 voxels, leaving as is."
-        fslstats ${cen_uthresh} -V
-        fslmaths ${cen_uthresh} -bin ${cen_thresh} -odt short
-        fslstats ${cen_thresh} -V
 
-    fi
+    # get threshold based on percentile
+    dmn_thresh_value=$(fslstats ${dmn_uthresh} -P ${percentile_dmn})
+    cen_thresh_value=$(fslstats ${cen_uthresh} -P ${percentile_cen})
+
+    # threshold masks 
+    fslmaths ${dmn_uthresh} -thr ${dmn_thresh_value} -bin ${dmn_thresh} -odt short
+    fslmaths ${cen_uthresh} -thr ${cen_thresh_value} -bin ${cen_thresh} -odt short
 
     echo "Number of voxels in dmn mask: $(fslstats ${dmn_thresh} -V | head -c 5)"
     echo "Number of voxels in cen mask: $(fslstats ${cen_thresh} -V | head -c 5)"
@@ -489,18 +421,18 @@ if [ ${step} = register ]
 then
     clear
     echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-    echo "+ Registering masks to study_ref"
+    echo "Registering masks to study_ref"
     latest_ref=$(ls -t $subj_dir/xfm/series*.nii | head -n1)
     latest_ref="${latest_ref::-4}"
     study_ref=${subj_dir}/xfm/study_ref.nii
 
     # if localizer_ref images doesn't exist yet, make it
-    if [ ! -f ${subj_dir}/xfm/localizer_ref.nii.gz ]
+    if [ ! -f ${subj_dir}/xfm/localizer_ref.nii ]
     then
-        mv ${study_ref} ${subj_dir}/xfm/localizer_ref.nii.gz
+        mv ${study_ref} ${subj_dir}/xfm/localizer_ref.nii
     fi
-    echo "+ Registering masks to reference image from most recent series: ${latest_ref}"
-    echo "+ study_ref.nii is now ${latest_ref}"
+    echo "Registering masks to reference image from most recent series: ${latest_ref}"
+    echo "study_ref.nii is now ${latest_ref}"
 
     # Move the latest reference image to be study_ref
     # study_ref.nii is used by MURFI to register to 1st volume of feedback runs
@@ -554,7 +486,7 @@ then
         fslmaths ${latest_ref}_brain_mask -ero ${latest_ref}_brain_mask_ero1
 
         # binarize masks based on eroded 2vol brain mask
-        fslmaths $subj_dir/mask/${mask_name}.nii -mul ${latest_ref}_brain_mask_ero1 $subj_dir/mask/${mask_name}.nii -odt short
+        fslmaths $subj_dir/mask/${mask_name}.nii.gz -mul ${latest_ref}_brain_mask_ero1 $subj_dir/mask/${mask_name}.nii.gz -odt short
 
 
         gunzip -f $subj_dir/mask/${mask_name}.nii.gz
@@ -563,7 +495,7 @@ then
     echo "+ INSPECT"
     echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     xdg-open $subj_dir/qc/rest_warp_to_2vol_native_check.gif
-    fsleyes ${latest_ref}_brain  $subj_dir/xfm/epi2reg/rest2studyref_brain $subj_dir/mask/cen.nii -cm red $subj_dir/mask/dmn.nii -cm blue  #$subj_dir/mask/smc.nii.gz -cm yellow $subj_dir/mask/stg.nii -cm green
+    fsleyes ${latest_ref}_brain  $subj_dir/xfm/epi2reg/rest2studyref_brain $subj_dir/mask/cen.nii -cm red $subj_dir/mask/dmn.nii -cm blue  #$subj_dir/mask/smc.nii -cm yellow $subj_dir/mask/stg.nii -cm green
 fi
 
 
@@ -599,9 +531,9 @@ then
     dmn_mni=DMNax_brainmaskero2_lps.nii.gz
     cen_mni=CENa_brainmaskero2_lps.nii.gz
 
-    two_vol_ref=$(ls -t $subj_dir/xfm/series*.nii.gz | head -n1)
+    two_vol_ref=$(ls -t $subj_dir/xfm/series*.nii | head -n1)
     two_vol_ref="${two_vol_ref::-4}"
-    
+
     two_vol_ref_bet=${subj_dir}/xfm/two_vol_ref_bet.nii.gz
     two_vol_ref2mni=${subj_dir}/xfm/two_vol_ref2mni.nii.gz
     two_vol_ref2mni_mat=${subj_dir}/xfm/two_vol_ref2mni.mat
@@ -609,9 +541,9 @@ then
 
     study_ref=${subj_dir}/xfm/study_ref.nii
     # if localizer_ref images doesn't exist yet, make it
-    if [ ! -f ${subj_dir}/xfm/localizer_ref.nii.gz ]
+    if [ ! -f ${subj_dir}/xfm/localizer_ref.nii ]
     then
-        mv ${study_ref} ${subj_dir}/xfm/localizer_ref.nii.gz
+        mv ${study_ref} ${subj_dir}/xfm/localizer_ref.nii
     fi
     echo "Registering masks to reference image from most recent series: ${two_vol_ref}"
     echo "study_ref.nii is now ${two_vol_ref}"
@@ -619,7 +551,7 @@ then
     # Move the latest reference image to be study_ref
     # study_ref.nii is used by MURFI to register to 1st volume of feedback runs
     # So ROI masks need to be in the same space as study_ref.nii
-    cp ${two_vol_ref}.nii.gz ${study_ref}
+    cp ${two_vol_ref}.nii ${study_ref}
 
 
     # skullstrip 2vol before registration
@@ -636,9 +568,9 @@ then
     #put them in the participant mask folder
 
     #DMN
-    flirt -in ${dmn_mni} -ref ${two_vol_ref_bet} -out $subj_dir/mask/dmn.nii.gz -init ${mni2_two_vol_ref_mat} -applyxfm -interp nearestneighbour -datatype short
+    flirt -in ${dmn_mni} -ref ${two_vol_ref_bet} -out $subj_dir/mask/dmn.nii -init ${mni2_two_vol_ref_mat} -applyxfm -interp nearestneighbour -datatype short
 
     #CEN
-    flirt -in ${cen_mni} -ref ${two_vol_ref_bet} -out $subj_dir/mask/cen.nii.gz -init ${mni2_two_vol_ref_mat} -applyxfm -interp nearestneighbour -datatype short
+    flirt -in ${cen_mni} -ref ${two_vol_ref_bet} -out $subj_dir/mask/cen.nii -init ${mni2_two_vol_ref_mat} -applyxfm -interp nearestneighbour -datatype short
 
 fi

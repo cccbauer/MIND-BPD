@@ -53,8 +53,9 @@ cen_info = fslcc_info[fslcc_info.yeo_network_number == 2]
 dmn_strongest_ic = dmn_info[dmn_info.correlation_abs == dmn_info.correlation_abs.max()].head(1)
 cen_strongest_ic = cen_info[cen_info.correlation_abs == cen_info.correlation_abs.max()].head(1)
 
-dmn_ic_selection = int(dmn_strongest_ic.ic_number)-1
-cen_ic_selection  = int(cen_strongest_ic.ic_number)-1
+#remove .iloc[0] in the nect comands for older versions of pandas
+dmn_ic_selection = int(dmn_strongest_ic.ic_number.iloc[0])-1 
+cen_ic_selection  = int(cen_strongest_ic.ic_number.iloc[0])-1
 
 print('DMN:', dmn_strongest_ic)
 print('CEN:', cen_strongest_ic)
@@ -71,10 +72,18 @@ os.system('cp %s %s' %(dmnfuncfile,dmn_component))
 os.system('cp %s %s' %(cenfuncfile,cen_component))
 
 # If either IC was loading negatively on the respective network, flip the sign of all voxels by multiplying by -1
-if float(dmn_strongest_ic.correlation) < 0:
-    print('Flipping IC Loadings for DMN')
-    os.system(f'fslmaths {dmn_component} -mul -1 {dmn_component}')
 
-if float(cen_strongest_ic.correlation) < 0:
-    print('Flipping IC Loadings for CEN')
-    os.system(f'fslmaths {cen_component} -mul -1 {cen_component}')
+#if float(dmn_strongest_ic.correlation.iloc[0]) < 0:
+#    print('Flipping IC Loadings for DMN')
+#    os.system(f'fslmaths {dmn_component} -mul -1 {dmn_component}')
+
+#if float(cen_strongest_ic.correlation.iloc[0]) < 0:
+#    print('Flipping IC Loadings for CEN')
+#    os.system(f'fslmaths {cen_component} -mul -1 {cen_component}')
+    #print(f"Running: fslmaths {cen_component} -mul -1 {cen_component}")
+    
+
+    
+    
+    
+    

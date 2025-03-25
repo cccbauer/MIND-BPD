@@ -19,7 +19,7 @@ fi
 
 if [ ${step} = setup ]
 then
-#clear
+clear
     usage="usage: source $(basename $0) subject_ID"
     mkdir ${subject_dir}$subject
     mkdir ${subject_dir}$subject/img
