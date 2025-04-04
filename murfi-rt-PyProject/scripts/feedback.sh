@@ -5,10 +5,12 @@
 
 ## 4 ARGS: [subid] [ses] [run] [step]
 
-#Step 1: disable wireless internet, set MURFI_SUBJECTS_DIR, and NAMEcd
-#Step 2: receive 2 volume scan
-#Step 3: create masks
-#Step 4: run murfi for realtime
+#Step 1: make sure the BOLD_DICOM folder on the scanner is set up correctly
+#Step 2: disable wireless internet, set MURFI_SUBJECTS_DIR, and NAMEcd
+#Step 3: receive 2 volume scan
+#Step 4: create masks
+#Step 5: run murfi for realtime
+
 
 subj=$1
 step=$2
@@ -16,6 +18,9 @@ ses='ses-lo1'
 run='run-01'
 
 # Set initial paths
+DICOM_FOLDER=/BOLD_DICOM:/BOLD_DICOM #change this to where your DICOM folder is on the scanner
+DICOM_FOLDER_LOCAL="${DICOM_FOLDER%%:*}"
+
 subj_dir=../subjects/$subj
 cwd=$(pwd)
 absolute_path=$(dirname $cwd)
@@ -24,11 +29,11 @@ fsl_scripts=../scripts/fsl_scripts
 
 
 # Set template files
-template_dmn='DMNax_brainmaskero2_lps.nii.gz'
-template_cen='CENa_brainmaskero2_lps.nii.gz'
+template_dmn='DMNax_brainmaskero2.nii.gz'
+template_cen='CENa_brainmaskero2.nii.gz'
 SCRIPT_PATH=$(dirname $(realpath -s $0))
-template_lps_path=${SCRIPT_PATH}/MNI152_T1_2mm_LPS_brain
-#echo $template_lps_path
+template_path=${SCRIPT_PATH}/MNI152_T1_2mm_brain
+#echo $template_path
 
 # Set paths & check that computers are properly connected with scanner via Ethernet
 if [ ${step} = setup ]
@@ -44,11 +49,13 @@ then
     #echo "disabling wireless internet"
     #ifdown wlan0
     echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-    echo "checking the presence of scanner and stim computer"
+    echo "+ checking the presence of scanner and stim computer"
+    echo "+ using $DICOM_FOLDER_LOCAL to store receive images from scanner"
     ping -c 3 192.168.2.1
     ping -c 3 192.168.2.6
-    echo "make sure Wi-Fi is off"
-    echo "make sure you are Wired Connected to rt-fMRI"
+    echo "+ make sure Wi-Fi is off"
+    echo "+ make sure you are Wired Connected to rt-fMRI"
+    
     echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 fi  
 
@@ -63,7 +70,7 @@ then
     else
         echo "+ ready to receive 2 volume scan"
     fi
-        singularity exec -B /BOLD_DICOM:/BOLD_DICOM /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/2vol.xml
+        singularity exec -B ${DICOM_FOLDER} /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/2vol.xml
         #for tmp folder
     #singularity exec /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/2vol.xml
 fi
@@ -82,9 +89,9 @@ clear
     export MURFI_SUBJECTS_DIR="${absolute_path}/subjects/"
     export MURFI_SUBJECT_NAME=$subj 
     #scanner setup
-    #singularity exec -B /BOLD_DICOM:/BOLD_DICOM /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/2vol.xml
+    singularity exec -B ${DICOM_FOLDER} /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/rtdmn.xml
    #simulator
-   singularity exec /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir_absolute/xml/rtdmn.xml
+   #singularity exec /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir_absolute/xml/rtdmn.xml
 fi
 
 
@@ -100,7 +107,7 @@ clear
     fi
     export MURFI_SUBJECTS_DIR="${absolute_path}/subjects/"
     export MURFI_SUBJECT_NAME=$subj
-    singularity exec -B /BOLD_DICOM:/BOLD_DICOM /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/2vol.xml
+    singularity exec -B ${DICOM_FOLDER} /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/rest.xml
     #singularity exec /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/rest.xml
 
 fi
@@ -110,15 +117,40 @@ fi
 if  [ ${step} = extract_rs_networks ]
 then
 clear
+# Check if ICA files exist
+    if [[ -e "$subj_dir/rest/rs_network.gica" || -e "$subj_dir/rest/rs_network.ica" ]]; then
+    choice=$(zenity --question \
+        --title="ICA Results Exist" \
+        --text="Existing ICA files detected" \
+        --ok-label="Overwrite" \
+        --cancel-label="Keep Existing" \
+        --extra-button="Back to Menu" \
+        --width=300)
+    
+    case $? in
+        0)  # Overwrite
+            rm -rf "${subj_dir}/rest/"* 2>/dev/null
+            mkdir -p "$subj_dir/rest"
+            ;;
+        1)  # Keep Existing or Back to Menu
+            if [[ "$choice" == "Back to Menu" ]]; then
+                return 1
+            else
+                return 0
+            fi
+            ;;
+    esac
+    fi
+
     echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     echo "+ compiling resting state run into analysis folder"
 
     expected_volumes=250
     runstring="Resting state runs should have ${expected_volumes} volumes\n"
-    for i in {0..10};
+    for i in {00..30};
     do
         # Find # of volumes in each run
-        run_volumes=$(find ${subj_dir_absolute}/img/ -type f \( -iname "img-0000${i}*" \) | wc -l)
+        run_volumes=$(find ${subj_dir_absolute}/img/ -type f \( -iname "img-000${i}*" \) | wc -l)
 	Tw1_image=$(find ${subj_dir_absolute}/rest/ -type f \( -iname "*Tw1*" \) | wc -l)
 	if [ ${run_volumes} -ne 0 ]
         then
@@ -157,8 +189,8 @@ clear
         rest_runB_filename=$subj_dir_absolute/rest/$subj'_'$ses'_task-rest_run-02_bold.nii.gz' 
 
         # Merge all volumes in each run 
-        volsA=$(find ${subj_dir_absolute}/img/ -type f \( -iname "img-0000${rest_runA_num}*" \))
-        volsB=$(find ${subj_dir_absolute}/img/ -type f \( -iname "img-0000${rest_runB_num}*" \)) 
+        volsA=$(find ${subj_dir_absolute}/img/ -type f \( -iname "img-000${rest_runA_num}*" \))
+        volsB=$(find ${subj_dir_absolute}/img/ -type f \( -iname "img-000${rest_runB_num}*" \)) 
         fslmerge -tr $rest_runA_filename $volsA 1.2
         fslmerge -tr $rest_runB_filename $volsB 1.2
 
@@ -233,12 +265,11 @@ clear
             -mas $subj_dir_absolute/rest/$subj'_'$ses'_task-rest_run-01_bold_mcflirt_median_bet_mask.nii.gz' \
             $subj_dir_absolute/rest/$subj'_'$ses'_task-rest_run-02_bold_mcflirt_run1space_masked.nii.gz'
 
-
         
         ica_run1_input=$subj_dir_absolute/rest/$subj'_'$ses'_task-rest_run-01_bold_mcflirt_masked.nii.gz'
         ica_run2_input=$subj_dir_absolute/rest/$subj'_'$ses'_task-rest_run-02_bold_mcflirt_run1space_masked.nii.gz'
         reference_vol_for_ica=$subj_dir_absolute/rest/$subj'_'$ses'_task-rest_run-01_bold_mcflirt_median_bet.nii.gz'
-	#reference_vol_for_ica=$template_lps_path
+	#reference_vol_for_ica=$template_path
 
         # update FEAT template with paths and # of volumes of resting state run
         cp $fsl_scripts/basic_ica_template.fsf $subj_dir_absolute/rest/$subj'_'$ses'_task-rest_'$run'_bold'.fsf
@@ -251,13 +282,15 @@ clear
         # update fsf to match number of rest volumes
         sed -i "s/set fmri(npts) 250/set fmri(npts) ${minvols}/g" $subj_dir_absolute/rest/$subj'_'$ses'_task-rest_'$run'_bold'.fsf
         feat $subj_dir/rest/$subj'_'$ses'_task-rest_'$run'_bold'.fsf        
+    
+    
     else
         # Use just a single run for ICA (only to be used when 2 isn't viable)
         echo "Using run ${rest_runA_num} for single-run ICA"
 
         # merge individual volumes to make 1 file for each resting state run
         rest_runA_filename=$subj_dir_absolute/rest/$subj'_'$ses'_task-rest_run-01_bold'.nii.gz
-        volsA=$(find ${subj_dir_absolute}/img/ -type f \( -iname "img-0000${rest_runA_num}*" \))
+        volsA=$(find ${subj_dir_absolute}/img/ -type f \( -iname "img-000${rest_runA_num}*" \))
         fslmerge -tr $rest_runA_filename $volsA 1.2
 
         # figure out how many volumes of resting state data there were to be used in ICA
@@ -354,15 +387,15 @@ then
     examplefunc=$subj_dir_absolute/rest/$subj'_'$ses'_task-rest_run-01_bold_mcflirt_median_bet.nii.gz'
     examplefunc_mask=$subj_dir_absolute/rest/$subj'_'$ses'_task-rest_run-01_bold_mcflirt_median_bet_mask.nii.gz'
     #standard=${ica_directory}/reg/standard.nii.gz
-    example_func2mni_lps_mat=${ica_directory}/reg/example_func2mni_lps.mat
-    example_func2mni_lps=${ica_directory}/reg/example_func2mni_lps
-    mni_lps2xample_func=${ica_directory}/reg/mni_lps2example_func.nii.gz
-    mni_lps2example_func_mat=${ica_directory}/reg/mni_lps2example_func.mat
+    example_func2mni_mat=${ica_directory}/reg/example_func2mni.mat
+    example_func2mni=${ica_directory}/reg/example_func2mni
+    mni2xample_func=${ica_directory}/reg/mni2example_func.nii.gz
+    mni2example_func_mat=${ica_directory}/reg/mni2example_func.mat
 
-    # Register example func to LPS MNI template, then calculate inverse
+    # Register example func to MNI template, then calculate inverse
     # This registration will be used to bring template networks to native space
-    flirt -in ${examplefunc} -ref MNI152_T1_2mm_LPS_brain -out ${example_func2mni_lps} -omat ${example_func2mni_lps_mat}
-    convert_xfm -omat ${mni_lps2example_func_mat} -inverse ${example_func2mni_lps_mat}
+    flirt -in ${examplefunc} -ref MNI152_T1_2mm_brain -out ${example_func2mni} -omat ${example_func2mni_mat}
+    convert_xfm -omat ${mni2example_func_mat} -inverse ${example_func2mni_mat}
 
     #check if examplefunc is 2mm isometric
     if [ "$(python check_isometric.py "$examplefunc")" = "True" ]
@@ -373,7 +406,7 @@ then
     else
 	echo + examplefunc is not isometric, converting melodic_IC to native space before creating masks
 	cp $infile $ica_directory/melodic_IC_examplefunc.nii.gz
-	flirt -in $infile -ref $examplefunc -out $ica_directory/melodic_IC_examplefunc.nii.gz -init $mni_lps2example_func_mat -applyxfm -interp trilinear
+	flirt -in $infile -ref $examplefunc -out $ica_directory/melodic_IC_examplefunc.nii.gz -init $mni2example_func_mat -applyxfm -interp trilinear
 	infile=$ica_directory/melodic_IC_examplefunc.nii.gz
     
     fi
@@ -390,13 +423,13 @@ then
     cen2example_func=${ica_directory}/reg/template_cen2example_func.nii.gz
 
 
-    # WARP LPS MNI brain template to resting-state run native space
-    flirt -in MNI152_T1_2mm_LPS_brain -ref ${examplefunc} -out ${mni_lps2xample_func} -init ${mni_lps2example_func_mat} -applyxfm
+    # WARP MNI brain template to resting-state run native space
+    flirt -in MNI152_T1_2mm_brain -ref ${examplefunc} -out ${mni2xample_func} -init ${mni2example_func_mat} -applyxfm
     
-    # Register the networks from template (MNI LPS) space into resting-state run native space
-    flirt -in ${template_networks} -ref ${examplefunc} -out ${template2example_func} -init ${mni_lps2example_func_mat} -applyxfm
-    flirt -in ${template_dmn} -ref ${examplefunc} -out ${dmn2example_func} -init ${mni_lps2example_func_mat} -applyxfm
-    flirt -in ${template_cen} -ref ${examplefunc} -out ${cen2example_func} -init ${mni_lps2example_func_mat} -applyxfm
+    # Register the networks from template (MNI) space into resting-state run native space
+    flirt -in ${template_networks} -ref ${examplefunc} -out ${template2example_func} -init ${mni2example_func_mat} -applyxfm
+    flirt -in ${template_dmn} -ref ${examplefunc} -out ${dmn2example_func} -init ${mni2example_func_mat} -applyxfm
+    flirt -in ${template_cen} -ref ${examplefunc} -out ${cen2example_func} -init ${mni2example_func_mat} -applyxfm
 
 
     # Correlate (spatially) ICA components (not thresholded) with DMN & CEN template files
@@ -474,12 +507,18 @@ then
     cp ${cen_thresh} ${subj_dir}/mask/cen_native_rest.nii.gz
 
 
+    # create masks in MNI space and save
+    echo "Created MNI masks"
+    flirt -in ${dmn_thresh} -ref MNI152_T1_2mm_brain -out ${subj_dir}/mask/mni/dmn_mni.nii.gz -omat ${example_func2mni_mat}
+    flirt -in ${cen_thresh} -ref MNI152_T1_2mm_brain -out ${subj_dir}/mask/mni/cen_mni.nii.gz -omat ${example_func2mni_mat}
+
+
     # Display masks with FSLEYES
     if [ $ica_version == 'single_run' ]
     then
-        fsleyes $examplefunc ${mni_lps2xample_func} ${dmn_thresh} -cm blue ${cen_thresh} -cm red
+        fsleyes $examplefunc ${mni2xample_func} ${dmn_thresh} -cm blue ${cen_thresh} -cm red
     else
-        fsleyes $examplefunc ${mni_lps2xample_func} ${dmn_thresh} -cm blue ${cen_thresh} -cm red
+        fsleyes $examplefunc ${mni2xample_func} ${dmn_thresh} -cm blue ${cen_thresh} -cm red
     fi
 
 fi
@@ -542,7 +581,6 @@ then
     cen_thresh="../subjects/${subj}/mask/cen_native_rest.nii.gz"   
 
     # For each mask (REST native space), swap register to 2vol native space
-    # Everything should  be LPS here
     for mask_name in {'dmn','cen'};
     do 
         echo "+ REGISTERING ${mask_name} TO study_ref" 
@@ -583,10 +621,14 @@ then
     fi
 
     # Delete img folder and large bold files from the rest folder
-    rm -rf $subj_dir/img
+    rm -rf $subj_dir/img/*nii
     rm -f $subj_dir/rest/*bold.nii.gz
     rm -f $subj_dir/rest/*bold_mcflirt.nii.gz
     rm -f $subj_dir/rest/*bold_mcflirt_masked.nii.gz
+    rm -r $DICOM_FOLDER_LOCAL/*
+    echo "cleared dicoms from $DICOM_FOLDER_LOCAL"
+    #also clear tmp/murfi_input/ (simulator images)
+    rm -r tmp/murfi_input/*
 fi
 
 
@@ -595,9 +637,9 @@ fi
 if [ ${step} = backup_reg_mni_masks_to_2vol ]
 then
     clear
-    mni_template=MNI152_T1_2mm_LPS_brain.nii.gz
-    dmn_mni=DMNax_brainmaskero2_lps.nii.gz
-    cen_mni=CENa_brainmaskero2_lps.nii.gz
+    mni_template=MNI152_T1_2mm_brain.nii.gz
+    dmn_mni=DMNax_brainmaskero2.nii.gz
+    cen_mni=CENa_brainmaskero2.nii.gz
 
     two_vol_ref=$(ls -t $subj_dir/xfm/series*.nii.gz | head -n1)
     two_vol_ref="${two_vol_ref::-4}"
