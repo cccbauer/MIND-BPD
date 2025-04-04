@@ -5,7 +5,11 @@
 
 <scanner>
   <option name="imageSource">     DICOM  </option>
-  <option name="inputDicomDir">   tmp/murfi_input  </option>
+  <!-- for real
+  <option name="inputDicomDir">   /BOLD_DICOM  </option>
+  -->
+    <!-- for simmulator-->
+  <option name="inputDicomDir">   tmp/murfi_input </option>
 
   <option name="tr">              1.2    </option>
   <option name="measurements">    2    </option>

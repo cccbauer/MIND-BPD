@@ -12897,3 +12897,5132 @@ RtIncrementalGLM: done at tr 54
 RtCurrentActivation: done at tr 54
 RtRoiCombine: dmn at tr 54 result is: 0.00540552
 RtRoiCombine: cen at tr 54 result is: 0.120114
+################################################################
+
+# realtime system log file
+created 2025/3/25 17:39:56.613313
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 2
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+initialization completed at 2025/3/25 17:39:56.613716
+began running at 2025/3/25 17:39:56.613978
+received image from scanner: series 17 acquisition 1
+received image from scanner: series 17 acquisition 2
+################################################################
+
+# realtime system log file
+created 2025/3/26 18:14:9.258698
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 2
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+################################################################
+
+# realtime system log file
+created 2025/3/26 18:18:33.443914
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 2
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+################################################################
+
+# realtime system log file
+created 2025/3/26 18:21:34.652313
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + /BOLD_DICOM
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 2
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+initialization completed at 2025/3/26 18:21:34.652468
+began running at 2025/3/26 18:21:34.652514
+received image from scanner: series 7 acquisition 1
+received image from scanner: series 7 acquisition 2
+################################################################
+
+# realtime system log file
+created 2025/3/26 18:23:9.443662
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=remind
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + /BOLD_DICOM
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 250
+  + option
+    + name=onlyReadMoCo
+    + true
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+################################################################
+
+# realtime system log file
+created 2025/3/26 18:25:27.411962
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=remind
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 100
+  + option
+    + name=port
+    + 15000
+  + option
+    + name=saveImages
+    + true
+  + option
+    + name=receiveImages
+    + true
+  + option
+    + name=onlyReadMoCo
+    + true
+  + option
+    + name=unmosaic
+    + true
+  + option
+    + name=imageType
+    + epi
+  + option
+    + name=matrixSize
+    + 98
+  + option
+    + name=slices
+    + 75
+  + option
+    + name=voxdim1
+    + 2
+  + option
+    + name=voxdim2
+    + 2
+  + option
+    + name=voxdim3
+    + 2
+  + option
+    + name=preHeader
+    + true
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + /BOLD_DICOM
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+################################################################
+
+# realtime system log file
+created 2025/3/26 18:27:32.835568
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=remind
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 100
+  + option
+    + name=port
+    + 15000
+  + option
+    + name=saveImages
+    + true
+  + option
+    + name=receiveImages
+    + true
+  + option
+    + name=onlyReadMoCo
+    + false
+  + option
+    + name=unmosaic
+    + true
+  + option
+    + name=imageType
+    + epi
+  + option
+    + name=matrixSize
+    + 98
+  + option
+    + name=slices
+    + 75
+  + option
+    + name=voxdim1
+    + 2
+  + option
+    + name=voxdim2
+    + 2
+  + option
+    + name=voxdim3
+    + 2
+  + option
+    + name=preHeader
+    + true
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + /BOLD_DICOM
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+initialization completed at 2025/3/26 18:27:32.835700
+began running at 2025/3/26 18:27:32.836137
+received image from scanner: series 10 acquisition 1
+received image from scanner: series 10 acquisition 2
+received image from scanner: series 10 acquisition 3
+received image from scanner: series 10 acquisition 4
+received image from scanner: series 10 acquisition 5
+received image from scanner: series 10 acquisition 6
+received image from scanner: series 10 acquisition 7
+received image from scanner: series 10 acquisition 8
+received image from scanner: series 10 acquisition 9
+received image from scanner: series 10 acquisition 10
+received image from scanner: series 10 acquisition 11
+received image from scanner: series 10 acquisition 12
+received image from scanner: series 10 acquisition 13
+received image from scanner: series 10 acquisition 14
+received image from scanner: series 10 acquisition 15
+received image from scanner: series 10 acquisition 16
+received image from scanner: series 10 acquisition 17
+received image from scanner: series 10 acquisition 18
+received image from scanner: series 10 acquisition 19
+received image from scanner: series 10 acquisition 20
+received image from scanner: series 10 acquisition 21
+received image from scanner: series 10 acquisition 22
+received image from scanner: series 10 acquisition 23
+received image from scanner: series 10 acquisition 24
+received image from scanner: series 10 acquisition 25
+received image from scanner: series 10 acquisition 26
+received image from scanner: series 10 acquisition 27
+received image from scanner: series 10 acquisition 28
+received image from scanner: series 10 acquisition 29
+received image from scanner: series 10 acquisition 30
+received image from scanner: series 10 acquisition 31
+received image from scanner: series 10 acquisition 32
+received image from scanner: series 10 acquisition 33
+received image from scanner: series 10 acquisition 34
+received image from scanner: series 10 acquisition 35
+received image from scanner: series 10 acquisition 36
+received image from scanner: series 10 acquisition 37
+received image from scanner: series 10 acquisition 38
+received image from scanner: series 10 acquisition 39
+received image from scanner: series 10 acquisition 40
+received image from scanner: series 10 acquisition 41
+received image from scanner: series 10 acquisition 42
+received image from scanner: series 10 acquisition 43
+received image from scanner: series 10 acquisition 44
+received image from scanner: series 10 acquisition 45
+received image from scanner: series 10 acquisition 46
+received image from scanner: series 10 acquisition 47
+received image from scanner: series 10 acquisition 48
+received image from scanner: series 10 acquisition 49
+received image from scanner: series 10 acquisition 50
+received image from scanner: series 10 acquisition 51
+received image from scanner: series 10 acquisition 52
+received image from scanner: series 10 acquisition 53
+received image from scanner: series 10 acquisition 54
+################################################################
+
+# realtime system log file
+created 2025/3/26 18:36:15.680526
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + /BOLD_DICOM
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 2
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+initialization completed at 2025/3/26 18:36:15.680852
+began running at 2025/3/26 18:36:15.680996
+received image from scanner: series 12 acquisition 1
+received image from scanner: series 12 acquisition 2
+################################################################
+
+# realtime system log file
+created 2025/3/26 18:38:29.950105
+
+configured the mosaic
+configured the mask-gen
+configured the mask-load
+configured the mask-load
+configured the incremental-glm
+configured the current-activation
+configured the roi-combine
+configured the roi-combine
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 150
+  + option
+    + name=port
+    + 15000
+  + option
+    + name=saveImages
+    + true
+  + option
+    + name=receiveImages
+    + true
+  + option
+    + name=onlyReadMoCo
+    + false
+  + option
+    + name=unmosaic
+    + true
+  + option
+    + name=imageType
+    + epi
+  + option
+    + name=matrixSize
+    + 98
+  + option
+    + name=slices
+    + 75
+  + option
+    + name=voxdim1
+    + 2
+  + option
+    + name=voxdim2
+    + 2
+  + option
+    + name=voxdim3
+    + 2
+  + option
+    + name=preHeader
+    + true
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + /BOLD_DICOM
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+  + module
+    + name=mask-gen
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + brain
+    + option
+      + name=threshold
+      + 0.5
+    + option
+      + name=useBet
+      + false
+    + option
+      + name=betParms
+      + -f 0.5 -g 0 -n -m
+    + option
+      + name=dynamic
+      + false
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + dmn
+    + option
+      + name=filename
+      + dmn
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + cen
+    + option
+      + name=filename
+      + cen
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=incremental-glm
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + output
+      + display
+    + option
+      + name=maskRoiID
+      + brain
+    + design
+      + option
+        + name=disabled
+        + false
+      + option
+        + name=modelMotionDerivatives
+        + true
+      + option
+        + name=maxTrendOrder
+        + 1
+      + option
+        + name=condition
+        + conditionName=Regulation
+        + 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+      + option
+        + name=conditionShift
+        + 25
+  + module
+    + name=current-activation
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=print
+      + true
+    + option
+      + name=modelFitModuleID
+      + incremental-glm
+    + option
+      + name=modelFitRoiID
+      + brain
+    + option
+      + name=maskRoiID
+      + brain
+    + option
+      + name=numDataPointsForErrEst
+      + 25
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + dmn
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + cen
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+--------------
+
+################################################################
+
+# realtime system log file
+created 2025/3/26 18:42:0.753396
+
+configured the mosaic
+configured the mask-gen
+configured the mask-load
+configured the mask-load
+configured the incremental-glm
+configured the current-activation
+configured the roi-combine
+configured the roi-combine
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 150
+  + option
+    + name=port
+    + 15000
+  + option
+    + name=saveImages
+    + true
+  + option
+    + name=receiveImages
+    + true
+  + option
+    + name=onlyReadMoCo
+    + true
+  + option
+    + name=unmosaic
+    + true
+  + option
+    + name=imageType
+    + epi
+  + option
+    + name=matrixSize
+    + 98
+  + option
+    + name=slices
+    + 75
+  + option
+    + name=voxdim1
+    + 2
+  + option
+    + name=voxdim2
+    + 2
+  + option
+    + name=voxdim3
+    + 2
+  + option
+    + name=preHeader
+    + true
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + /BOLD_DICOM
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+  + module
+    + name=mask-gen
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + brain
+    + option
+      + name=threshold
+      + 0.5
+    + option
+      + name=useBet
+      + false
+    + option
+      + name=betParms
+      + -f 0.5 -g 0 -n -m
+    + option
+      + name=dynamic
+      + false
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + dmn
+    + option
+      + name=filename
+      + dmn
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + cen
+    + option
+      + name=filename
+      + cen
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=incremental-glm
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + output
+      + display
+    + option
+      + name=maskRoiID
+      + brain
+    + design
+      + option
+        + name=disabled
+        + false
+      + option
+        + name=modelMotionDerivatives
+        + true
+      + option
+        + name=maxTrendOrder
+        + 1
+      + option
+        + name=condition
+        + conditionName=Regulation
+        + 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+      + option
+        + name=conditionShift
+        + 25
+  + module
+    + name=current-activation
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=print
+      + true
+    + option
+      + name=modelFitModuleID
+      + incremental-glm
+    + option
+      + name=modelFitRoiID
+      + brain
+    + option
+      + name=maskRoiID
+      + brain
+    + option
+      + name=numDataPointsForErrEst
+      + 25
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + dmn
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + cen
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+--------------
+
+initialization completed at 2025/3/26 18:42:0.757740
+began running at 2025/3/26 18:42:0.758019
+received image from scanner: series 14 acquisition 1
+maskgen: produced mask brain of 209266 voxels and saved to /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/mask/series14_brain.nii
+received image from scanner: series 14 acquisition 2
+received image from scanner: series 14 acquisition 3
+received image from scanner: series 14 acquisition 4
+received image from scanner: series 14 acquisition 5
+maskload: loaded mask dmn of 2032 voxels and saved to /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/mask/series14_dmn.nii
+maskload: loaded mask cen of 2152 voxels and saved to /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/mask/series14_cen.nii
+received image from scanner: series 14 acquisition 6
+RtIncrementalGLM: done at tr 1
+RtCurrentActivation: done at tr 1
+RtRoiCombine: dmn at tr 1 result is: 0
+RtRoiCombine: cen at tr 1 result is: 0
+RtIncrementalGLM: done at tr 2
+RtCurrentActivation: done at tr 2
+RtRoiCombine: dmn at tr 2 result is: 0
+RtRoiCombine: cen at tr 2 result is: 0
+RtIncrementalGLM: done at tr 3
+RtCurrentActivation: done at tr 3
+RtRoiCombine: dmn at tr 3 result is: 0.0430575
+RtRoiCombine: cen at tr 3 result is: 0.0810952
+RtIncrementalGLM: done at tr 4
+RtCurrentActivation: done at tr 4
+RtRoiCombine: dmn at tr 4 result is: -1.24448e-15
+RtRoiCombine: cen at tr 4 result is: -1.09663e-15
+RtIncrementalGLM: done at tr 5
+RtCurrentActivation: done at tr 5
+RtRoiCombine: dmn at tr 5 result is: -0.0089966
+RtRoiCombine: cen at tr 5 result is: 0.0106623
+RtIncrementalGLM: done at tr 6
+RtCurrentActivation: done at tr 6
+RtRoiCombine: dmn at tr 6 result is: 0.0714404
+RtRoiCombine: cen at tr 6 result is: 0.074827
+received image from scanner: series 14 acquisition 7
+RtIncrementalGLM: done at tr 7
+RtCurrentActivation: done at tr 7
+RtRoiCombine: dmn at tr 7 result is: 4.84864e-15
+RtRoiCombine: cen at tr 7 result is: 4.79662e-15
+received image from scanner: series 14 acquisition 8
+RtIncrementalGLM: done at tr 8
+RtCurrentActivation: done at tr 8
+RtRoiCombine: dmn at tr 8 result is: 0.0567708
+RtRoiCombine: cen at tr 8 result is: -0.035708
+received image from scanner: series 14 acquisition 9
+RtIncrementalGLM: done at tr 9
+RtCurrentActivation: done at tr 9
+RtRoiCombine: dmn at tr 9 result is: 0.00495756
+RtRoiCombine: cen at tr 9 result is: 0.0472544
+received image from scanner: series 14 acquisition 10
+RtIncrementalGLM: done at tr 10
+RtCurrentActivation: done at tr 10
+RtRoiCombine: dmn at tr 10 result is: -2.1852e-15
+RtRoiCombine: cen at tr 10 result is: -2.14191e-15
+received image from scanner: series 14 acquisition 11
+RtIncrementalGLM: done at tr 11
+RtCurrentActivation: done at tr 11
+RtRoiCombine: dmn at tr 11 result is: 2.36202e-15
+RtRoiCombine: cen at tr 11 result is: 2.23711e-15
+received image from scanner: series 14 acquisition 12
+RtIncrementalGLM: done at tr 12
+RtCurrentActivation: done at tr 12
+RtRoiCombine: dmn at tr 12 result is: -0.0169175
+RtRoiCombine: cen at tr 12 result is: 0.0290047
+received image from scanner: series 14 acquisition 13
+RtIncrementalGLM: done at tr 13
+RtCurrentActivation: done at tr 13
+RtRoiCombine: dmn at tr 13 result is: -0.000251311
+RtRoiCombine: cen at tr 13 result is: 0.0684342
+received image from scanner: series 14 acquisition 14
+RtIncrementalGLM: done at tr 14
+RtCurrentActivation: done at tr 14
+RtRoiCombine: dmn at tr 14 result is: -2.58313e-15
+RtRoiCombine: cen at tr 14 result is: -2.71268e-15
+received image from scanner: series 14 acquisition 15
+RtIncrementalGLM: done at tr 15
+RtCurrentActivation: done at tr 15
+RtRoiCombine: dmn at tr 15 result is: 0.00138917
+RtRoiCombine: cen at tr 15 result is: 0.0252124
+received image from scanner: series 14 acquisition 16
+RtIncrementalGLM: done at tr 16
+RtCurrentActivation: done at tr 16
+RtRoiCombine: dmn at tr 16 result is: -0.0108763
+RtRoiCombine: cen at tr 16 result is: 0.0792942
+received image from scanner: series 14 acquisition 17
+RtIncrementalGLM: done at tr 17
+RtCurrentActivation: done at tr 17
+RtRoiCombine: dmn at tr 17 result is: -0.00584152
+RtRoiCombine: cen at tr 17 result is: 0.0673709
+received image from scanner: series 14 acquisition 18
+RtIncrementalGLM: done at tr 18
+RtCurrentActivation: done at tr 18
+RtRoiCombine: dmn at tr 18 result is: -0.0906148
+RtRoiCombine: cen at tr 18 result is: -0.0758536
+received image from scanner: series 14 acquisition 19
+RtIncrementalGLM: done at tr 19
+RtCurrentActivation: done at tr 19
+RtRoiCombine: dmn at tr 19 result is: 0.000572704
+RtRoiCombine: cen at tr 19 result is: 0.0140095
+received image from scanner: series 14 acquisition 20
+RtIncrementalGLM: done at tr 20
+RtCurrentActivation: done at tr 20
+RtRoiCombine: dmn at tr 20 result is: 0.0247068
+RtRoiCombine: cen at tr 20 result is: 0.0319675
+received image from scanner: series 14 acquisition 21
+RtIncrementalGLM: done at tr 21
+RtCurrentActivation: done at tr 21
+RtRoiCombine: dmn at tr 21 result is: -0.022802
+RtRoiCombine: cen at tr 21 result is: 0.0412858
+received image from scanner: series 14 acquisition 22
+RtIncrementalGLM: done at tr 22
+RtCurrentActivation: done at tr 22
+RtRoiCombine: dmn at tr 22 result is: -0.101827
+RtRoiCombine: cen at tr 22 result is: -0.012894
+received image from scanner: series 14 acquisition 23
+RtIncrementalGLM: done at tr 23
+RtCurrentActivation: done at tr 23
+RtRoiCombine: dmn at tr 23 result is: 0.0177753
+RtRoiCombine: cen at tr 23 result is: 0.0404725
+received image from scanner: series 14 acquisition 24
+RtIncrementalGLM: done at tr 24
+RtCurrentActivation: done at tr 24
+RtRoiCombine: dmn at tr 24 result is: 0.0478398
+RtRoiCombine: cen at tr 24 result is: -0.00253146
+received image from scanner: series 14 acquisition 25
+RtIncrementalGLM: done at tr 25
+RtCurrentActivation: done at tr 25
+RtRoiCombine: dmn at tr 25 result is: 0.000781286
+RtRoiCombine: cen at tr 25 result is: -0.0113231
+received image from scanner: series 14 acquisition 26
+RtIncrementalGLM: done at tr 26
+RtCurrentActivation: done at tr 26
+RtRoiCombine: dmn at tr 26 result is: -0.00828501
+RtRoiCombine: cen at tr 26 result is: -0.0248113
+received image from scanner: series 14 acquisition 27
+RtIncrementalGLM: done at tr 27
+RtCurrentActivation: done at tr 27
+RtRoiCombine: dmn at tr 27 result is: -0.0147122
+RtRoiCombine: cen at tr 27 result is: -0.0448383
+received image from scanner: series 14 acquisition 28
+RtIncrementalGLM: done at tr 28
+RtCurrentActivation: done at tr 28
+RtRoiCombine: dmn at tr 28 result is: 0.000108406
+RtRoiCombine: cen at tr 28 result is: -0.00124059
+received image from scanner: series 14 acquisition 29
+RtIncrementalGLM: done at tr 29
+RtCurrentActivation: done at tr 29
+RtRoiCombine: dmn at tr 29 result is: 0.0756957
+RtRoiCombine: cen at tr 29 result is: 0.177853
+received image from scanner: series 14 acquisition 30
+RtIncrementalGLM: done at tr 30
+RtCurrentActivation: done at tr 30
+RtRoiCombine: dmn at tr 30 result is: 0.0922576
+RtRoiCombine: cen at tr 30 result is: 0.0722151
+received image from scanner: series 14 acquisition 31
+RtIncrementalGLM: done at tr 31
+RtCurrentActivation: done at tr 31
+RtRoiCombine: dmn at tr 31 result is: -0.0237693
+RtRoiCombine: cen at tr 31 result is: 0.0469728
+received image from scanner: series 14 acquisition 32
+RtIncrementalGLM: done at tr 32
+RtCurrentActivation: done at tr 32
+RtRoiCombine: dmn at tr 32 result is: 0.106695
+RtRoiCombine: cen at tr 32 result is: 0.0194272
+received image from scanner: series 16 acquisition 1
+RtIncrementalGLM: done at tr 1
+RtCurrentActivation: done at tr 1
+RtRoiCombine: dmn at tr 1 result is: 0
+RtRoiCombine: cen at tr 1 result is: 0
+received image from scanner: series 16 acquisition 2
+RtIncrementalGLM: done at tr 2
+RtCurrentActivation: done at tr 2
+RtRoiCombine: dmn at tr 2 result is: -0.0323866
+RtRoiCombine: cen at tr 2 result is: -0.0644897
+received image from scanner: series 16 acquisition 3
+RtIncrementalGLM: done at tr 3
+RtCurrentActivation: done at tr 3
+RtRoiCombine: dmn at tr 3 result is: -0.0282685
+RtRoiCombine: cen at tr 3 result is: -0.0994572
+received image from scanner: series 16 acquisition 4
+RtIncrementalGLM: done at tr 4
+RtCurrentActivation: done at tr 4
+RtRoiCombine: dmn at tr 4 result is: -0.0605103
+RtRoiCombine: cen at tr 4 result is: -0.095078
+received image from scanner: series 16 acquisition 5
+RtIncrementalGLM: done at tr 5
+RtCurrentActivation: done at tr 5
+RtRoiCombine: dmn at tr 5 result is: -0.049411
+RtRoiCombine: cen at tr 5 result is: -0.106842
+################################################################
+
+# realtime system log file
+created 2025/3/31 13:54:2.555829
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + /tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 2
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+################################################################
+
+# realtime system log file
+created 2025/3/31 13:54:43.736975
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 2
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+initialization completed at 2025/3/31 13:54:43.737085
+began running at 2025/3/31 13:54:43.737502
+received image from scanner: series 5 acquisition 1
+received image from scanner: series 5 acquisition 2
+################################################################
+
+# realtime system log file
+created 2025/3/31 13:55:55.23645
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=remind
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 250
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+initialization completed at 2025/3/31 13:55:55.23785
+began running at 2025/3/31 13:55:55.24279
+received image from scanner: series 5 acquisition 1
+received image from scanner: series 5 acquisition 2
+received image from scanner: series 6 acquisition 1
+received image from scanner: series 6 acquisition 2
+received image from scanner: series 7 acquisition 1
+received image from scanner: series 7 acquisition 2
+received image from scanner: series 8 acquisition 1
+received image from scanner: series 8 acquisition 2
+received image from scanner: series 8 acquisition 3
+received image from scanner: series 8 acquisition 4
+received image from scanner: series 8 acquisition 5
+received image from scanner: series 8 acquisition 6
+received image from scanner: series 8 acquisition 7
+received image from scanner: series 8 acquisition 8
+received image from scanner: series 8 acquisition 9
+received image from scanner: series 8 acquisition 10
+received image from scanner: series 8 acquisition 11
+received image from scanner: series 8 acquisition 12
+received image from scanner: series 8 acquisition 13
+received image from scanner: series 8 acquisition 14
+received image from scanner: series 8 acquisition 15
+received image from scanner: series 9 acquisition 1
+received image from scanner: series 9 acquisition 2
+received image from scanner: series 9 acquisition 3
+received image from scanner: series 9 acquisition 4
+received image from scanner: series 9 acquisition 5
+received image from scanner: series 9 acquisition 6
+received image from scanner: series 9 acquisition 7
+received image from scanner: series 9 acquisition 8
+received image from scanner: series 9 acquisition 9
+received image from scanner: series 9 acquisition 10
+received image from scanner: series 9 acquisition 11
+received image from scanner: series 9 acquisition 12
+received image from scanner: series 10 acquisition 1
+received image from scanner: series 10 acquisition 2
+received image from scanner: series 10 acquisition 3
+received image from scanner: series 10 acquisition 4
+received image from scanner: series 10 acquisition 5
+received image from scanner: series 10 acquisition 6
+received image from scanner: series 10 acquisition 7
+received image from scanner: series 10 acquisition 8
+received image from scanner: series 10 acquisition 9
+received image from scanner: series 10 acquisition 10
+received image from scanner: series 10 acquisition 11
+received image from scanner: series 10 acquisition 12
+received image from scanner: series 10 acquisition 13
+received image from scanner: series 10 acquisition 14
+received image from scanner: series 10 acquisition 15
+received image from scanner: series 10 acquisition 16
+received image from scanner: series 10 acquisition 17
+received image from scanner: series 10 acquisition 18
+received image from scanner: series 10 acquisition 19
+received image from scanner: series 10 acquisition 20
+received image from scanner: series 10 acquisition 21
+received image from scanner: series 10 acquisition 22
+received image from scanner: series 10 acquisition 23
+received image from scanner: series 10 acquisition 24
+received image from scanner: series 10 acquisition 25
+received image from scanner: series 10 acquisition 26
+received image from scanner: series 10 acquisition 27
+received image from scanner: series 10 acquisition 28
+received image from scanner: series 10 acquisition 29
+received image from scanner: series 10 acquisition 30
+received image from scanner: series 10 acquisition 31
+received image from scanner: series 10 acquisition 32
+received image from scanner: series 10 acquisition 33
+received image from scanner: series 10 acquisition 34
+received image from scanner: series 10 acquisition 35
+received image from scanner: series 10 acquisition 36
+################################################################
+
+# realtime system log file
+created 2025/3/31 14:10:4.347474
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=remind
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 250
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+initialization completed at 2025/3/31 14:10:4.347604
+began running at 2025/3/31 14:10:4.347678
+received image from scanner: series 5 acquisition 1
+received image from scanner: series 5 acquisition 2
+received image from scanner: series 6 acquisition 1
+received image from scanner: series 6 acquisition 2
+received image from scanner: series 7 acquisition 1
+received image from scanner: series 7 acquisition 2
+received image from scanner: series 8 acquisition 1
+received image from scanner: series 8 acquisition 2
+received image from scanner: series 8 acquisition 3
+received image from scanner: series 8 acquisition 4
+received image from scanner: series 8 acquisition 5
+received image from scanner: series 8 acquisition 6
+received image from scanner: series 8 acquisition 7
+received image from scanner: series 8 acquisition 8
+received image from scanner: series 8 acquisition 9
+received image from scanner: series 8 acquisition 10
+received image from scanner: series 8 acquisition 11
+received image from scanner: series 8 acquisition 12
+received image from scanner: series 8 acquisition 13
+received image from scanner: series 8 acquisition 14
+received image from scanner: series 8 acquisition 15
+received image from scanner: series 9 acquisition 1
+received image from scanner: series 9 acquisition 2
+received image from scanner: series 9 acquisition 3
+received image from scanner: series 9 acquisition 4
+received image from scanner: series 9 acquisition 5
+received image from scanner: series 9 acquisition 6
+received image from scanner: series 9 acquisition 7
+received image from scanner: series 9 acquisition 8
+received image from scanner: series 9 acquisition 9
+received image from scanner: series 9 acquisition 10
+received image from scanner: series 9 acquisition 11
+received image from scanner: series 9 acquisition 12
+received image from scanner: series 10 acquisition 1
+received image from scanner: series 10 acquisition 2
+received image from scanner: series 10 acquisition 3
+received image from scanner: series 10 acquisition 4
+received image from scanner: series 10 acquisition 5
+received image from scanner: series 10 acquisition 6
+received image from scanner: series 10 acquisition 7
+received image from scanner: series 10 acquisition 8
+received image from scanner: series 10 acquisition 9
+received image from scanner: series 10 acquisition 10
+received image from scanner: series 10 acquisition 11
+received image from scanner: series 10 acquisition 12
+received image from scanner: series 10 acquisition 13
+received image from scanner: series 10 acquisition 14
+received image from scanner: series 10 acquisition 15
+received image from scanner: series 10 acquisition 16
+received image from scanner: series 10 acquisition 17
+received image from scanner: series 10 acquisition 18
+received image from scanner: series 10 acquisition 19
+received image from scanner: series 10 acquisition 20
+received image from scanner: series 10 acquisition 21
+received image from scanner: series 10 acquisition 22
+received image from scanner: series 10 acquisition 23
+received image from scanner: series 10 acquisition 24
+received image from scanner: series 10 acquisition 25
+received image from scanner: series 10 acquisition 26
+received image from scanner: series 10 acquisition 27
+received image from scanner: series 10 acquisition 28
+received image from scanner: series 10 acquisition 29
+received image from scanner: series 10 acquisition 30
+received image from scanner: series 10 acquisition 31
+received image from scanner: series 10 acquisition 32
+received image from scanner: series 10 acquisition 33
+received image from scanner: series 10 acquisition 34
+received image from scanner: series 10 acquisition 35
+received image from scanner: series 10 acquisition 36
+received image from scanner: series 10 acquisition 37
+received image from scanner: series 10 acquisition 38
+received image from scanner: series 10 acquisition 39
+received image from scanner: series 10 acquisition 40
+received image from scanner: series 10 acquisition 41
+received image from scanner: series 10 acquisition 42
+received image from scanner: series 10 acquisition 43
+received image from scanner: series 10 acquisition 44
+received image from scanner: series 10 acquisition 45
+received image from scanner: series 10 acquisition 46
+received image from scanner: series 10 acquisition 47
+received image from scanner: series 10 acquisition 48
+received image from scanner: series 10 acquisition 49
+received image from scanner: series 10 acquisition 50
+received image from scanner: series 10 acquisition 51
+received image from scanner: series 10 acquisition 52
+received image from scanner: series 10 acquisition 53
+received image from scanner: series 10 acquisition 54
+received image from scanner: series 11 acquisition 1
+received image from scanner: series 11 acquisition 2
+received image from scanner: series 11 acquisition 3
+received image from scanner: series 12 acquisition 1
+received image from scanner: series 12 acquisition 2
+received image from scanner: series 12 acquisition 3
+received image from scanner: series 12 acquisition 4
+received image from scanner: series 12 acquisition 5
+received image from scanner: series 12 acquisition 6
+received image from scanner: series 12 acquisition 7
+received image from scanner: series 12 acquisition 8
+received image from scanner: series 12 acquisition 9
+received image from scanner: series 12 acquisition 10
+received image from scanner: series 12 acquisition 11
+received image from scanner: series 13 acquisition 1
+received image from scanner: series 13 acquisition 2
+received image from scanner: series 13 acquisition 3
+received image from scanner: series 13 acquisition 4
+received image from scanner: series 13 acquisition 5
+received image from scanner: series 13 acquisition 6
+received image from scanner: series 13 acquisition 7
+received image from scanner: series 13 acquisition 8
+received image from scanner: series 13 acquisition 9
+received image from scanner: series 13 acquisition 10
+received image from scanner: series 13 acquisition 11
+received image from scanner: series 13 acquisition 12
+received image from scanner: series 13 acquisition 13
+received image from scanner: series 13 acquisition 14
+received image from scanner: series 13 acquisition 15
+received image from scanner: series 13 acquisition 16
+received image from scanner: series 13 acquisition 17
+received image from scanner: series 13 acquisition 18
+received image from scanner: series 13 acquisition 19
+received image from scanner: series 13 acquisition 20
+received image from scanner: series 13 acquisition 21
+received image from scanner: series 13 acquisition 22
+received image from scanner: series 13 acquisition 23
+received image from scanner: series 13 acquisition 24
+received image from scanner: series 13 acquisition 25
+received image from scanner: series 13 acquisition 26
+received image from scanner: series 13 acquisition 27
+received image from scanner: series 13 acquisition 28
+received image from scanner: series 13 acquisition 29
+received image from scanner: series 13 acquisition 30
+received image from scanner: series 13 acquisition 31
+received image from scanner: series 13 acquisition 32
+received image from scanner: series 14 acquisition 1
+received image from scanner: series 14 acquisition 2
+received image from scanner: series 14 acquisition 3
+received image from scanner: series 14 acquisition 4
+received image from scanner: series 14 acquisition 5
+received image from scanner: series 14 acquisition 6
+received image from scanner: series 14 acquisition 7
+received image from scanner: series 14 acquisition 8
+received image from scanner: series 14 acquisition 9
+received image from scanner: series 14 acquisition 10
+received image from scanner: series 14 acquisition 11
+received image from scanner: series 14 acquisition 12
+received image from scanner: series 14 acquisition 13
+received image from scanner: series 14 acquisition 14
+received image from scanner: series 14 acquisition 15
+received image from scanner: series 14 acquisition 16
+received image from scanner: series 14 acquisition 17
+received image from scanner: series 14 acquisition 18
+received image from scanner: series 14 acquisition 19
+received image from scanner: series 14 acquisition 20
+received image from scanner: series 14 acquisition 21
+received image from scanner: series 14 acquisition 22
+received image from scanner: series 14 acquisition 23
+received image from scanner: series 14 acquisition 24
+received image from scanner: series 14 acquisition 25
+received image from scanner: series 14 acquisition 26
+received image from scanner: series 14 acquisition 27
+received image from scanner: series 14 acquisition 28
+received image from scanner: series 14 acquisition 29
+received image from scanner: series 14 acquisition 30
+received image from scanner: series 14 acquisition 31
+received image from scanner: series 14 acquisition 32
+received image from scanner: series 15 acquisition 1
+received image from scanner: series 15 acquisition 2
+received image from scanner: series 15 acquisition 3
+received image from scanner: series 15 acquisition 4
+received image from scanner: series 15 acquisition 5
+received image from scanner: series 16 acquisition 1
+received image from scanner: series 16 acquisition 2
+received image from scanner: series 16 acquisition 3
+received image from scanner: series 16 acquisition 4
+received image from scanner: series 16 acquisition 5
+################################################################
+
+# realtime system log file
+created 2025/3/31 14:22:51.683678
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=remind
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 250
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+initialization completed at 2025/3/31 14:22:51.683822
+began running at 2025/3/31 14:22:51.683964
+received image from scanner: series 5 acquisition 1
+received image from scanner: series 5 acquisition 2
+received image from scanner: series 6 acquisition 1
+received image from scanner: series 6 acquisition 2
+received image from scanner: series 7 acquisition 1
+received image from scanner: series 7 acquisition 2
+received image from scanner: series 8 acquisition 1
+received image from scanner: series 8 acquisition 2
+received image from scanner: series 8 acquisition 3
+received image from scanner: series 8 acquisition 4
+received image from scanner: series 8 acquisition 5
+received image from scanner: series 8 acquisition 6
+received image from scanner: series 8 acquisition 7
+received image from scanner: series 8 acquisition 8
+received image from scanner: series 8 acquisition 9
+received image from scanner: series 8 acquisition 10
+received image from scanner: series 8 acquisition 11
+received image from scanner: series 8 acquisition 12
+received image from scanner: series 8 acquisition 13
+received image from scanner: series 8 acquisition 14
+received image from scanner: series 8 acquisition 15
+received image from scanner: series 9 acquisition 1
+received image from scanner: series 9 acquisition 2
+received image from scanner: series 9 acquisition 3
+received image from scanner: series 9 acquisition 4
+received image from scanner: series 9 acquisition 5
+received image from scanner: series 9 acquisition 6
+received image from scanner: series 9 acquisition 7
+received image from scanner: series 9 acquisition 8
+received image from scanner: series 9 acquisition 9
+received image from scanner: series 9 acquisition 10
+received image from scanner: series 9 acquisition 11
+received image from scanner: series 9 acquisition 12
+received image from scanner: series 10 acquisition 1
+received image from scanner: series 10 acquisition 2
+received image from scanner: series 10 acquisition 3
+received image from scanner: series 10 acquisition 4
+received image from scanner: series 10 acquisition 5
+received image from scanner: series 10 acquisition 6
+received image from scanner: series 10 acquisition 7
+received image from scanner: series 10 acquisition 8
+received image from scanner: series 10 acquisition 9
+received image from scanner: series 10 acquisition 10
+received image from scanner: series 10 acquisition 11
+received image from scanner: series 10 acquisition 12
+received image from scanner: series 10 acquisition 13
+received image from scanner: series 10 acquisition 14
+received image from scanner: series 10 acquisition 15
+received image from scanner: series 10 acquisition 16
+received image from scanner: series 10 acquisition 17
+received image from scanner: series 10 acquisition 18
+received image from scanner: series 10 acquisition 19
+received image from scanner: series 10 acquisition 20
+received image from scanner: series 10 acquisition 21
+received image from scanner: series 10 acquisition 22
+received image from scanner: series 10 acquisition 23
+received image from scanner: series 10 acquisition 24
+received image from scanner: series 10 acquisition 25
+received image from scanner: series 10 acquisition 26
+received image from scanner: series 10 acquisition 27
+received image from scanner: series 10 acquisition 28
+received image from scanner: series 10 acquisition 29
+received image from scanner: series 10 acquisition 30
+received image from scanner: series 10 acquisition 31
+received image from scanner: series 10 acquisition 32
+received image from scanner: series 10 acquisition 33
+received image from scanner: series 10 acquisition 34
+received image from scanner: series 10 acquisition 35
+received image from scanner: series 10 acquisition 36
+received image from scanner: series 10 acquisition 37
+received image from scanner: series 10 acquisition 38
+received image from scanner: series 10 acquisition 39
+received image from scanner: series 10 acquisition 40
+received image from scanner: series 10 acquisition 41
+received image from scanner: series 10 acquisition 42
+received image from scanner: series 10 acquisition 43
+received image from scanner: series 10 acquisition 44
+received image from scanner: series 10 acquisition 45
+received image from scanner: series 10 acquisition 46
+received image from scanner: series 10 acquisition 47
+received image from scanner: series 10 acquisition 48
+received image from scanner: series 10 acquisition 49
+received image from scanner: series 10 acquisition 50
+received image from scanner: series 10 acquisition 51
+received image from scanner: series 10 acquisition 52
+received image from scanner: series 10 acquisition 53
+received image from scanner: series 10 acquisition 54
+received image from scanner: series 11 acquisition 1
+received image from scanner: series 11 acquisition 2
+received image from scanner: series 11 acquisition 3
+received image from scanner: series 12 acquisition 1
+received image from scanner: series 12 acquisition 2
+received image from scanner: series 12 acquisition 3
+received image from scanner: series 12 acquisition 4
+received image from scanner: series 12 acquisition 5
+received image from scanner: series 12 acquisition 6
+received image from scanner: series 12 acquisition 7
+received image from scanner: series 12 acquisition 8
+received image from scanner: series 12 acquisition 9
+received image from scanner: series 12 acquisition 10
+received image from scanner: series 12 acquisition 11
+received image from scanner: series 13 acquisition 1
+received image from scanner: series 13 acquisition 2
+received image from scanner: series 13 acquisition 3
+received image from scanner: series 13 acquisition 4
+received image from scanner: series 13 acquisition 5
+received image from scanner: series 13 acquisition 6
+received image from scanner: series 13 acquisition 7
+received image from scanner: series 13 acquisition 8
+received image from scanner: series 13 acquisition 9
+received image from scanner: series 13 acquisition 10
+received image from scanner: series 13 acquisition 11
+received image from scanner: series 13 acquisition 12
+received image from scanner: series 13 acquisition 13
+received image from scanner: series 13 acquisition 14
+received image from scanner: series 13 acquisition 15
+received image from scanner: series 13 acquisition 16
+received image from scanner: series 13 acquisition 17
+received image from scanner: series 13 acquisition 18
+received image from scanner: series 13 acquisition 19
+received image from scanner: series 13 acquisition 20
+received image from scanner: series 13 acquisition 21
+received image from scanner: series 13 acquisition 22
+received image from scanner: series 13 acquisition 23
+received image from scanner: series 13 acquisition 24
+received image from scanner: series 13 acquisition 25
+received image from scanner: series 13 acquisition 26
+received image from scanner: series 13 acquisition 27
+received image from scanner: series 13 acquisition 28
+received image from scanner: series 13 acquisition 29
+received image from scanner: series 13 acquisition 30
+received image from scanner: series 13 acquisition 31
+received image from scanner: series 13 acquisition 32
+received image from scanner: series 14 acquisition 1
+received image from scanner: series 14 acquisition 2
+received image from scanner: series 14 acquisition 3
+received image from scanner: series 14 acquisition 4
+received image from scanner: series 14 acquisition 5
+received image from scanner: series 14 acquisition 6
+received image from scanner: series 14 acquisition 7
+received image from scanner: series 14 acquisition 8
+received image from scanner: series 14 acquisition 9
+received image from scanner: series 14 acquisition 10
+received image from scanner: series 14 acquisition 11
+received image from scanner: series 14 acquisition 12
+received image from scanner: series 14 acquisition 13
+received image from scanner: series 14 acquisition 14
+received image from scanner: series 14 acquisition 15
+received image from scanner: series 14 acquisition 16
+received image from scanner: series 14 acquisition 17
+received image from scanner: series 14 acquisition 18
+received image from scanner: series 14 acquisition 19
+received image from scanner: series 14 acquisition 20
+received image from scanner: series 14 acquisition 21
+received image from scanner: series 14 acquisition 22
+received image from scanner: series 14 acquisition 23
+received image from scanner: series 14 acquisition 24
+received image from scanner: series 14 acquisition 25
+received image from scanner: series 14 acquisition 26
+received image from scanner: series 14 acquisition 27
+received image from scanner: series 14 acquisition 28
+received image from scanner: series 14 acquisition 29
+received image from scanner: series 14 acquisition 30
+received image from scanner: series 14 acquisition 31
+received image from scanner: series 14 acquisition 32
+received image from scanner: series 15 acquisition 1
+received image from scanner: series 15 acquisition 2
+received image from scanner: series 15 acquisition 3
+received image from scanner: series 15 acquisition 4
+received image from scanner: series 15 acquisition 5
+received image from scanner: series 16 acquisition 1
+received image from scanner: series 16 acquisition 2
+received image from scanner: series 16 acquisition 3
+received image from scanner: series 16 acquisition 4
+received image from scanner: series 16 acquisition 5
+received image from scanner: series 16 acquisition 5
+################################################################
+
+# realtime system log file
+created 2025/3/31 19:13:14.915415
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=remind
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 250
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+initialization completed at 2025/3/31 19:13:14.915788
+began running at 2025/3/31 19:13:14.916411
+received image from scanner: series 17 acquisition 1
+received image from scanner: series 17 acquisition 2
+received image from scanner: series 17 acquisition 3
+received image from scanner: series 17 acquisition 4
+received image from scanner: series 17 acquisition 5
+received image from scanner: series 17 acquisition 6
+received image from scanner: series 17 acquisition 7
+received image from scanner: series 17 acquisition 8
+received image from scanner: series 17 acquisition 9
+received image from scanner: series 17 acquisition 10
+received image from scanner: series 17 acquisition 11
+received image from scanner: series 17 acquisition 12
+received image from scanner: series 17 acquisition 13
+received image from scanner: series 17 acquisition 14
+received image from scanner: series 17 acquisition 15
+received image from scanner: series 17 acquisition 16
+received image from scanner: series 17 acquisition 17
+received image from scanner: series 17 acquisition 18
+received image from scanner: series 17 acquisition 19
+received image from scanner: series 17 acquisition 20
+received image from scanner: series 17 acquisition 21
+received image from scanner: series 17 acquisition 22
+received image from scanner: series 17 acquisition 23
+received image from scanner: series 17 acquisition 24
+received image from scanner: series 17 acquisition 25
+received image from scanner: series 17 acquisition 26
+received image from scanner: series 17 acquisition 27
+received image from scanner: series 17 acquisition 28
+received image from scanner: series 17 acquisition 29
+received image from scanner: series 17 acquisition 30
+received image from scanner: series 17 acquisition 31
+received image from scanner: series 17 acquisition 32
+received image from scanner: series 17 acquisition 33
+received image from scanner: series 17 acquisition 34
+received image from scanner: series 17 acquisition 35
+received image from scanner: series 17 acquisition 36
+received image from scanner: series 17 acquisition 37
+received image from scanner: series 17 acquisition 38
+received image from scanner: series 17 acquisition 39
+received image from scanner: series 17 acquisition 40
+received image from scanner: series 17 acquisition 41
+received image from scanner: series 17 acquisition 42
+received image from scanner: series 17 acquisition 43
+received image from scanner: series 17 acquisition 44
+received image from scanner: series 17 acquisition 45
+received image from scanner: series 17 acquisition 46
+received image from scanner: series 17 acquisition 47
+received image from scanner: series 17 acquisition 48
+received image from scanner: series 17 acquisition 49
+received image from scanner: series 17 acquisition 50
+received image from scanner: series 17 acquisition 51
+received image from scanner: series 17 acquisition 52
+received image from scanner: series 17 acquisition 53
+received image from scanner: series 17 acquisition 54
+received image from scanner: series 17 acquisition 55
+received image from scanner: series 17 acquisition 56
+received image from scanner: series 17 acquisition 57
+received image from scanner: series 17 acquisition 58
+received image from scanner: series 17 acquisition 59
+received image from scanner: series 17 acquisition 60
+received image from scanner: series 17 acquisition 61
+received image from scanner: series 17 acquisition 62
+received image from scanner: series 17 acquisition 63
+received image from scanner: series 17 acquisition 64
+received image from scanner: series 17 acquisition 65
+received image from scanner: series 17 acquisition 66
+received image from scanner: series 17 acquisition 67
+received image from scanner: series 17 acquisition 68
+received image from scanner: series 17 acquisition 69
+received image from scanner: series 17 acquisition 70
+received image from scanner: series 17 acquisition 71
+received image from scanner: series 17 acquisition 72
+received image from scanner: series 17 acquisition 73
+received image from scanner: series 17 acquisition 74
+received image from scanner: series 17 acquisition 75
+received image from scanner: series 17 acquisition 76
+received image from scanner: series 17 acquisition 77
+received image from scanner: series 17 acquisition 78
+received image from scanner: series 17 acquisition 79
+received image from scanner: series 17 acquisition 80
+received image from scanner: series 17 acquisition 81
+received image from scanner: series 17 acquisition 82
+received image from scanner: series 17 acquisition 83
+received image from scanner: series 17 acquisition 84
+received image from scanner: series 17 acquisition 85
+received image from scanner: series 17 acquisition 86
+received image from scanner: series 17 acquisition 87
+received image from scanner: series 17 acquisition 88
+received image from scanner: series 17 acquisition 89
+received image from scanner: series 17 acquisition 90
+received image from scanner: series 17 acquisition 91
+received image from scanner: series 17 acquisition 92
+received image from scanner: series 17 acquisition 93
+received image from scanner: series 17 acquisition 94
+received image from scanner: series 17 acquisition 95
+received image from scanner: series 17 acquisition 96
+received image from scanner: series 17 acquisition 97
+received image from scanner: series 17 acquisition 98
+received image from scanner: series 17 acquisition 99
+received image from scanner: series 17 acquisition 100
+received image from scanner: series 17 acquisition 101
+received image from scanner: series 17 acquisition 102
+received image from scanner: series 17 acquisition 103
+received image from scanner: series 17 acquisition 104
+received image from scanner: series 17 acquisition 105
+received image from scanner: series 17 acquisition 106
+received image from scanner: series 17 acquisition 107
+received image from scanner: series 17 acquisition 108
+received image from scanner: series 17 acquisition 109
+received image from scanner: series 17 acquisition 110
+received image from scanner: series 17 acquisition 111
+received image from scanner: series 17 acquisition 112
+received image from scanner: series 17 acquisition 113
+received image from scanner: series 17 acquisition 114
+received image from scanner: series 17 acquisition 115
+received image from scanner: series 17 acquisition 116
+received image from scanner: series 17 acquisition 117
+received image from scanner: series 17 acquisition 118
+received image from scanner: series 17 acquisition 119
+received image from scanner: series 17 acquisition 120
+received image from scanner: series 17 acquisition 121
+received image from scanner: series 17 acquisition 122
+received image from scanner: series 17 acquisition 123
+received image from scanner: series 17 acquisition 124
+received image from scanner: series 17 acquisition 125
+received image from scanner: series 17 acquisition 126
+received image from scanner: series 17 acquisition 127
+received image from scanner: series 17 acquisition 128
+received image from scanner: series 17 acquisition 129
+received image from scanner: series 17 acquisition 130
+received image from scanner: series 17 acquisition 131
+received image from scanner: series 17 acquisition 132
+received image from scanner: series 17 acquisition 133
+received image from scanner: series 17 acquisition 134
+received image from scanner: series 17 acquisition 135
+received image from scanner: series 17 acquisition 136
+received image from scanner: series 17 acquisition 137
+received image from scanner: series 17 acquisition 138
+received image from scanner: series 17 acquisition 139
+received image from scanner: series 17 acquisition 140
+received image from scanner: series 17 acquisition 141
+received image from scanner: series 17 acquisition 142
+received image from scanner: series 17 acquisition 143
+received image from scanner: series 17 acquisition 144
+received image from scanner: series 17 acquisition 145
+received image from scanner: series 17 acquisition 146
+received image from scanner: series 17 acquisition 147
+received image from scanner: series 17 acquisition 148
+received image from scanner: series 17 acquisition 149
+received image from scanner: series 17 acquisition 150
+received image from scanner: series 17 acquisition 151
+received image from scanner: series 17 acquisition 152
+received image from scanner: series 17 acquisition 153
+received image from scanner: series 17 acquisition 154
+received image from scanner: series 17 acquisition 155
+received image from scanner: series 17 acquisition 156
+received image from scanner: series 17 acquisition 157
+received image from scanner: series 17 acquisition 158
+received image from scanner: series 17 acquisition 159
+received image from scanner: series 17 acquisition 160
+received image from scanner: series 17 acquisition 161
+received image from scanner: series 17 acquisition 162
+received image from scanner: series 17 acquisition 163
+received image from scanner: series 17 acquisition 164
+received image from scanner: series 17 acquisition 165
+received image from scanner: series 17 acquisition 166
+received image from scanner: series 17 acquisition 167
+received image from scanner: series 17 acquisition 168
+received image from scanner: series 17 acquisition 169
+received image from scanner: series 17 acquisition 170
+received image from scanner: series 17 acquisition 171
+received image from scanner: series 17 acquisition 172
+received image from scanner: series 17 acquisition 173
+received image from scanner: series 17 acquisition 174
+received image from scanner: series 17 acquisition 175
+received image from scanner: series 17 acquisition 176
+received image from scanner: series 17 acquisition 177
+received image from scanner: series 17 acquisition 178
+received image from scanner: series 17 acquisition 179
+received image from scanner: series 17 acquisition 180
+received image from scanner: series 17 acquisition 181
+received image from scanner: series 17 acquisition 182
+received image from scanner: series 17 acquisition 183
+received image from scanner: series 17 acquisition 184
+received image from scanner: series 17 acquisition 185
+received image from scanner: series 17 acquisition 186
+received image from scanner: series 17 acquisition 187
+received image from scanner: series 17 acquisition 188
+received image from scanner: series 17 acquisition 189
+received image from scanner: series 17 acquisition 190
+received image from scanner: series 17 acquisition 191
+received image from scanner: series 17 acquisition 192
+received image from scanner: series 17 acquisition 193
+received image from scanner: series 17 acquisition 194
+received image from scanner: series 17 acquisition 195
+received image from scanner: series 17 acquisition 196
+received image from scanner: series 17 acquisition 197
+received image from scanner: series 17 acquisition 198
+received image from scanner: series 17 acquisition 199
+received image from scanner: series 17 acquisition 200
+received image from scanner: series 17 acquisition 201
+received image from scanner: series 17 acquisition 202
+received image from scanner: series 17 acquisition 203
+received image from scanner: series 17 acquisition 204
+received image from scanner: series 17 acquisition 205
+received image from scanner: series 17 acquisition 206
+received image from scanner: series 17 acquisition 207
+received image from scanner: series 17 acquisition 208
+received image from scanner: series 17 acquisition 209
+received image from scanner: series 17 acquisition 210
+received image from scanner: series 17 acquisition 211
+received image from scanner: series 17 acquisition 212
+received image from scanner: series 17 acquisition 213
+received image from scanner: series 17 acquisition 214
+received image from scanner: series 17 acquisition 215
+received image from scanner: series 17 acquisition 216
+received image from scanner: series 17 acquisition 217
+received image from scanner: series 17 acquisition 218
+received image from scanner: series 17 acquisition 219
+received image from scanner: series 17 acquisition 220
+received image from scanner: series 17 acquisition 221
+received image from scanner: series 17 acquisition 222
+received image from scanner: series 17 acquisition 223
+received image from scanner: series 17 acquisition 224
+received image from scanner: series 17 acquisition 225
+received image from scanner: series 17 acquisition 226
+received image from scanner: series 17 acquisition 227
+received image from scanner: series 17 acquisition 228
+received image from scanner: series 17 acquisition 229
+received image from scanner: series 17 acquisition 230
+received image from scanner: series 17 acquisition 231
+################################################################
+
+# realtime system log file
+created 2025/3/31 19:14:58.682432
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=remind
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 250
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+################################################################
+
+# realtime system log file
+created 2025/3/31 19:15:11.674111
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=remind
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 250
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+initialization completed at 2025/3/31 19:15:11.674392
+began running at 2025/3/31 19:15:11.675031
+received image from scanner: series 17 acquisition 1
+received image from scanner: series 17 acquisition 2
+received image from scanner: series 17 acquisition 3
+received image from scanner: series 17 acquisition 4
+received image from scanner: series 17 acquisition 5
+received image from scanner: series 17 acquisition 6
+received image from scanner: series 17 acquisition 7
+received image from scanner: series 17 acquisition 8
+received image from scanner: series 17 acquisition 9
+received image from scanner: series 17 acquisition 10
+received image from scanner: series 17 acquisition 11
+received image from scanner: series 17 acquisition 12
+received image from scanner: series 17 acquisition 13
+received image from scanner: series 17 acquisition 14
+received image from scanner: series 17 acquisition 15
+received image from scanner: series 17 acquisition 16
+received image from scanner: series 17 acquisition 17
+received image from scanner: series 17 acquisition 18
+received image from scanner: series 17 acquisition 19
+received image from scanner: series 17 acquisition 20
+received image from scanner: series 17 acquisition 21
+received image from scanner: series 17 acquisition 22
+received image from scanner: series 17 acquisition 23
+received image from scanner: series 17 acquisition 24
+received image from scanner: series 17 acquisition 25
+received image from scanner: series 17 acquisition 26
+received image from scanner: series 17 acquisition 27
+received image from scanner: series 17 acquisition 28
+received image from scanner: series 17 acquisition 29
+received image from scanner: series 17 acquisition 30
+received image from scanner: series 17 acquisition 31
+received image from scanner: series 17 acquisition 32
+received image from scanner: series 17 acquisition 33
+received image from scanner: series 17 acquisition 34
+received image from scanner: series 17 acquisition 35
+received image from scanner: series 17 acquisition 36
+received image from scanner: series 17 acquisition 37
+received image from scanner: series 17 acquisition 38
+received image from scanner: series 17 acquisition 39
+received image from scanner: series 17 acquisition 40
+################################################################
+
+# realtime system log file
+created 2025/3/31 19:38:25.314816
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 2
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+initialization completed at 2025/3/31 19:38:25.315147
+began running at 2025/3/31 19:38:25.315414
+received image from scanner: series 17 acquisition 1
+received image from scanner: series 17 acquisition 2
+################################################################
+
+# realtime system log file
+created 2025/3/31 19:41:48.357629
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 2
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+initialization completed at 2025/3/31 19:41:48.357977
+began running at 2025/3/31 19:41:48.358173
+received image from scanner: series 17 acquisition 1
+received image from scanner: series 17 acquisition 2
+################################################################
+
+# realtime system log file
+created 2025/4/1 17:25:33.579596
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 2
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+initialization completed at 2025/4/1 17:25:33.579702
+began running at 2025/4/1 17:25:33.580279
+received image from scanner: series 7 acquisition 1
+received image from scanner: series 7 acquisition 2
+################################################################
+
+# realtime system log file
+created 2025/4/1 17:28:27.498794
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=remind
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 250
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+initialization completed at 2025/4/1 17:28:27.498924
+began running at 2025/4/1 17:28:27.499322
+received image from scanner: series 7 acquisition 1
+received image from scanner: series 7 acquisition 2
+received image from scanner: series 10 acquisition 1
+received image from scanner: series 10 acquisition 2
+received image from scanner: series 10 acquisition 3
+received image from scanner: series 10 acquisition 4
+received image from scanner: series 10 acquisition 5
+received image from scanner: series 10 acquisition 6
+received image from scanner: series 10 acquisition 7
+received image from scanner: series 10 acquisition 8
+received image from scanner: series 10 acquisition 9
+received image from scanner: series 10 acquisition 10
+received image from scanner: series 10 acquisition 11
+received image from scanner: series 10 acquisition 12
+received image from scanner: series 10 acquisition 13
+received image from scanner: series 10 acquisition 14
+received image from scanner: series 10 acquisition 15
+received image from scanner: series 10 acquisition 16
+received image from scanner: series 10 acquisition 17
+received image from scanner: series 10 acquisition 18
+received image from scanner: series 10 acquisition 19
+received image from scanner: series 10 acquisition 20
+received image from scanner: series 10 acquisition 21
+received image from scanner: series 10 acquisition 22
+received image from scanner: series 10 acquisition 23
+received image from scanner: series 10 acquisition 24
+received image from scanner: series 10 acquisition 25
+received image from scanner: series 10 acquisition 26
+received image from scanner: series 10 acquisition 27
+received image from scanner: series 10 acquisition 28
+received image from scanner: series 10 acquisition 29
+received image from scanner: series 10 acquisition 30
+received image from scanner: series 10 acquisition 31
+received image from scanner: series 10 acquisition 32
+received image from scanner: series 10 acquisition 33
+received image from scanner: series 10 acquisition 34
+received image from scanner: series 10 acquisition 35
+received image from scanner: series 10 acquisition 36
+received image from scanner: series 10 acquisition 37
+received image from scanner: series 10 acquisition 38
+received image from scanner: series 10 acquisition 39
+received image from scanner: series 10 acquisition 40
+received image from scanner: series 10 acquisition 41
+received image from scanner: series 10 acquisition 42
+received image from scanner: series 10 acquisition 43
+received image from scanner: series 10 acquisition 44
+received image from scanner: series 10 acquisition 45
+received image from scanner: series 10 acquisition 46
+received image from scanner: series 10 acquisition 47
+received image from scanner: series 10 acquisition 48
+received image from scanner: series 10 acquisition 49
+received image from scanner: series 10 acquisition 50
+received image from scanner: series 10 acquisition 51
+received image from scanner: series 10 acquisition 52
+################################################################
+
+# realtime system log file
+created 2025/4/1 19:57:0.367180
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 2
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+################################################################
+
+# realtime system log file
+created 2025/4/1 19:57:47.292156
+
+configured the mosaic
+configured the mask-gen
+configured the mask-load
+configured the mask-load
+configured the incremental-glm
+configured the current-activation
+configured the roi-combine
+configured the roi-combine
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 150
+  + option
+    + name=port
+    + 15000
+  + option
+    + name=saveImages
+    + true
+  + option
+    + name=receiveImages
+    + true
+  + option
+    + name=onlyReadMoCo
+    + true
+  + option
+    + name=unmosaic
+    + true
+  + option
+    + name=imageType
+    + epi
+  + option
+    + name=matrixSize
+    + 98
+  + option
+    + name=slices
+    + 75
+  + option
+    + name=voxdim1
+    + 2
+  + option
+    + name=voxdim2
+    + 2
+  + option
+    + name=voxdim3
+    + 2
+  + option
+    + name=preHeader
+    + true
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + /BOLD_DICOM
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+  + module
+    + name=mask-gen
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + brain
+    + option
+      + name=threshold
+      + 0.5
+    + option
+      + name=useBet
+      + false
+    + option
+      + name=betParms
+      + -f 0.5 -g 0 -n -m
+    + option
+      + name=dynamic
+      + false
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + dmn
+    + option
+      + name=filename
+      + dmn
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + cen
+    + option
+      + name=filename
+      + cen
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=incremental-glm
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + output
+      + display
+    + option
+      + name=maskRoiID
+      + brain
+    + design
+      + option
+        + name=disabled
+        + false
+      + option
+        + name=modelMotionDerivatives
+        + true
+      + option
+        + name=maxTrendOrder
+        + 1
+      + option
+        + name=condition
+        + conditionName=Regulation
+        + 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+      + option
+        + name=conditionShift
+        + 25
+  + module
+    + name=current-activation
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=print
+      + true
+    + option
+      + name=modelFitModuleID
+      + incremental-glm
+    + option
+      + name=modelFitRoiID
+      + brain
+    + option
+      + name=maskRoiID
+      + brain
+    + option
+      + name=numDataPointsForErrEst
+      + 25
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + dmn
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + cen
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+--------------
+
+################################################################
+
+# realtime system log file
+created 2025/4/1 19:59:5.829307
+
+configured the mosaic
+configured the mask-gen
+configured the mask-load
+configured the mask-load
+configured the incremental-glm
+configured the current-activation
+configured the roi-combine
+configured the roi-combine
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 150
+  + option
+    + name=port
+    + 15000
+  + option
+    + name=saveImages
+    + true
+  + option
+    + name=receiveImages
+    + true
+  + option
+    + name=onlyReadMoCo
+    + true
+  + option
+    + name=unmosaic
+    + true
+  + option
+    + name=imageType
+    + epi
+  + option
+    + name=matrixSize
+    + 98
+  + option
+    + name=slices
+    + 75
+  + option
+    + name=voxdim1
+    + 2
+  + option
+    + name=voxdim2
+    + 2
+  + option
+    + name=voxdim3
+    + 2
+  + option
+    + name=preHeader
+    + true
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+  + module
+    + name=mask-gen
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + brain
+    + option
+      + name=threshold
+      + 0.5
+    + option
+      + name=useBet
+      + false
+    + option
+      + name=betParms
+      + -f 0.5 -g 0 -n -m
+    + option
+      + name=dynamic
+      + false
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + dmn
+    + option
+      + name=filename
+      + dmn
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + cen
+    + option
+      + name=filename
+      + cen
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=incremental-glm
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + output
+      + display
+    + option
+      + name=maskRoiID
+      + brain
+    + design
+      + option
+        + name=disabled
+        + false
+      + option
+        + name=modelMotionDerivatives
+        + true
+      + option
+        + name=maxTrendOrder
+        + 1
+      + option
+        + name=condition
+        + conditionName=Regulation
+        + 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+      + option
+        + name=conditionShift
+        + 25
+  + module
+    + name=current-activation
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=print
+      + true
+    + option
+      + name=modelFitModuleID
+      + incremental-glm
+    + option
+      + name=modelFitRoiID
+      + brain
+    + option
+      + name=maskRoiID
+      + brain
+    + option
+      + name=numDataPointsForErrEst
+      + 25
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + dmn
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + cen
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+--------------
+
+################################################################
+
+# realtime system log file
+created 2025/4/1 19:59:58.280615
+
+configured the mosaic
+configured the mask-gen
+configured the mask-load
+configured the mask-load
+configured the incremental-glm
+configured the current-activation
+configured the roi-combine
+configured the roi-combine
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 150
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+  + module
+    + name=mask-gen
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + brain
+    + option
+      + name=threshold
+      + 0.5
+    + option
+      + name=useBet
+      + false
+    + option
+      + name=betParms
+      + -f 0.5 -g 0 -n -m
+    + option
+      + name=dynamic
+      + false
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + dmn
+    + option
+      + name=filename
+      + dmn
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + cen
+    + option
+      + name=filename
+      + cen
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=incremental-glm
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + output
+      + display
+    + option
+      + name=maskRoiID
+      + brain
+    + design
+      + option
+        + name=disabled
+        + false
+      + option
+        + name=modelMotionDerivatives
+        + true
+      + option
+        + name=maxTrendOrder
+        + 1
+      + option
+        + name=condition
+        + conditionName=Regulation
+        + 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+      + option
+        + name=conditionShift
+        + 25
+  + module
+    + name=current-activation
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=print
+      + true
+    + option
+      + name=modelFitModuleID
+      + incremental-glm
+    + option
+      + name=modelFitRoiID
+      + brain
+    + option
+      + name=maskRoiID
+      + brain
+    + option
+      + name=numDataPointsForErrEst
+      + 25
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + dmn
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + cen
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+--------------
+
+initialization completed at 2025/4/1 19:59:58.283752
+began running at 2025/4/1 19:59:58.283930
+received image from scanner: series 7 acquisition 1
+maskgen: produced mask brain of 238167 voxels and saved to /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/mask/series7_brain.nii
+received image from scanner: series 7 acquisition 2
+received image from scanner: series 10 acquisition 1
+received image from scanner: series 10 acquisition 2
+maskload: loaded mask dmn of 2002 voxels and saved to /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/mask/series7_dmn.nii
+maskload: loaded mask cen of 1993 voxels and saved to /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/mask/series7_cen.nii
+RtIncrementalGLM: done at tr 1
+RtCurrentActivation: done at tr 1
+RtRoiCombine: dmn at tr 1 result is: 0
+RtRoiCombine: cen at tr 1 result is: 0
+RtIncrementalGLM: done at tr 2
+RtIncrementalGLM: done at tr 1
+RtCurrentActivation: done at tr 2
+RtRoiCombine: dmn at tr 2 result is: 0
+RtRoiCombine: cen at tr 2 result is: 0
+RtCurrentActivation: done at tr 1
+RtRoiCombine: dmn at tr 1 result is: 0
+RtRoiCombine: cen at tr 1 result is: 0
+RtIncrementalGLM: done at tr 2
+RtCurrentActivation: done at tr 2
+RtRoiCombine: dmn at tr 2 result is: -0.514088
+RtRoiCombine: cen at tr 2 result is: -0.536248
+received image from scanner: series 10 acquisition 3
+RtIncrementalGLM: done at tr 3
+RtCurrentActivation: done at tr 3
+RtRoiCombine: dmn at tr 3 result is: -0.166624
+RtRoiCombine: cen at tr 3 result is: -0.179303
+received image from scanner: series 10 acquisition 4
+RtIncrementalGLM: done at tr 4
+RtCurrentActivation: done at tr 4
+RtRoiCombine: dmn at tr 4 result is: 0.0373041
+RtRoiCombine: cen at tr 4 result is: 0.0345795
+received image from scanner: series 10 acquisition 5
+RtIncrementalGLM: done at tr 5
+RtCurrentActivation: done at tr 5
+RtRoiCombine: dmn at tr 5 result is: 0.14762
+RtRoiCombine: cen at tr 5 result is: 0.145695
+received image from scanner: series 10 acquisition 6
+RtIncrementalGLM: done at tr 6
+RtCurrentActivation: done at tr 6
+RtRoiCombine: dmn at tr 6 result is: 0.215301
+RtRoiCombine: cen at tr 6 result is: 0.211813
+received image from scanner: series 10 acquisition 7
+RtIncrementalGLM: done at tr 7
+RtCurrentActivation: done at tr 7
+RtRoiCombine: dmn at tr 7 result is: 0.25064
+RtRoiCombine: cen at tr 7 result is: 0.262598
+received image from scanner: series 10 acquisition 8
+RtIncrementalGLM: done at tr 8
+RtCurrentActivation: done at tr 8
+RtRoiCombine: dmn at tr 8 result is: 0.256071
+RtRoiCombine: cen at tr 8 result is: 0.273952
+received image from scanner: series 10 acquisition 9
+RtIncrementalGLM: done at tr 9
+RtCurrentActivation: done at tr 9
+RtRoiCombine: dmn at tr 9 result is: 0.273633
+RtRoiCombine: cen at tr 9 result is: 0.285489
+received image from scanner: series 10 acquisition 10
+RtIncrementalGLM: done at tr 10
+RtCurrentActivation: done at tr 10
+RtRoiCombine: dmn at tr 10 result is: 0.273547
+RtRoiCombine: cen at tr 10 result is: 0.278146
+received image from scanner: series 10 acquisition 11
+RtIncrementalGLM: done at tr 11
+RtCurrentActivation: done at tr 11
+RtRoiCombine: dmn at tr 11 result is: 0.300457
+RtRoiCombine: cen at tr 11 result is: 0.288472
+received image from scanner: series 10 acquisition 12
+RtIncrementalGLM: done at tr 12
+RtCurrentActivation: done at tr 12
+RtRoiCombine: dmn at tr 12 result is: 0.299473
+RtRoiCombine: cen at tr 12 result is: 0.31151
+received image from scanner: series 10 acquisition 13
+RtIncrementalGLM: done at tr 13
+RtCurrentActivation: done at tr 13
+RtRoiCombine: dmn at tr 13 result is: 0.268311
+RtRoiCombine: cen at tr 13 result is: 0.319608
+received image from scanner: series 10 acquisition 14
+RtIncrementalGLM: done at tr 14
+RtCurrentActivation: done at tr 14
+RtRoiCombine: dmn at tr 14 result is: 0.283287
+RtRoiCombine: cen at tr 14 result is: 0.343443
+received image from scanner: series 10 acquisition 15
+RtIncrementalGLM: done at tr 15
+RtCurrentActivation: done at tr 15
+RtRoiCombine: dmn at tr 15 result is: 0.299217
+RtRoiCombine: cen at tr 15 result is: 0.317327
+received image from scanner: series 10 acquisition 16
+RtIncrementalGLM: done at tr 16
+RtCurrentActivation: done at tr 16
+RtRoiCombine: dmn at tr 16 result is: 0.272924
+RtRoiCombine: cen at tr 16 result is: 0.313157
+received image from scanner: series 10 acquisition 17
+RtIncrementalGLM: done at tr 17
+RtCurrentActivation: done at tr 17
+RtRoiCombine: dmn at tr 17 result is: 0.276803
+RtRoiCombine: cen at tr 17 result is: 0.278581
+received image from scanner: series 10 acquisition 18
+RtIncrementalGLM: done at tr 18
+RtCurrentActivation: done at tr 18
+RtRoiCombine: dmn at tr 18 result is: 0.2703
+RtRoiCombine: cen at tr 18 result is: 0.297438
+received image from scanner: series 10 acquisition 19
+RtIncrementalGLM: done at tr 19
+RtCurrentActivation: done at tr 19
+RtRoiCombine: dmn at tr 19 result is: 0.274594
+RtRoiCombine: cen at tr 19 result is: 0.29641
+received image from scanner: series 10 acquisition 20
+RtIncrementalGLM: done at tr 20
+RtCurrentActivation: done at tr 20
+RtRoiCombine: dmn at tr 20 result is: 0.254252
+RtRoiCombine: cen at tr 20 result is: 0.284899
+received image from scanner: series 10 acquisition 21
+RtIncrementalGLM: done at tr 21
+RtCurrentActivation: done at tr 21
+RtRoiCombine: dmn at tr 21 result is: 0.260481
+RtRoiCombine: cen at tr 21 result is: 0.289674
+received image from scanner: series 10 acquisition 22
+RtIncrementalGLM: done at tr 22
+RtCurrentActivation: done at tr 22
+RtRoiCombine: dmn at tr 22 result is: 0.252793
+RtRoiCombine: cen at tr 22 result is: 0.312286
+################################################################
+
+# realtime system log file
+created 2025/4/1 20:2:23.235487
+
+configured the mosaic
+configured the mask-gen
+configured the mask-load
+configured the mask-load
+configured the incremental-glm
+configured the current-activation
+configured the roi-combine
+configured the roi-combine
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 150
+  + option
+    + name=saveImages
+    + true
+  + option
+    + name=receiveImages
+    + true
+  + option
+    + name=onlyReadMoCo
+    + true
+  + option
+    + name=preHeader
+    + true
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+  + module
+    + name=mask-gen
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + brain
+    + option
+      + name=threshold
+      + 0.5
+    + option
+      + name=useBet
+      + false
+    + option
+      + name=betParms
+      + -f 0.5 -g 0 -n -m
+    + option
+      + name=dynamic
+      + false
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + dmn
+    + option
+      + name=filename
+      + dmn
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + cen
+    + option
+      + name=filename
+      + cen
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=incremental-glm
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + output
+      + display
+    + option
+      + name=maskRoiID
+      + brain
+    + design
+      + option
+        + name=disabled
+        + false
+      + option
+        + name=modelMotionDerivatives
+        + true
+      + option
+        + name=maxTrendOrder
+        + 1
+      + option
+        + name=condition
+        + conditionName=Regulation
+        + 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+      + option
+        + name=conditionShift
+        + 25
+  + module
+    + name=current-activation
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=print
+      + true
+    + option
+      + name=modelFitModuleID
+      + incremental-glm
+    + option
+      + name=modelFitRoiID
+      + brain
+    + option
+      + name=maskRoiID
+      + brain
+    + option
+      + name=numDataPointsForErrEst
+      + 25
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + dmn
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + cen
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+--------------
+
+################################################################
+
+# realtime system log file
+created 2025/4/1 20:25:47.204536
+
+configured the mosaic
+configured the mask-gen
+configured the mask-load
+configured the mask-load
+configured the incremental-glm
+configured the current-activation
+configured the roi-combine
+configured the roi-combine
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 150
+  + option
+    + name=saveImages
+    + true
+  + option
+    + name=receiveImages
+    + true
+  + option
+    + name=onlyReadMoCo
+    + true
+  + option
+    + name=preHeader
+    + true
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+  + module
+    + name=mask-gen
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + brain
+    + option
+      + name=threshold
+      + 0.5
+    + option
+      + name=useBet
+      + false
+    + option
+      + name=betParms
+      + -f 0.5 -g 0 -n -m
+    + option
+      + name=dynamic
+      + false
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + dmn
+    + option
+      + name=filename
+      + dmn
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + cen
+    + option
+      + name=filename
+      + cen
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=incremental-glm
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + output
+      + display
+    + option
+      + name=maskRoiID
+      + brain
+    + design
+      + option
+        + name=disabled
+        + false
+      + option
+        + name=modelMotionDerivatives
+        + true
+      + option
+        + name=maxTrendOrder
+        + 1
+      + option
+        + name=condition
+        + conditionName=Regulation
+        + 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+      + option
+        + name=conditionShift
+        + 25
+  + module
+    + name=current-activation
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=print
+      + true
+    + option
+      + name=modelFitModuleID
+      + incremental-glm
+    + option
+      + name=modelFitRoiID
+      + brain
+    + option
+      + name=maskRoiID
+      + brain
+    + option
+      + name=numDataPointsForErrEst
+      + 25
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + dmn
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + cen
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+--------------
+
+initialization completed at 2025/4/1 20:25:47.207394
+began running at 2025/4/1 20:25:47.208402
+received image from scanner: series 15 acquisition 1
+maskgen: produced mask brain of 246429 voxels and saved to /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/mask/series15_brain.nii
+received image from scanner: series 15 acquisition 2
+received image from scanner: series 15 acquisition 3
+received image from scanner: series 15 acquisition 4
+maskload: loaded mask dmn of 2001 voxels and saved to /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/mask/series15_dmn.nii
+maskload: loaded mask cen of 1994 voxels and saved to /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/mask/series15_cen.nii
+RtIncrementalGLM: done at tr 1
+RtCurrentActivation: done at tr 1
+RtRoiCombine: dmn at tr 1 result is: 0
+RtRoiCombine: cen at tr 1 result is: 0
+RtIncrementalGLM: done at tr 2
+RtCurrentActivation: done at tr 2
+RtRoiCombine: dmn at tr 2 result is: 0
+RtRoiCombine: cen at tr 2 result is: 0
+RtIncrementalGLM: done at tr 3
+RtCurrentActivation: done at tr 3
+RtRoiCombine: dmn at tr 3 result is: 0
+RtRoiCombine: cen at tr 3 result is: 0
+RtIncrementalGLM: done at tr 4
+RtCurrentActivation: done at tr 4
+RtRoiCombine: dmn at tr 4 result is: 0
+RtRoiCombine: cen at tr 4 result is: 0
+received image from scanner: series 15 acquisition 5
+RtIncrementalGLM: done at tr 5
+RtCurrentActivation: done at tr 5
+RtRoiCombine: dmn at tr 5 result is: 0
+RtRoiCombine: cen at tr 5 result is: 0
+received image from scanner: series 15 acquisition 6
+RtIncrementalGLM: done at tr 6
+RtCurrentActivation: done at tr 6
+RtRoiCombine: dmn at tr 6 result is: 0
+RtRoiCombine: cen at tr 6 result is: 0
+received image from scanner: series 15 acquisition 7
+RtIncrementalGLM: done at tr 7
+RtCurrentActivation: done at tr 7
+RtRoiCombine: dmn at tr 7 result is: 0
+RtRoiCombine: cen at tr 7 result is: 0
+received image from scanner: series 15 acquisition 8
+RtIncrementalGLM: done at tr 8
+RtCurrentActivation: done at tr 8
+RtRoiCombine: dmn at tr 8 result is: 0
+RtRoiCombine: cen at tr 8 result is: 0
+received image from scanner: series 15 acquisition 9
+RtIncrementalGLM: done at tr 9
+RtCurrentActivation: done at tr 9
+RtRoiCombine: dmn at tr 9 result is: -0.0421451
+RtRoiCombine: cen at tr 9 result is: -0.0168572
+received image from scanner: series 15 acquisition 10
+RtIncrementalGLM: done at tr 10
+RtCurrentActivation: done at tr 10
+RtRoiCombine: dmn at tr 10 result is: 0.0115364
+RtRoiCombine: cen at tr 10 result is: 0.0364569
+received image from scanner: series 15 acquisition 11
+RtIncrementalGLM: done at tr 11
+RtCurrentActivation: done at tr 11
+RtRoiCombine: dmn at tr 11 result is: -0.112743
+RtRoiCombine: cen at tr 11 result is: -0.167261
+received image from scanner: series 15 acquisition 12
+RtIncrementalGLM: done at tr 12
+RtCurrentActivation: done at tr 12
+RtRoiCombine: dmn at tr 12 result is: -0.142352
+RtRoiCombine: cen at tr 12 result is: 0.00374425
+received image from scanner: series 15 acquisition 13
+RtIncrementalGLM: done at tr 13
+RtCurrentActivation: done at tr 13
+RtRoiCombine: dmn at tr 13 result is: 0.0300361
+RtRoiCombine: cen at tr 13 result is: -0.043887
+received image from scanner: series 15 acquisition 14
+RtIncrementalGLM: done at tr 14
+RtCurrentActivation: done at tr 14
+RtRoiCombine: dmn at tr 14 result is: 0.0572229
+RtRoiCombine: cen at tr 14 result is: 0.121462
+received image from scanner: series 15 acquisition 15
+RtIncrementalGLM: done at tr 15
+RtCurrentActivation: done at tr 15
+RtRoiCombine: dmn at tr 15 result is: 0.0253115
+RtRoiCombine: cen at tr 15 result is: 0.163999
+received image from scanner: series 15 acquisition 16
+RtIncrementalGLM: done at tr 16
+RtCurrentActivation: done at tr 16
+RtRoiCombine: dmn at tr 16 result is: 0.0229828
+RtRoiCombine: cen at tr 16 result is: 0.103784
+received image from scanner: series 15 acquisition 17
+RtIncrementalGLM: done at tr 17
+RtCurrentActivation: done at tr 17
+RtRoiCombine: dmn at tr 17 result is: -0.0633051
+RtRoiCombine: cen at tr 17 result is: 0.0644906
+received image from scanner: series 15 acquisition 18
+RtIncrementalGLM: done at tr 18
+RtCurrentActivation: done at tr 18
+RtRoiCombine: dmn at tr 18 result is: -0.101056
+RtRoiCombine: cen at tr 18 result is: 0.040586
+received image from scanner: series 15 acquisition 19
+RtIncrementalGLM: done at tr 19
+RtCurrentActivation: done at tr 19
+RtRoiCombine: dmn at tr 19 result is: -0.0421847
+RtRoiCombine: cen at tr 19 result is: 0.0767149
+received image from scanner: series 15 acquisition 20
+RtIncrementalGLM: done at tr 20
+RtCurrentActivation: done at tr 20
+RtRoiCombine: dmn at tr 20 result is: -0.100623
+RtRoiCombine: cen at tr 20 result is: -0.00819585
+received image from scanner: series 15 acquisition 21
+RtIncrementalGLM: done at tr 21
+RtCurrentActivation: done at tr 21
+RtRoiCombine: dmn at tr 21 result is: -0.0857906
+RtRoiCombine: cen at tr 21 result is: 0.0863377
+received image from scanner: series 15 acquisition 22
+RtIncrementalGLM: done at tr 22
+RtCurrentActivation: done at tr 22
+RtRoiCombine: dmn at tr 22 result is: -0.0316345
+RtRoiCombine: cen at tr 22 result is: 0.159765
+received image from scanner: series 15 acquisition 23
+RtIncrementalGLM: done at tr 23
+RtCurrentActivation: done at tr 23
+RtRoiCombine: dmn at tr 23 result is: -0.0532101
+RtRoiCombine: cen at tr 23 result is: 0.19977
+received image from scanner: series 15 acquisition 24
+RtIncrementalGLM: done at tr 24
+RtCurrentActivation: done at tr 24
+RtRoiCombine: dmn at tr 24 result is: -0.0733146
+RtRoiCombine: cen at tr 24 result is: 0.229708
+received image from scanner: series 15 acquisition 25
+RtIncrementalGLM: done at tr 25
+RtCurrentActivation: done at tr 25
+RtRoiCombine: dmn at tr 25 result is: 0.019099
+RtRoiCombine: cen at tr 25 result is: 0.244734
+received image from scanner: series 15 acquisition 26
+RtIncrementalGLM: done at tr 26
+RtCurrentActivation: done at tr 26
+RtRoiCombine: dmn at tr 26 result is: -0.069456
+RtRoiCombine: cen at tr 26 result is: 0.139348
+received image from scanner: series 15 acquisition 27
+RtIncrementalGLM: done at tr 27
+RtCurrentActivation: done at tr 27
+RtRoiCombine: dmn at tr 27 result is: -0.124861
+RtRoiCombine: cen at tr 27 result is: 0.328611
+received image from scanner: series 15 acquisition 28
+RtIncrementalGLM: done at tr 28
+RtCurrentActivation: done at tr 28
+RtRoiCombine: dmn at tr 28 result is: -0.0270999
+RtRoiCombine: cen at tr 28 result is: 0.358456
+received image from scanner: series 15 acquisition 29
+RtIncrementalGLM: done at tr 29
+RtCurrentActivation: done at tr 29
+RtRoiCombine: dmn at tr 29 result is: 0.0850633
+RtRoiCombine: cen at tr 29 result is: 0.565889
+received image from scanner: series 15 acquisition 30
+RtIncrementalGLM: done at tr 30
+RtCurrentActivation: done at tr 30
+RtRoiCombine: dmn at tr 30 result is: 0.217533
+RtRoiCombine: cen at tr 30 result is: 0.793366
+received image from scanner: series 15 acquisition 31
+RtIncrementalGLM: done at tr 31
+RtCurrentActivation: done at tr 31
+RtRoiCombine: dmn at tr 31 result is: 0.354604
+RtRoiCombine: cen at tr 31 result is: 0.84365
+received image from scanner: series 15 acquisition 32
+RtIncrementalGLM: done at tr 32
+RtCurrentActivation: done at tr 32
+RtRoiCombine: dmn at tr 32 result is: 0.336189
+RtRoiCombine: cen at tr 32 result is: 0.754757
+received image from scanner: series 15 acquisition 33
+RtIncrementalGLM: done at tr 33
+RtCurrentActivation: done at tr 33
+RtRoiCombine: dmn at tr 33 result is: 0.394966
+RtRoiCombine: cen at tr 33 result is: 1.04758
+received image from scanner: series 15 acquisition 34
+RtIncrementalGLM: done at tr 34
+RtCurrentActivation: done at tr 34
+RtRoiCombine: dmn at tr 34 result is: 0.354173
+RtRoiCombine: cen at tr 34 result is: 0.906208
+received image from scanner: series 15 acquisition 35
+RtIncrementalGLM: done at tr 35
+RtCurrentActivation: done at tr 35
+RtRoiCombine: dmn at tr 35 result is: 0.378321
+RtRoiCombine: cen at tr 35 result is: 1.03752
+received image from scanner: series 15 acquisition 36
+RtIncrementalGLM: done at tr 36
+RtCurrentActivation: done at tr 36
+RtRoiCombine: dmn at tr 36 result is: 0.368188
+RtRoiCombine: cen at tr 36 result is: 1.13046
+received image from scanner: series 15 acquisition 37
+RtIncrementalGLM: done at tr 37
+RtCurrentActivation: done at tr 37
+RtRoiCombine: dmn at tr 37 result is: 0.492016
+RtRoiCombine: cen at tr 37 result is: 1.10235
+received image from scanner: series 15 acquisition 38
+RtIncrementalGLM: done at tr 38
+RtCurrentActivation: done at tr 38
+RtRoiCombine: dmn at tr 38 result is: 0.429997
+RtRoiCombine: cen at tr 38 result is: 1.13218
+received image from scanner: series 15 acquisition 39
+RtIncrementalGLM: done at tr 39
+RtCurrentActivation: done at tr 39
+RtRoiCombine: dmn at tr 39 result is: 0.348379
+RtRoiCombine: cen at tr 39 result is: 1.05568
+received image from scanner: series 15 acquisition 40
+RtIncrementalGLM: done at tr 40
+RtCurrentActivation: done at tr 40
+RtRoiCombine: dmn at tr 40 result is: 0.403187
+RtRoiCombine: cen at tr 40 result is: 1.05995
+received image from scanner: series 15 acquisition 41
+RtIncrementalGLM: done at tr 41
+RtCurrentActivation: done at tr 41
+RtRoiCombine: dmn at tr 41 result is: 0.46983
+RtRoiCombine: cen at tr 41 result is: 1.11621
+received image from scanner: series 15 acquisition 42
+RtIncrementalGLM: done at tr 42
+RtCurrentActivation: done at tr 42
+RtRoiCombine: dmn at tr 42 result is: 0.573443
+RtRoiCombine: cen at tr 42 result is: 1.19484
+received image from scanner: series 15 acquisition 43
+RtIncrementalGLM: done at tr 43
+RtCurrentActivation: done at tr 43
+RtRoiCombine: dmn at tr 43 result is: 0.560602
+RtRoiCombine: cen at tr 43 result is: 1.21548
+received image from scanner: series 15 acquisition 44
+RtIncrementalGLM: done at tr 44
+RtCurrentActivation: done at tr 44
+RtRoiCombine: dmn at tr 44 result is: 0.605806
+RtRoiCombine: cen at tr 44 result is: 1.15676
+received image from scanner: series 15 acquisition 45
+RtIncrementalGLM: done at tr 45
+RtCurrentActivation: done at tr 45
+RtRoiCombine: dmn at tr 45 result is: 0.526366
+RtRoiCombine: cen at tr 45 result is: 1.06045
+received image from scanner: series 15 acquisition 46
+RtIncrementalGLM: done at tr 46
+RtCurrentActivation: done at tr 46
+RtRoiCombine: dmn at tr 46 result is: 0.44194
+RtRoiCombine: cen at tr 46 result is: 1.04842
+################################################################
+
+# realtime system log file
+created 2025/4/1 20:40:23.270399
+
+configured the mosaic
+configured the mask-gen
+configured the mask-load
+configured the mask-load
+configured the incremental-glm
+configured the current-activation
+configured the roi-combine
+configured the roi-combine
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 150
+  + option
+    + name=saveImages
+    + true
+  + option
+    + name=receiveImages
+    + true
+  + option
+    + name=onlyReadMoCo
+    + true
+  + option
+    + name=preHeader
+    + true
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+  + module
+    + name=mask-gen
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + brain
+    + option
+      + name=threshold
+      + 0.5
+    + option
+      + name=useBet
+      + false
+    + option
+      + name=betParms
+      + -f 0.5 -g 0 -n -m
+    + option
+      + name=dynamic
+      + false
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + dmn
+    + option
+      + name=filename
+      + dmn
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + cen
+    + option
+      + name=filename
+      + cen
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=incremental-glm
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + output
+      + display
+    + option
+      + name=maskRoiID
+      + brain
+    + design
+      + option
+        + name=disabled
+        + false
+      + option
+        + name=modelMotionDerivatives
+        + true
+      + option
+        + name=maxTrendOrder
+        + 1
+      + option
+        + name=condition
+        + conditionName=Regulation
+        + 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+      + option
+        + name=conditionShift
+        + 25
+  + module
+    + name=current-activation
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=print
+      + true
+    + option
+      + name=modelFitModuleID
+      + incremental-glm
+    + option
+      + name=modelFitRoiID
+      + brain
+    + option
+      + name=maskRoiID
+      + brain
+    + option
+      + name=numDataPointsForErrEst
+      + 25
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + dmn
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + cen
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+--------------
+
+initialization completed at 2025/4/1 20:40:23.274150
+began running at 2025/4/1 20:40:23.274873
+received image from scanner: series 15 acquisition 1
+maskgen: produced mask brain of 246429 voxels and saved to /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/mask/series15_brain.nii
+maskload: loaded mask dmn of 2001 voxels and saved to /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/mask/series15_dmn.nii
+maskload: loaded mask cen of 1994 voxels and saved to /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/mask/series15_cen.nii
+RtIncrementalGLM: done at tr 1
+RtCurrentActivation: done at tr 1
+RtRoiCombine: dmn at tr 1 result is: 0
+RtRoiCombine: cen at tr 1 result is: 0
+received image from scanner: series 15 acquisition 2
+RtIncrementalGLM: done at tr 2
+RtCurrentActivation: done at tr 2
+RtRoiCombine: dmn at tr 2 result is: 0
+RtRoiCombine: cen at tr 2 result is: 0
+received image from scanner: series 15 acquisition 3
+RtIncrementalGLM: done at tr 3
+RtCurrentActivation: done at tr 3
+RtRoiCombine: dmn at tr 3 result is: 0
+RtRoiCombine: cen at tr 3 result is: 0
+received image from scanner: series 15 acquisition 4
+RtIncrementalGLM: done at tr 4
+RtCurrentActivation: done at tr 4
+RtRoiCombine: dmn at tr 4 result is: 0
+RtRoiCombine: cen at tr 4 result is: 0
+received image from scanner: series 15 acquisition 5
+RtIncrementalGLM: done at tr 5
+RtCurrentActivation: done at tr 5
+RtRoiCombine: dmn at tr 5 result is: 0
+RtRoiCombine: cen at tr 5 result is: 0
+received image from scanner: series 15 acquisition 6
+RtIncrementalGLM: done at tr 6
+RtCurrentActivation: done at tr 6
+RtRoiCombine: dmn at tr 6 result is: 0
+RtRoiCombine: cen at tr 6 result is: 0
+received image from scanner: series 15 acquisition 7
+RtIncrementalGLM: done at tr 7
+RtCurrentActivation: done at tr 7
+RtRoiCombine: dmn at tr 7 result is: 0
+RtRoiCombine: cen at tr 7 result is: 0
+received image from scanner: series 15 acquisition 8
+RtIncrementalGLM: done at tr 8
+RtCurrentActivation: done at tr 8
+RtRoiCombine: dmn at tr 8 result is: 0
+RtRoiCombine: cen at tr 8 result is: 0
+received image from scanner: series 15 acquisition 9
+RtIncrementalGLM: done at tr 9
+RtCurrentActivation: done at tr 9
+RtRoiCombine: dmn at tr 9 result is: -0.0421451
+RtRoiCombine: cen at tr 9 result is: -0.0168572
+received image from scanner: series 15 acquisition 10
+RtIncrementalGLM: done at tr 10
+RtCurrentActivation: done at tr 10
+RtRoiCombine: dmn at tr 10 result is: 0.0115364
+RtRoiCombine: cen at tr 10 result is: 0.0364569
+received image from scanner: series 15 acquisition 11
+################################################################
+
+# realtime system log file
+created 2025/4/1 20:48:46.586251
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 2
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+################################################################
+
+# realtime system log file
+created 2025/4/1 20:48:54.320926
+
+configured the mosaic
+configured the mask-gen
+configured the mask-load
+configured the mask-load
+configured the incremental-glm
+configured the current-activation
+configured the roi-combine
+configured the roi-combine
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd3999/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 150
+  + option
+    + name=saveImages
+    + true
+  + option
+    + name=receiveImages
+    + true
+  + option
+    + name=onlyReadMoCo
+    + true
+  + option
+    + name=preHeader
+    + true
+  + option
+    + name=imageSource
+    + DICOM
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+  + module
+    + name=mask-gen
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + brain
+    + option
+      + name=threshold
+      + 0.5
+    + option
+      + name=useBet
+      + false
+    + option
+      + name=betParms
+      + -f 0.5 -g 0 -n -m
+    + option
+      + name=dynamic
+      + false
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + dmn
+    + option
+      + name=filename
+      + dmn
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=mask-load
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=roiID
+      + cen
+    + option
+      + name=filename
+      + cen
+    + option
+      + name=align
+      + true
+    + option
+      + name=save
+      + true
+  + module
+    + name=incremental-glm
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + output
+      + display
+    + option
+      + name=maskRoiID
+      + brain
+    + design
+      + option
+        + name=disabled
+        + false
+      + option
+        + name=modelMotionDerivatives
+        + true
+      + option
+        + name=maxTrendOrder
+        + 1
+      + option
+        + name=condition
+        + conditionName=Regulation
+        + 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+      + option
+        + name=conditionShift
+        + 25
+  + module
+    + name=current-activation
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=print
+      + true
+    + option
+      + name=modelFitModuleID
+      + incremental-glm
+    + option
+      + name=modelFitRoiID
+      + brain
+    + option
+      + name=maskRoiID
+      + brain
+    + option
+      + name=numDataPointsForErrEst
+      + 25
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + dmn
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+  + module
+    + name=roi-combine
+    + output
+      + infoserver
+    + output
+      + display
+    + option
+      + name=disabled
+      + false
+    + option
+      + name=print
+      + true
+    + option
+      + name=makeavail
+      + true
+    + option
+      + name=method
+      + weighted-ave
+    + option
+      + name=maskRoiID
+      + cen
+    + option
+      + name=inputModuleID
+      + current-activation
+    + option
+      + name=inputDataName
+      + activation-img
+    + option
+      + name=inputRoiID
+      + brain
+    + option
+      + name=weightModuleID
+      + incremental-glm
+    + option
+      + name=weightDataName
+      + residual_mse-img
+--------------
+
