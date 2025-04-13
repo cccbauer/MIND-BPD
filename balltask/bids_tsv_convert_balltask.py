@@ -4,6 +4,8 @@ July 17 2023
 
 Runs upon exit of balltask to convert the csv output to a BIDS-compatible tsv file
 
+Feb 20, 2025 - Changed Mental Nothing to 'Mindful Describing' and
+converted participant number to string before concatenation as it was giving error in python 3.10
 '''
 
 import pandas as pd
@@ -29,20 +31,20 @@ def convert_balltask_csv_to_bids(infile):
     df['pda']=df.cen_signal-df.dmn_signal
     df['cen_hit']=np.where(df.cen_cumulative_hits.diff(periods=-1) == -1, 1, 0)
     df['dmn_hit']=np.where(df.dmn_cumulative_hits.diff(periods=-1) == -1, 1, 0)
-    df['participant']=slider_outputs['id'][0]
+    df['participant']=str(slider_outputs['id'][0]) # getting error for datatype
     df.participant = "sub-" + df.participant
     df['run'] = slider_outputs['run'][0]
     df['feedback_on'] = slider_outputs['feedback_on'][0]
-    df['slider_noting'] = (slider_outputs.loc[slider_outputs.question_text=='How often were you using the mental noting practice?', 'response'])
+    df['slider_describing'] = (slider_outputs.loc[slider_outputs.question_text=='How often were you using the Mindful Describing practice?', 'response'])
     df['slider_ballcheck'] = (slider_outputs.loc[slider_outputs.question_text=='How often did you check the position of the ball?', 'response'])
-    df['slider_difficulty'] = (slider_outputs.loc[slider_outputs.question_text=='How difficult was it to apply mental noting?', 'response'])
+    df['slider_difficulty'] = (slider_outputs.loc[slider_outputs.question_text=='How difficult was it to apply Mindful Describing?', 'response'])
     df['slider_calm'] = (slider_outputs.loc[slider_outputs.question_text=='How calm do you feel right now?', 'response'])
     df.fillna('n/a', inplace=True)
     out_df = df[['onset', 'duration', 'trial_type', 'feedback_source_volume',
                  'cen_signal', 'dmn_signal', 'pda', 
                  'ball_y_position','cen_hit', 'dmn_hit', 
                 'scale_factor', 'participant', 'run', 'feedback_on',
-                'slider_noting', 'slider_ballcheck', 'slider_difficulty', 'slider_calm']]
+                'slider_describing', 'slider_ballcheck', 'slider_difficulty', 'slider_calm']]
 
     outfile_stems = infile.split('_')
     path = outfile_stems[0].split('/')
