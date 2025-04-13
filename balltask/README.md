@@ -1,19 +1,14 @@
-# rt-PsychoPy integration
+ 
 
-This is the example real-time Psychopy Project (rt-PsychoPy) to set up a neurofeedback experiment
+Balltask can be run in REAL of SHAM mode
 
-## Continuos Network based Neurofeedback
+- REAL mode when is applied selecting C1 and it takes DM/CEN data from murfi_activation_communicator.py
 
-With this scripts you can set up an experiment where participants will be able to modulate brain activity from 1-7 brain networks while receiving continuous feedback on a display.
+- SHAM mode is seleted with J1 and uses a matched subject feedback recorded in data/sub-mindbpdXXX_DMN_Feedback_1_frames in order to procuce the YOLKED feedback
 
-### Psychopy Setup
+In order to prepare SHAM you need to follow this steps:
 
-download the lates [Psychopy](https://www.psychopy.org/download.html)
+ 1. create a folder with the subject ID within the /feedback folder
+ 2. copy all sub-mindbpdXXX_DMN_Feedback_1_frames runs from the matched participant in there
+ 3. select J1 when setting up the SHAM participant
 
-### get the rt-PyProject
-
-download or clone this folder to get the scripts
-
-### Running a real-time Neurofeedback Simulation
-
-[Example Network-Based neurofeedback run](github.com/cccbauer/MURFI-user-manual/murfi-rt-PyProject/README.md)
