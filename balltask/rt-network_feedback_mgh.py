@@ -101,7 +101,7 @@ expInfo = {'participant':input_participant, 'run':input_run, 'anchor': input_anc
         'protocol': input_protocol}
 
 
-murfi_FAKE=True
+murfi_FAKE=False
 
 # SHAM = True # added for Sham Feedback - set False for experimental group participant
 
