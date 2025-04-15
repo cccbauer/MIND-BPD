@@ -37,6 +37,9 @@ enter_button='4'
 # participant id prefix
 filename_prefix = "sub-mindbpd"
 
+#debug mode
+murfi_FAKE=False
+
 # Ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
@@ -100,7 +103,7 @@ expInfo = {'participant':input_participant, 'run':input_run, 'anchor': input_anc
         'protocol': input_protocol}
 
 
-murfi_FAKE=False
+
 
 # SHAM = True # added for Sham Feedback - set False for experimental group participant
 
