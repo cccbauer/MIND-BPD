@@ -36,7 +36,7 @@ set fmri(outputdir) "/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindb
 set fmri(tr) 1.200000
 
 # Total volumes
-set fmri(npts) 47
+set fmri(npts) 50
 
 # Delete volumes
 set fmri(ndelete) 0
@@ -245,7 +245,7 @@ set fmri(regstandard_yn) 1
 set fmri(alternateReference_yn) 0
 
 # Standard image
-set fmri(regstandard) "/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/sub-mindbpd2999_ses-lo1_task-rest_run-01_bold_mcflirt_median_bet.nii.gz"
+set fmri(regstandard) "/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/sub-mindbpd2999_ses-lo1_task-rest_run-01_bold_mcflirt_median_bet.nii"
 
 # Search space for registration to standard space
 # 0   : No search
@@ -273,7 +273,7 @@ set fmri(totalVoxels) 277413888
 set fmri(ncopeinputs) 0
 
 # 4D AVW data or FEAT directory (1)
-set feat_files(1) "/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/sub-mindbpd2999_ses-lo1_task-rest_run-01_bold_mcflirt_masked.nii.gz"
+set feat_files(1) "/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/sub-mindbpd2999_ses-lo1_task-rest_run-01_bold_mcflirt_masked.nii"
 
 # Add confound EVs text file
 set fmri(confoundevs) 0

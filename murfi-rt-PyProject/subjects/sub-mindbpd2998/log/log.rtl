@@ -1,0 +1,108 @@
+################################################################
+
+# realtime system log file
+created 2025/4/8 9:13:10.635943
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2998/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + s
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 2
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+
+################################################################
+
+# realtime system log file
+created 2025/4/8 9:13:42.818377
+
+configured the mosaic
+configuration:
+--------------
++ study
+  + name=rtDMN
+  + option
+    + name=softwareDir
+    + /opt/murfi/
+  + log
+    + filename=/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2998/log/log.rtl
+  + xfm
+    + referenceVol=study_ref.
++ scanner
+  + option
+    + name=imageSource
+    + DICOM
+  + s
+  + option
+    + name=inputDicomDir
+    + tmp/murfi_input
+  + option
+    + name=tr
+    + 1.2
+  + option
+    + name=measurements
+    + 2
+  + option
+    + name=save
+    + true
+  + >
++ infoserver
+  + option
+    + name=disabled
+    + false
+  + option
+    + name=port
+    + 15001
++ processor
+  + module
+    + name=mosaic
+    + option
+      + name=disabled
+      + false
+    + output
+      + display
+    + output
+      + log
+--------------
+

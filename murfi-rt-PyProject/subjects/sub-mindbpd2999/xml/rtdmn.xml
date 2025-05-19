@@ -13,10 +13,10 @@
   <option name="onlyReadMoCo">  true </option>
   <option name="preHeader">     true </option>
 
-  <!-- for real-->
+  <!-- for real
   <option name="inputDicomDir">   /BOLD_DICOM  </option>
     
-    <!-- for simmulator
+    <!-- for simmulator-->
   <option name="inputDicomDir">   tmp/murfi_input </option>
    -->
 </scanner>

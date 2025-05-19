@@ -1,0 +1,14 @@
+[2025-05-19_12:31:23] source feedback_mgh.sh sub-mindbpd2996 setup_MGH
+[2025-05-19_12:31:56] source feedback_mgh.sh sub-mindbpd2996 2vol
+[2025-05-19_12:32:02] source feedback_mgh.sh sub-mindbpd2996 resting_state
+[2025-05-19_12:32:14] source feedback_mgh.sh sub-mindbpd2996 feedback
+[2025-05-19_12:33:03] source feedback_mgh.sh sub-mindbpd2996 2vol
+[2025-05-19_12:35:01] source feedback_mgh.sh sub-mindbpd2996 2vol
+[2025-05-19_12:36:02] source feedback_mgh.sh sub-mindbpd2996 resting_state
+[2025-05-19_12:37:00] source feedback_mgh.sh sub-mindbpd2996 resting_state
+[2025-05-19_12:37:12] source feedback_mgh.sh sub-mindbpd2996 resting_state
+[2025-05-19_12:38:09] source feedback_mgh.sh sub-mindbpd2996 extract_rs_networks
+[2025-05-19_12:41:29] source feedback_mgh.sh sub-mindbpd2996 process_roi_masks
+[2025-05-19_12:41:58] source feedback_mgh.sh sub-mindbpd2996 register
+[2025-05-19_12:56:00] source feedback_mgh.sh sub-mindbpd2996 feedback
+[2025-05-19_13:07:10] source feedback_mgh.sh sub-mindbpd2996 cleanup

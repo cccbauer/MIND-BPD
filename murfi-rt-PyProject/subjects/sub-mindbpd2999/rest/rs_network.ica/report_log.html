@@ -5,7 +5,7 @@
 <link REL=stylesheet TYPE=text/css href=.files/fsl.css>
 <TITLE>FSL</TITLE></HEAD><BODY><OBJECT data=report.html></OBJECT>
 <h2>Progress Report / Log</h2>
-Started at Wed Apr  2 01:36:05 PM EDT 2025<p>
+Started at Wed May  7 10:29:51 AM EDT 2025<p>
 Main script<br><pre>
 
 /bin/cp /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/scripts/../subjects/sub-mindbpd2999/rest/sub-mindbpd2999_ses-lo1_task-rest_run-01_bold.fsf design.fsf
@@ -13,31 +13,31 @@ Main script<br><pre>
 mkdir .files;cp /home/rt-mgh/fsl/doc/fsl.css .files;cp -r /home/rt-mgh/fsl/doc/images .files/images
 
 /home/rt-mgh/fsl/bin/fsl_sub -T 10 -l logs -N feat1a_init   /home/rt-mgh/fsl/bin/feat /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica/design.fsf -D /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica -I 1 -init
-195522
+11834
 
-/home/rt-mgh/fsl/bin/fsl_sub -T 4 -l logs -N feat2_pre -j 195522  /home/rt-mgh/fsl/bin/feat /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica/design.fsf -D /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica -I 1 -prestats
-196704
+/home/rt-mgh/fsl/bin/fsl_sub -T 5 -l logs -N feat2_pre -j 11834  /home/rt-mgh/fsl/bin/feat /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica/design.fsf -D /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica -I 1 -prestats
+12149
 
-/home/rt-mgh/fsl/bin/fsl_sub -T 30 -l logs -N feat4_ica -j 196704  /home/rt-mgh/fsl/bin/melodic -i filtered_func_data -o filtered_func_data.ica -v --nobet --bgthreshold=3 --tr=1.200000 --report --guireport=../../report.html -d 35 --no_mm
-197864
+/home/rt-mgh/fsl/bin/fsl_sub -T 30 -l logs -N feat4_ica -j 12149  /home/rt-mgh/fsl/bin/melodic -i filtered_func_data -o filtered_func_data.ica -v --nobet --bgthreshold=3 --tr=1.200000 --report --guireport=../../report.html -d 35 --no_mm
+13242
 
-/home/rt-mgh/fsl/bin/fsl_sub -T 1 -l logs -N feat5_stop -j 197864  /home/rt-mgh/fsl/bin/feat /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica/design.fsf -D /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica -stop
+/home/rt-mgh/fsl/bin/fsl_sub -T 1 -l logs -N feat5_stop -j 13242  /home/rt-mgh/fsl/bin/feat /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica/design.fsf -D /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica -stop
 </pre><hr>Initialisation<br><pre>
 
 /home/rt-mgh/fsl/bin/fslmaths /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/sub-mindbpd2999_ses-lo1_task-rest_run-01_bold_mcflirt_masked prefiltered_func_data -odt float
-Total original volumes = 47
+Total original volumes = 50
 
-/home/rt-mgh/fsl/bin/fslroi prefiltered_func_data example_func 23 1
+/home/rt-mgh/fsl/bin/fslroi prefiltered_func_data example_func 25 1
 </pre><hr>Preprocessing:Stage 1<br><pre>
 
-/home/rt-mgh/fsl/bin/mainfeatreg -F 6.00 -d /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica -l /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica/logs/feat2_pre -R /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica/report_unwarp.html -r /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica/report_reg.html  -i /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica/example_func.nii.gz  -s /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/sub-mindbpd2999_ses-lo1_task-rest_run-01_bold_mcflirt_median_bet.nii.gz -y 3 -z 0 -c T1_2_MNI152_2mm 
+/home/rt-mgh/fsl/bin/mainfeatreg -F 6.00 -d /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica -l /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica/logs/feat2_pre -R /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica/report_unwarp.html -r /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica/report_reg.html  -i /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica/example_func.nii.gz  -s /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/sub-mindbpd2999_ses-lo1_task-rest_run-01_bold_mcflirt_median_bet.nii -y 3 -z 0 -c T1_2_MNI152_2mm 
 Option -F ( FEAT version parameter ) selected with  argument "6.00"
 Option -d ( output directory ) selected with  argument "/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica"
 Option -l ( logfile )input with argument "/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica/logs/feat2_pre"
 Option -R ( html unwarping report ) selected with  argument "/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica/report_unwarp.html"
 Option -r ( html registration report ) selected with  argument "/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica/report_reg.html"
 Option -i ( main input ) input with argument "/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/rs_network.ica/example_func.nii.gz"
-Option -s ( standard image ) selected with  argument "/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/sub-mindbpd2999_ses-lo1_task-rest_run-01_bold_mcflirt_median_bet.nii.gz"
+Option -s ( standard image ) selected with  argument "/home/rt-mgh/MIND-BPD/murfi-rt-PyProject/subjects/sub-mindbpd2999/rest/sub-mindbpd2999_ses-lo1_task-rest_run-01_bold_mcflirt_median_bet.nii"
 Option -y ( standard dof ) selected with  argument "3"
 Option -z ( standard search ) selected with  argument "0"
 Option -c ( fnirt config ) selected with  argument "T1_2_MNI152_2mm"
@@ -61,12 +61,12 @@ did not find file: example_func2standard.mat. Generating transform.
 </pre><hr>Preprocessing:Stage 2<br><pre>
 
 /home/rt-mgh/fsl/bin/fslstats prefiltered_func_data -p 2 -p 98
-0.000000 1515.000000 
+0.000000 941.000000 
 
-/home/rt-mgh/fsl/bin/fslmaths prefiltered_func_data -thr 151.5 -Tmin -bin mask -odt char
+/home/rt-mgh/fsl/bin/fslmaths prefiltered_func_data -thr 94.1 -Tmin -bin mask -odt char
 
 /home/rt-mgh/fsl/bin/fslstats prefiltered_func_data -k mask -p 50
-1129.000000 
+525.000000 
 
 /home/rt-mgh/fsl/bin/fslmaths mask -dilF mask
 
@@ -74,11 +74,11 @@ did not find file: example_func2standard.mat. Generating transform.
 
 /home/rt-mgh/fsl/bin/fslmaths prefiltered_func_data_thresh -Tmean mean_func
 
-/home/rt-mgh/fsl/bin/susan prefiltered_func_data_thresh 846.75 2.1231422505307855 3 1 1 mean_func 846.75 prefiltered_func_data_smooth
+/home/rt-mgh/fsl/bin/susan prefiltered_func_data_thresh 393.75 2.1231422505307855 3 1 1 mean_func 393.75 prefiltered_func_data_smooth
 
 /home/rt-mgh/fsl/bin/fslmaths prefiltered_func_data_smooth -mas mask prefiltered_func_data_smooth
 
-/home/rt-mgh/fsl/bin/fslmaths prefiltered_func_data_smooth -mul 8.857395925597874 prefiltered_func_data_intnorm
+/home/rt-mgh/fsl/bin/fslmaths prefiltered_func_data_smooth -mul 19.047619047619047 prefiltered_func_data_intnorm
 
 /home/rt-mgh/fsl/bin/fslmaths prefiltered_func_data_intnorm -Tmean tempMean
 
@@ -104,127 +104,95 @@ Reading data file filtered_func_data  ...  done
   Normalising by voxel-wise variance ... done
 Excluding voxels with constant value ... done
 
-  Data size : 47 x 75876
+  Data size : 50 x 188700
 
 Starting PCA  ... done
 Start whitening using  35 dimensions ... 
-  retaining 81.72 percent of the variability 
+  retaining 85.5881 percent of the variability 
  ... done
 
 Starting ICA estimation using symm
 
-  Step no. 1 change : 0.94513
-  Step no. 2 change : 0.26809
-  Step no. 3 change : 0.0692585
-  Step no. 4 change : 0.020763
-  Step no. 5 change : 0.015218
-  Step no. 6 change : 0.0143927
-  Step no. 7 change : 0.00992639
-  Step no. 8 change : 0.00609097
-  Step no. 9 change : 0.004624
-  Step no. 10 change : 0.00456454
-  Step no. 11 change : 0.00461024
-  Step no. 12 change : 0.00472113
-  Step no. 13 change : 0.00468956
-  Step no. 14 change : 0.00428406
-  Step no. 15 change : 0.00349492
-  Step no. 16 change : 0.0025705
-  Step no. 17 change : 0.00177661
-  Step no. 18 change : 0.00159222
-  Step no. 19 change : 0.00159102
-  Step no. 20 change : 0.00157355
-  Step no. 21 change : 0.00153015
-  Step no. 22 change : 0.00145952
-  Step no. 23 change : 0.00136412
-  Step no. 24 change : 0.00124688
-  Step no. 25 change : 0.00111085
-  Step no. 26 change : 0.000961295
-  Step no. 27 change : 0.000807049
-  Step no. 28 change : 0.000762477
-  Step no. 29 change : 0.00075384
-  Step no. 30 change : 0.000739572
-  Step no. 31 change : 0.000720906
-  Step no. 32 change : 0.000697963
-  Step no. 33 change : 0.00067032
-  Step no. 34 change : 0.000637489
-  Step no. 35 change : 0.000599197
-  Step no. 36 change : 0.000555539
-  Step no. 37 change : 0.000507073
-  Step no. 38 change : 0.000496168
-  Step no. 39 change : 0.00047852
-  Step no. 40 change : 0.000449849
-  Step no. 41 change : 0.00041173
-  Step no. 42 change : 0.000367097
-  Step no. 43 change : 0.000334302
-  Step no. 44 change : 0.000354847
-  Step no. 45 change : 0.000376086
-  Step no. 46 change : 0.00039793
-  Step no. 47 change : 0.00041995
-  Step no. 48 change : 0.000441345
-  Step no. 49 change : 0.000461004
-  Step no. 50 change : 0.000477631
-  Step no. 51 change : 0.00048992
-  Step no. 52 change : 0.000496731
-  Step no. 53 change : 0.000497241
-  Step no. 54 change : 0.000491045
-  Step no. 55 change : 0.000478192
-  Step no. 56 change : 0.000459151
-  Step no. 57 change : 0.000434745
-  Step no. 58 change : 0.000406046
-  Step no. 59 change : 0.000375843
-  Step no. 60 change : 0.000368207
-  Step no. 61 change : 0.000355024
-  Step no. 62 change : 0.000337347
-  Step no. 63 change : 0.000316361
-  Step no. 64 change : 0.000293256
-  Step no. 65 change : 0.000269142
-  Step no. 66 change : 0.000244988
-  Step no. 67 change : 0.000257998
-  Step no. 68 change : 0.000282134
-  Step no. 69 change : 0.000308498
-  Step no. 70 change : 0.000337094
-  Step no. 71 change : 0.000367914
-  Step no. 72 change : 0.000400902
-  Step no. 73 change : 0.000435915
-  Step no. 74 change : 0.000472642
-  Step no. 75 change : 0.000510512
-  Step no. 76 change : 0.000548582
-  Step no. 77 change : 0.000585431
-  Step no. 78 change : 0.000619094
-  Step no. 79 change : 0.000647087
-  Step no. 80 change : 0.000666574
-  Step no. 81 change : 0.000674709
-  Step no. 82 change : 0.00066914
-  Step no. 83 change : 0.00064858
-  Step no. 84 change : 0.000613275
-  Step no. 85 change : 0.000565179
-  Step no. 86 change : 0.000507711
-  Step no. 87 change : 0.000445151
-  Step no. 88 change : 0.000381849
-  Step no. 89 change : 0.00032152
-  Step no. 90 change : 0.000266805
-  Step no. 91 change : 0.000219165
-  Step no. 92 change : 0.000179035
-  Step no. 93 change : 0.000146103
-  Step no. 94 change : 0.000119614
-  Step no. 95 change : 9.86231e-05
-  Step no. 96 change : 8.34554e-05
-  Step no. 97 change : 7.91804e-05
-  Step no. 98 change : 7.54391e-05
-  Step no. 99 change : 7.21623e-05
-  Step no. 100 change : 6.92783e-05
-  Step no. 101 change : 6.67179e-05
-  Step no. 102 change : 6.44176e-05
-  Step no. 103 change : 6.2321e-05
-  Step no. 104 change : 6.03787e-05
-  Step no. 105 change : 5.85482e-05
-  Step no. 106 change : 5.67933e-05
-  Step no. 107 change : 5.50837e-05
-  Step no. 108 change : 5.33945e-05
-  Step no. 109 change : 5.17059e-05
-  Step no. 110 change : 5.00024e-05
-  Step no. 111 change : 4.8273e-05
-  Convergence after 111 steps 
+  Step no. 1 change : 0.951623
+  Step no. 2 change : 0.152259
+  Step no. 3 change : 0.0995954
+  Step no. 4 change : 0.0306245
+  Step no. 5 change : 0.0203704
+  Step no. 6 change : 0.0136963
+  Step no. 7 change : 0.00874218
+  Step no. 8 change : 0.00775751
+  Step no. 9 change : 0.00651599
+  Step no. 10 change : 0.00478987
+  Step no. 11 change : 0.00379564
+  Step no. 12 change : 0.00319813
+  Step no. 13 change : 0.00269216
+  Step no. 14 change : 0.0024329
+  Step no. 15 change : 0.00222484
+  Step no. 16 change : 0.00209527
+  Step no. 17 change : 0.00193419
+  Step no. 18 change : 0.00174714
+  Step no. 19 change : 0.00153802
+  Step no. 20 change : 0.00140721
+  Step no. 21 change : 0.00123884
+  Step no. 22 change : 0.00106719
+  Step no. 23 change : 0.00117334
+  Step no. 24 change : 0.00124776
+  Step no. 25 change : 0.00126899
+  Step no. 26 change : 0.00122608
+  Step no. 27 change : 0.00131732
+  Step no. 28 change : 0.0014144
+  Step no. 29 change : 0.00142821
+  Step no. 30 change : 0.00134098
+  Step no. 31 change : 0.00123409
+  Step no. 32 change : 0.00125181
+  Step no. 33 change : 0.00126686
+  Step no. 34 change : 0.00128386
+  Step no. 35 change : 0.00129833
+  Step no. 36 change : 0.00129755
+  Step no. 37 change : 0.00126609
+  Step no. 38 change : 0.00119291
+  Step no. 39 change : 0.00107684
+  Step no. 40 change : 0.000927821
+  Step no. 41 change : 0.000763233
+  Step no. 42 change : 0.00060159
+  Step no. 43 change : 0.00045709
+  Step no. 44 change : 0.000412271
+  Step no. 45 change : 0.000370727
+  Step no. 46 change : 0.000330006
+  Step no. 47 change : 0.000291622
+  Step no. 48 change : 0.000256341
+  Step no. 49 change : 0.000226822
+  Step no. 50 change : 0.000224454
+  Step no. 51 change : 0.000225381
+  Step no. 52 change : 0.000225028
+  Step no. 53 change : 0.000223373
+  Step no. 54 change : 0.000220444
+  Step no. 55 change : 0.000216314
+  Step no. 56 change : 0.000211091
+  Step no. 57 change : 0.000204908
+  Step no. 58 change : 0.000197914
+  Step no. 59 change : 0.000190262
+  Step no. 60 change : 0.000182103
+  Step no. 61 change : 0.000173583
+  Step no. 62 change : 0.000164837
+  Step no. 63 change : 0.000155985
+  Step no. 64 change : 0.000147135
+  Step no. 65 change : 0.000138378
+  Step no. 66 change : 0.000129794
+  Step no. 67 change : 0.000121447
+  Step no. 68 change : 0.000113389
+  Step no. 69 change : 0.000105658
+  Step no. 70 change : 9.82863e-05
+  Step no. 71 change : 9.1292e-05
+  Step no. 72 change : 8.46871e-05
+  Step no. 73 change : 7.84763e-05
+  Step no. 74 change : 7.26576e-05
+  Step no. 75 change : 6.72245e-05
+  Step no. 76 change : 6.21659e-05
+  Step no. 77 change : 5.74677e-05
+  Step no. 78 change : 5.31135e-05
+  Step no. 79 change : 4.90851e-05
+  Convergence after 79 steps 
 
 Sorting IC maps
 

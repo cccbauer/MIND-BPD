@@ -22,12 +22,12 @@ ica_version=sys.argv[2]
 
 if ica_version == 'multi_run':
     ica_directory=f'../subjects/{subjID}/rest/rs_network.gica/groupmelodic.ica/'
-    dmn_component=f'{ica_directory}/dmn_uthresh.nii.gz'
-    cen_component=f'{ica_directory}/cen_uthresh.nii.gz' 
+    dmn_component=f'{ica_directory}/dmn_uthresh.nii'
+    cen_component=f'{ica_directory}/cen_uthresh.nii' 
 elif ica_version == 'single_run':
     ica_directory=f'../subjects/{subjID}/rest/rs_network.ica/'
-    dmn_component=f'{ica_directory}/dmn_uthresh.nii.gz'
-    cen_component=f'{ica_directory}/cen_uthresh.nii.gz' 
+    dmn_component=f'{ica_directory}/dmn_uthresh.nii'
+    cen_component=f'{ica_directory}/cen_uthresh.nii' 
 
 # Define file paths for file with correlations and IC output files
 correlfile=f'{ica_directory}/template_rsn_correlations_with_ICs.txt' 
@@ -64,8 +64,8 @@ print(f'DMN: melodic_IC_{dmn_ic_selection}')
 print(f'CEN: melodic_IC_{cen_ic_selection}')
 
 # Pull the correct IC nifti files
-dmnfuncfile=split_outfile+'%0.4d.nii.gz' % dmn_ic_selection
-cenfuncfile=split_outfile+'%0.4d.nii.gz' % cen_ic_selection
+dmnfuncfile=split_outfile+'%0.4d.nii' % dmn_ic_selection
+cenfuncfile=split_outfile+'%0.4d.nii' % cen_ic_selection
 
 # Copy IC nifti files to new location as unthreshold DMN/CEN components
 os.system('cp %s %s' %(dmnfuncfile,dmn_component))

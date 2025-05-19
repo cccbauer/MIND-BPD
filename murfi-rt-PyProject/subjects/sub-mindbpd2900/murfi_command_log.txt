@@ -1,0 +1,12 @@
+[2025-05-07_14:22:17] source feedback_mgh.sh sub-mindbpd2900 setup_MGH
+[2025-05-07_14:22:24] source feedback_mgh.sh sub-mindbpd2900 2vol
+[2025-05-07_14:41:30] source feedback_mgh.sh sub-mindbpd2900 2vol
+[2025-05-07_14:42:37] source feedback_mgh.sh sub-mindbpd2900 resting_state
+[2025-05-07_14:45:27] source feedback_mgh.sh sub-mindbpd2900 extract_rs_networks
+[2025-05-07_14:46:19] source createxml_dcm_mgh.sh sub-mindbpd2900 setup
+[2025-05-07_14:46:27] source feedback_mgh.sh sub-mindbpd2900 setup_MGH
+[2025-05-07_14:46:55] source feedback_mgh.sh sub-mindbpd2900 resting_state
+[2025-05-07_14:51:50] source feedback_mgh.sh sub-mindbpd2900 extract_rs_networks
+[2025-05-07_14:54:00] source feedback_mgh.sh sub-mindbpd2900 process_roi_masks
+[2025-05-07_14:54:39] source feedback_mgh.sh sub-mindbpd2900 register
+[2025-05-07_14:55:51] source feedback_mgh.sh sub-mindbpd2900 feedback
