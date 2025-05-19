@@ -31,14 +31,8 @@ import fnmatch # for matching csv file names for given run for sham subjects
 
 # button box
 left_button='3'
-right_button='1'
-enter_button='4'
-
-# participant id prefix
-filename_prefix = "sub-mindbpd"
-
-#debug mode
-murfi_FAKE=False
+right_button='4'
+enter_button='1'
 
 # Ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
@@ -103,9 +97,9 @@ expInfo = {'participant':input_participant, 'run':input_run, 'anchor': input_anc
         'protocol': input_protocol}
 
 
+murfi_FAKE=False
 
-
-# SHAM = True # added for Sham Feedback - set False for experimental group participant
+# SHAM = True # added for Sham Feedback - this is now set through the dialogue box
 
 # Show dialogue box until all participant info has been entered
 while expInfo['feedback_on'] not in ['Feedback', 'No Feedback']:
@@ -171,24 +165,25 @@ default_scale_factor = 10
 # another interal scale factor to make sure scaling of feedback is appropriate (higher means ball moves up/down more SLOWLY)
 internal_scaler=10
 
+# BPD change
+filename_prefix = "sub-mindbpd"
+foldername = os.path.join('data', filename_prefix + expInfo['participant'])
+
 # Setup files for saving
 if not os.path.isdir('data'):
     os.makedirs('data')  # if this fails (e.g. permissions) we will get error
 
-if not os.path.exists(f"data/{filename_prefix}{expInfo['participant']}"):
-    os.mkdir(f"data/{filename_prefix}{expInfo['participant']}")
+if not os.path.exists(foldername):
+    os.mkdir(foldername)
 
-
+print("expInfo['feedback_on'] =", expInfo['feedback_on'])
 
 # output file string (different depending on if feedback is being offered)
 if expInfo['feedback_on'] == 'Feedback':
-    folder = os.path.join("data", f"{filename_prefix}{expInfo['participant']}")
-    filename = os.path.join(folder, f"{filename_prefix}{expInfo['participant']}_DMN_feedback_{expInfo['run']}")
+    filename = foldername + os.path.sep + '%s%s_DMN_feedback_%s' %(filename_prefix, expInfo['participant'],expInfo['run'])
+elif expInfo['feedback_on']=='No Feedback':
+    filename = foldername + os.path.sep + '%s%s_DMN_nofeedback_%s' %(filename_prefix, expInfo['participant'],expInfo['run'])
 
-elif expInfo['feedback_on'] == 'No Feedback':
-    folder = os.path.join("data", f"{filename_prefix}{expInfo['participant']}")
-    filename = os.path.join(folder, f"{filename_prefix}{expInfo['participant']}_DMN_nofeedback_{expInfo['run']}")
-    
 
 # if filepath already exists, stop run and check with user
 # Allow choice of moving to next run or overwriting the current one
@@ -208,15 +203,17 @@ while os.path.exists(filename + '_roi_outputs.csv'):
     
     if not warning_box.OK:
         core.quit()
-    
-    # If not canceling, update filename or overwrite
+
+    # If not canceling, set filename
     else:
         run_choice = warning_box_data[0].strip()
-        
+        # If not overwriting, set filename to next run
+        # if f"Overwrite Run {int(expInfo['run'])}" not in warning_box_data:
         if run_choice != f"Overwrite Run {expInfo['run']}":
-            expInfo['run'] = int(expInfo['run']) + 1
-            filename = os.path.join(folder, f"{filename_prefix}{expInfo['participant']}_DMN_nofeedback_{expInfo['run']}")
-        
+            expInfo['run'] = int(expInfo['run']) +1
+            filename = foldername + os.path.sep + '%s%s_DMN_feedback_%s' %(filename_prefix,expInfo['participant'],expInfo['run'])
+        # If overwriting, keep current filename
+        # elif f"Overwrite Run {int(expInfo['run'])}" in warning_box_data:
         elif run_choice == f"Overwrite Run {expInfo['run']}":
             print('OVERWRITE')
             print(filename)
@@ -239,8 +236,8 @@ else:
         last_run_complete=False
         last_run_counter=1
         while last_run_complete==False and last_run_counter < int(expInfo['run']):
-            last_run_filename = filename.replace("Feedback_" + str(expInfo['run']), 
-                                                 "Feedback_" + str(int(expInfo['run'])-last_run_counter)) + '_roi_outputs.csv'
+            last_run_filename = filename.replace("feedback_" + str(expInfo['run']),
+                                                 "feedback_" + str(int(expInfo['run'])-last_run_counter)) + '_roi_outputs.csv'
             print(last_run_filename)
             print(expInfo['run'])
             print(expInfo['participant'])
@@ -294,14 +291,14 @@ Each run should have a corresponding csv file
 
 if SHAM and expInfo['feedback_on'] == 'Feedback':
     # Construct the folder path dynamically
-    feedback_csv_path = os.path.join("feedback", expInfo['participant'])
+    feedback_csv_path = os.path.join("feedback", filename_prefix + expInfo['participant'])
 
     # Ensure the folder exists
     if not os.path.exists(feedback_csv_path):
         raise FileNotFoundError(f"Folder '{feedback_csv_path}' does not exist.")
 
     # Use fnmatch to match filenames like "*Feedback_<run>*.csv"
-    pattern = f"*Feedback_{expInfo['run']}*.csv"
+    pattern = f"*Feedback_{expInfo['run']}_frames.csv"
     matching_files = [f for f in os.listdir(feedback_csv_path) if fnmatch.fnmatch(f, pattern)]
 
     # Ensure exactly one match exists
@@ -461,7 +458,7 @@ text_4 = visual.TextStim(win=win, ori=0, name='text_4',
     depth=-3.0)
 
 #prepare the targets
-colors=['yellow','blue','red','green','cyan','magenta','black','honeydew','indigo','maroon']
+colors=['yellow','lightblue','red','green','cyan','magenta','black','honeydew','indigo','maroon']
 roi_names_list=['cen','dmn']
 print (roi_names_list)
 n_roi = roi_number
@@ -489,7 +486,7 @@ home=[]
 for i in range(n_roi):
     roi_circle_i = visual.Circle(win, pos=(roi_pos[i, 1],roi_pos[i, 0]), 
                                  radius=0.15,fillColor=None, 
-                                 lineColor=colors[i], lineWidth=2)
+                                 lineColor=colors[i], lineWidth=3)
     roi_circle_i.size *= scale
     target_circles.append(roi_circle_i)
     hit_counter.append(0)
@@ -685,7 +682,7 @@ while continueRoutine:
         key_resp_3.clock.reset()  # now t=0
         event.clearEvents(eventType='keyboard')
     if key_resp_3.status == STARTED:
-        theseKeys = event.getKeys(keyList=['t','+','5', 5, 'equal', 'shift+=','num_equal','='])
+        theseKeys = event.getKeys(keyList=['t','+','5', 5])
         
         # check for quit:
         if "escape" in theseKeys:
@@ -738,8 +735,7 @@ t = 0
 baselineClock.reset()  # clock 
 frameN = -1
 frame = 0
-routineTimer = core.CountdownTimer(BaseLineTime)  # Create a new countdown timer with BaseLineTime seconds
-#routineTimer.addTime(BaseLineTime)
+routineTimer = core.CountdownTimer(BaseLineTime)
 # update component parameters for each repeat
 # keep track of which components have finished
 baselineComponents = []
@@ -833,7 +829,6 @@ subject_key_reset = event.BuilderKeyResponse()  # create an object of type KeyRe
 subject_key_reset.status = NOT_STARTED
 routineTimer = core.CountdownTimer(RUN_TIME)  # Create a new countdown timer with RUN_TIME seconds
 
-#routineTimer.addTime(RUN_TIME)
 
 
 # Initialize parameters before feedback
@@ -1200,9 +1195,7 @@ if expInfo['feedback_on'] == 'Feedback':
 t = 0
 baselineClock.reset()  # clock 
 frameN = -1
-#routineTimer.addTime(1.00000)
 routineTimer = core.CountdownTimer(1.00000)  # Create a new countdown timer 
-
 # update component parameters for each repeat
 # keep track of which components have finished
 baselineComponents = []
@@ -1363,10 +1356,10 @@ quit_psychopy()
 # Start next run using subprocess (should run detached)!
 if expInfo['feedback_condition']=='15min':
     if next_run < 6:
-        subprocess.Popen(["reopen_balltask_yale.bat", str(next_participant), str(next_run), 
+        subprocess.Popen(["reopen_balltask_yale.bat", str(next_participant), str(next_run),
             str(next_feedback), str(next_feedback_condition), str(protocol), str(anchor)])
 elif expInfo['feedback_condition']=='30min':
-        subprocess.Popen(["reopen_balltask_yale.bat", str(next_participant), str(next_run), 
+        subprocess.Popen(["reopen_balltask_yale.bat", str(next_participant), str(next_run),
             str(next_feedback), str(next_feedback_condition), str(protocol), str(anchor)])
 
 # Quit python
