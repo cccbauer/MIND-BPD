@@ -1,7 +1,0 @@
-[2025-04-08_09:07:35] source feedback.sh sub-mindbpd2998 setup
-[2025-04-08_09:12:40] source createxml_dcm.sh sub-mindbpd2998 setup
-[2025-04-08_09:12:47] source feedback.sh sub-mindbpd2998 setup
-[2025-04-08_09:13:09] source feedback.sh sub-mindbpd2998 2vol
-[2025-04-08_09:13:30] source feedback.sh sub-mindbpd2998 setup
-[2025-04-08_09:13:42] source feedback.sh sub-mindbpd2998 2vol
-[2025-05-19_12:31:03] source createxml_dcm_mgh.sh sub-mindbpd2998 setup

@@ -1,4 +1,0 @@
-
-/bin/cp /home/rt-mgh/MIND-BPD/murfi-rt-PyProject/scripts/../subjects/sub-mindbpd2997/rest/sub-mindbpd2997_ses-lo1_task-rest_run-01_bold.fsf design.fsf
-
-mkdir .files;cp /home/rt-mgh/fsl/doc/fsl.css .files;cp -r /home/rt-mgh/fsl/doc/images .files/images
