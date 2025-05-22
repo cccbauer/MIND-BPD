@@ -37,3 +37,4 @@
 [2025-05-22_16:06:52] source feedback_mgh.sh sub-mindbpd2901 feedback
 [2025-05-22_16:10:31] source feedback_mgh.sh sub-mindbpd2901 feedback
 [2025-05-22_16:26:26] source feedback_mgh.sh sub-mindbpd2901 cleanup
+[2025-05-22_18:57:01] source createxml_dcm_mgh.sh sub-mindbpd2901 setup
