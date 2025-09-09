@@ -72,7 +72,9 @@ then
     else
         echo "+ ready to receive 2 volume scan"
     fi
-        singularity exec -B ${DICOM_FOLDER} /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/2vol.xml
+    #ensures X11 correct display for murfi
+    	xhost +SI:localuser:$(whoami)
+       singularity exec -B ${DICOM_FOLDER} /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/2vol.xml
         #for tmp folder
     #singularity exec /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/2vol.xml
 fi
@@ -91,6 +93,8 @@ clear
     export MURFI_SUBJECTS_DIR="${absolute_path}/subjects/"
     export MURFI_SUBJECT_NAME=$subj 
     #scanner setup
+    #ensures X11 correct display for murfi
+    xhost +SI:localuser:$(whoami)
     singularity exec -B ${DICOM_FOLDER} /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/rtdmn.xml
    #simulator
    #singularity exec /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir_absolute/xml/rtdmn.xml
@@ -109,6 +113,8 @@ clear
     fi
     export MURFI_SUBJECTS_DIR="${absolute_path}/subjects/"
     export MURFI_SUBJECT_NAME=$subj
+    #ensures X11 correct display for murfi
+    xhost +SI:localuser:$(whoami)
     singularity exec -B ${DICOM_FOLDER} /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/rest.xml
     #singularity exec /home/rt-mgh/murfi-sif_latest.sif murfi -f $subj_dir/xml/rest.xml
 
@@ -551,8 +557,13 @@ then
     bet ${latest_ref} ${latest_ref}_brain -R -f 0.4 -g 0 -m # changed from -f 0.6
     slices ${latest_ref} ${latest_ref}_brain_mask -o $subj_dir/qc/2vol_skullstrip_brain_mask_check.gif
 
-    rm -r $subj_dir/xfm/epi2reg
-    mkdir -p $subj_dir/xfm/epi2reg
+    if [ -d "$subj_dir/xfm/epi2reg" ]; then
+    echo "+ Removing existing directory: $subj_dir/xfm/epi2reg"
+    rm -r "$subj_dir/xfm/epi2reg"
+    fi
+
+    echo "+ Creating directory: $subj_dir/xfm/epi2reg"
+    mkdir -p "$subj_dir/xfm/epi2reg"
 
     # first look for ICA feat directory based on multiple runs (.gica directory)
     ica_directory=$subj_dir/rest/rs_network.gica/groupmelodic.ica/
@@ -631,6 +642,13 @@ then
     echo "cleared dicoms from $DICOM_FOLDER_LOCAL"
     #also clear tmp/murfi_input/ (simulator images)
     rm -r tmp/murfi_input/*
+    
+    # Copy the subject folder to the OneDrive folder
+    cp -r $subj_dir ~/OneDrive/MIND-BPD/murfi-rt-PyProject/subjects/
+    
+    # Sync with OneDrive
+    echo "Please run the following command. Note that it requires ~20 minutes"
+    echo "onedrive --synchronize --single-directory 'MIND-BPD/murfi-rt-PyProject'"
 fi
 
 
