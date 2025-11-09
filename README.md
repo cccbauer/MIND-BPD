@@ -83,20 +83,49 @@ See individual directories for detailed setup instructions:
 
 If you use this code or methods in your research, please cite:
 
+**Primary MIND-BPD Study:**
 ```
 [Citation to be added upon publication]
 ```
 
+**Related Mindfulness-based Neurofeedback Research:**
+
+Zhang, J., Bloom, P. A., Pagliaccio, D., Bauer, C. C., Greene, K., Morfini, F., Treves, I. N., Durham, K., Cherner, R., & Bajwa, Z. (2024). *Mindfulness-based Real-time fMRI Neurofeedback for Depressed Adolescents: A Randomized Controlled Dosing Trial*. OSF. https://doi.org/[DOI]
+
+Bloom, P. A., Pagliaccio, D., Bajwa, Z., Wool, E., Zhang, J., Bauer, C. C., Spence, J., Kyler, M., Greene, K., & Treves, I. N. (2025). *Preregistration: Impact of Mindfulness-based Real-time fMRI Neurofeedback on Self-Referential Processing in Depressed Adolescents: A Dosing Study*. OSF. https://doi.org/[DOI]
+
+**Real-time fMRI Neurofeedback Methods:**
+
+Zhang, J., Bauer, C. C., Morfini, F., Lee, Y., Stone, L., Awad, A., Okano, K., Hwang, M., Shinn, A. K., & Niznikiewicz, M. A. (2025). Real-time fMRI neurofeedback reduces default mode network and auditory cortex functional connectivity in schizophrenia. *bioRxiv*, 2025.01.02.631107. https://doi.org/10.1101/2025.01.02.631107
+
+Bauer, C. C., Zhang, J., Morfini, F., Hinds, O., Wighton, P., Lee, Y., Stone, L., Awad, A., Okano, K., & Hwang, M. (2025). Real-time fMRI neurofeedback modulates auditory cortex activity and connectivity in schizophrenia patients with auditory hallucinations: A controlled study. *bioRxiv*, 2025.01.13.632809. https://doi.org/10.1101/2025.01.13.632809
+
+**DMN as Transdiagnostic Biomarker:**
+
+Tripathi, V., Batta, I., Zamani, A., Atad, D. A., Sheth, S. K., Zhang, J., Wager, T. D., Whitfield-Gabrieli, S., Uddin, L. Q., & Prakash, R. S. (2025). Default mode network functional connectivity as a transdiagnostic biomarker of cognitive function. *Biological Psychiatry: Cognitive Neuroscience and Neuroimaging*. https://doi.org/[DOI]
+
 ## Funding
 
-This research is supported by the National Institute of Mental Health (NIMH) [Grant information to be added].
+This research is supported by:
+- National Institute of Mental Health (NIMH) Grant R21MH130915
+- [Additional funding sources to be added]
 
 ## Contact
 
 For questions about the protocol or code, please contact:
-- Clemens Bauer, PhD - Northeastern University / Massachusetts General Hospital
-- [Additional contact information]
+- **Clemens C.C. Bauer, PhD** - Associate Research Scientist
+  - Northeastern University EPIC Lab
+  - Massachusetts General Hospital, Center for Precision Psychiatry
+  - Email: [contact email]
 
-## License
+## Collaborators
 
-[License information to be added]
+- **Susan Whitfield-Gabrieli, PhD** - Principal Investigator
+- **Jiahe Zhang, PhD** - Co-Investigator
+- [Additional team members]
+
+## Institutional Affiliations
+
+- Northeastern University - Establishing Pathways in Clinical-neuroscience (EPIC) Lab
+- Massachusetts General Hospital - Center for Precision Psychiatry
+- MIT - McGovern Institute for Brain Research
