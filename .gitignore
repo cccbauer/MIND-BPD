@@ -1,0 +1,32 @@
+# Neuroimaging data files
+*.nii
+*.nii.gz
+*.BRIK
+*.HEAD
+*.dcm
+*.sif
+*.simg
+
+# Subject data directories
+murfi-rt-PyProject/subjects/
+subjects/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.psydat
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large data directories
+data/
+feedback/
+sourcedata/
+derivatives/
+

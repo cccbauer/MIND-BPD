@@ -1,0 +1,3 @@
+x11vnc -clip 1920x1080+1920+0 -scale 0.4
+xvncviewer :0
+sudo x11vnc -rawfb /dev/fb0 -clip 1920x1080+1920+0 -scale 0.4
