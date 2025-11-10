@@ -1143,8 +1143,8 @@ if SHAM and expInfo['feedback_on'] == 'Feedback':
     num_valid_frames = len(df_sham)  # Use all downsampled frames
     max_playback_time = frame_times[-1]  # Will run for full duration
     
-    print(f"Filtered to {num_valid_frames} frames within {max_playback_time:.1f}s")
-    print(f"Starting SHAM playback with VIRTUAL hit counting")
+    #print(f"Filtered to {num_valid_frames} frames within {max_playback_time:.1f}s")
+    #print(f"Starting SHAM playback with VIRTUAL hit counting")
     
     # NEW: Initialize virtual hit counters for SHAM
     sham_virtual_cen_hits = 0
@@ -1352,8 +1352,8 @@ if SHAM and expInfo['feedback_on'] == 'Feedback':
         
         core.wait(0.1)  # Small wait between checks
     
-    print(f"SHAM playback complete. Collected {frame} volumes total")
-    print(f"FINAL SHAM VIRTUAL HITS: CEN={sham_virtual_cen_hits}, DMN={sham_virtual_dmn_hits}")
+    #print(f"SHAM playback complete. Collected {frame} volumes total")
+    #print(f"FINAL SHAM VIRTUAL HITS: CEN={sham_virtual_cen_hits}, DMN={sham_virtual_dmn_hits}")
     if frame < target_volumes:
         print(f"WARNING: Expected {target_volumes} volumes but only got {frame}")
 
