@@ -27,19 +27,20 @@ import subprocess
 import shlex
 import locale
 from bids_tsv_convert_balltask import *
-import fnmatch # for matching csv file names for given run for sham subjects
+import fnmatch  # for matching csv file names for given run for sham subjects
 import numpy as np
 import shutil
 
-# button box YALE
-left_button='3'
-right_button='4'
-enter_button='1'
+# button box
+# left_button = '3'
+# right_button = '4'
+# enter_button = '1'
+# FONT_SCALE = 1.4
 
-# button box mgh (commented out for Yale)
-#left_button='1'
-#right_button='2'
-#enter_button='0'
+# button box mgh
+left_button='1'
+right_button='2'
+enter_button='0'
 
 # Ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
@@ -54,12 +55,14 @@ else:
     input_participant = ''
 
 # cmd line arg 3 will be run number
+# if there is no command line argument 3 -- use empty string
+# otherwise, use that as rum number
 if num_cmd_line_arguments >= 3:
     input_run = sys.argv[2]
 else:
     input_run = ''
 
-# cmd line arg 4 will be feedback / no feedback 
+# cmd line arg 4 will be feedback / no feedback
 if num_cmd_line_arguments >= 4:
     if sys.argv[3] == 'Feedback':
         input_feedback = ['Feedback', 'No Feedback']
@@ -69,7 +72,7 @@ else:
     input_feedback = ['', 'Feedback', 'No Feedback']
 
 # cmd line arg 5 will be 15min vs 30min
-if num_cmd_line_arguments >= 5:
+if num_cmd_line_arguments >= 4:
     if sys.argv[4] == '15min':
         input_feedback_condition = ['15min', '30min']
     else:
@@ -78,6 +81,8 @@ else:
     input_feedback_condition = ['', '15min', '30min']
 
 # cmd line arg 5+ will be anchor
+# if there is no command line argument -- use empty string
+# otherwise, use that as rum number
 if num_cmd_line_arguments >= 6:
     input_anchor = ' '.join(sys.argv[5:])
 else:
@@ -85,71 +90,54 @@ else:
 
 #####################################################################################
 
-# Store info about the experiment 
-expName = 'DMN_BallTask'  # from the Builder filename that created this script
-expInfo = {'participant':input_participant, 'run':input_run, 'anchor': input_anchor, 'feedback_on': input_feedback,
-           'feedback_condition': input_feedback_condition}
+# Store info about the experiment
+expName = 'DMN_BallTask'  # from the Builder filename that created thi s script
+expInfo = {'participant': input_participant, 'run': input_run, 'anchor': input_anchor, 'feedback_on': input_feedback}
 
-murfi_FAKE=False
-
-# Safety check: if running in simulator mode, force explicit confirmation.
-# This is a destructive setting — it replaces real MURFI feedback with random
-# Gaussian noise, which silently corrupts data. Do not bypass without reason.
-if murfi_FAKE:
-    from psychopy import gui as _gui_warn
-    _confirm_dlg = _gui_warn.Dlg(title="!! MURFI SIMULATOR MODE ENABLED !!")
-    _confirm_dlg.addText("WARNING: murfi_FAKE is set to True.")
-    _confirm_dlg.addText("The script will NOT connect to MURFI.")
-    _confirm_dlg.addText("All cen/dmn values will be random Gaussian noise.")
-    _confirm_dlg.addText("Ball feedback will not reflect the participant's brain.")
-    _confirm_dlg.addText("")
-    _confirm_dlg.addText("Type 'yes' below to proceed, or anything else to abort.")
-    _confirm_dlg.addField("Confirm (type yes):", "")
-    _confirm_response = _confirm_dlg.show()
-    if not _confirm_dlg.OK or str(_confirm_response[0]).strip().lower() != 'yes':
-        print("Aborted: murfi_FAKE is True but user did not confirm. Exiting.")
-        core.quit()
-    print(":::: USER CONFIRMED SIMULATOR MODE — PROCEEDING WITH FAKE MURFI DATA ::::")
+murfi_FAKE = False
 
 # Show dialogue box until all participant info has been entered
-while (expInfo['feedback_on'] not in ['Feedback', 'No Feedback'] or 
-       expInfo['feedback_condition'] not in ['15min', '30min']):
+while expInfo['feedback_on'] not in ['Feedback', 'No Feedback']:
     expInfo['feedback_on'] = input_feedback
-    expInfo['feedback_condition'] = input_feedback_condition
-    dlg = gui.DlgFromDict(dictionary=expInfo, title=expName, 
-        labels = {'participant': 'Participant ID (1XXX)',
-                  'run': 'Run',
-                  'feedback_on': 'Display Feedback?',
-                  'feedback_condition': 'Session Length',
-                  'anchor': 'Participant Anchor'}, 
-        order = ['participant', 'run', 'feedback_on', 'feedback_condition', 'anchor'])
-    if dlg.OK == False: 
+    dlg = gui.DlgFromDict(dictionary=expInfo, title=expName,
+                          labels={'participant': 'Participant ID (2XXX)',
+                                  'run': 'Run',
+                                  'feedback_on': 'Display Feedback?',
+                                  'anchor': 'Participant Anchor'},
+                          order=['participant', 'run', 'feedback_on', 'anchor'])
+    if dlg.OK == False:
         core.quit()  # user pressed cancel
 
-# Hard code other experiment info 
+# BPD: Ensure 3 digit formatting for participant number
+# expInfo['participant'] = f"{int(expInfo['participant']):03d}"
+
+# Hard code other experiment info
 ## Timestamp
-expInfo['date'] = data.getDateStr()  
+expInfo['date'] = data.getDateStr()
 expInfo['expName'] = expName
 expInfo['No_of_ROIs'] = 2
 expInfo['Level_1_2_3'] = 1
 expInfo['Run_Time'] = 150
-expInfo['pda_outlier_threshold']=2
-circles_move_with_hits=False
-circle_radius_shrink_with_hits=True
-num_pda_outliers=0
+expInfo['pda_outlier_threshold'] = 2
+circles_move_with_hits = False
+circle_radius_shrink_with_hits = True
+num_pda_outliers = 0
 # Baseline time before feedback (seconds)
-BaseLineTime=30 
+BaseLineTime = 30
 
 # TR (seconds)
-expInfo['tr']=1.2
+expInfo['tr'] = 1.2
 
-'''RANDOMIZATION FOR YALE'''
+# BPD changes
+expInfo['feedback_condition'] = '15min'
 
-# Load in the randomization file
-rand_list = pd.read_csv('mgh_randlist.txt', delimiter='\t', header=None)
+'''RANDOMIZATION BY MMV'''
 
-# Get the current subject number - since Yale is 1000s, subtract
-sub_num = int(expInfo['participant'])-1000
+# Load in the randoization file
+rand_list = pd.read_csv('feedback' + os.path.sep + 'mgh_randlist.txt', delimiter='\t', header=None)
+
+# Get the current subject number - since MGH is 2000s, subtract
+sub_num = int(expInfo['participant']) - 2000
 
 # Find the matching row
 sub_row = rand_list.loc[rand_list[0] == sub_num]
@@ -159,24 +147,24 @@ else:
     SHAM = True
 
 #
-roi_number= str('%s') %(expInfo['No_of_ROIs'])
-roi_number=int(roi_number)
+roi_number = str('%s') % (expInfo['No_of_ROIs'])
+roi_number = int(roi_number)
 
 '''
 Minimum and maximum number of "hits" to targets for which scale factor won't be adjusted
 Fewer hits than min_hits --> scale factor goes up and ball moves faster
 More hits than max_hits (in either direction) --> scale factor goes down and ball moves more slowly
 '''
-min_hits=3
-max_hits=5
+min_hits = 3
+max_hits = 5
 
 # default scale factor (higher means ball moves up/down faster)
 default_scale_factor = 10
 
 # another interal scale factor to make sure scaling of feedback is appropriate (higher means ball moves up/down more SLOWLY)
-internal_scaler=10
+internal_scaler = 10
 
-# YALE specific
+# BPD change
 filename_prefix = "sub-mindbpd"
 foldername = os.path.join('data', filename_prefix + expInfo['participant'])
 
@@ -191,10 +179,11 @@ print("expInfo['feedback_on'] =", expInfo['feedback_on'])
 
 # output file string (different depending on if feedback is being offered)
 if expInfo['feedback_on'] == 'Feedback':
-    filename = foldername + os.path.sep + '%s%s_DMN_feedback_%s' %(filename_prefix, expInfo['participant'],expInfo['run'])
-elif expInfo['feedback_on']=='No Feedback':
-    filename = foldername + os.path.sep + '%s%s_DMN_nofeedback_%s' %(filename_prefix, expInfo['participant'],expInfo['run'])
-
+    filename = foldername + os.path.sep + '%s%s_DMN_feedback_%s' % (
+    filename_prefix, expInfo['participant'], expInfo['run'])
+elif expInfo['feedback_on'] == 'No Feedback':
+    filename = foldername + os.path.sep + '%s%s_DMN_nofeedback_%s' % (
+    filename_prefix, expInfo['participant'], expInfo['run'])
 
 # if filepath already exists, stop run and check with user
 # Allow choice of moving to next run or overwriting the current one
@@ -211,7 +200,7 @@ while os.path.exists(filename + '_roi_outputs.csv'):
         choices=[f"Run {int(expInfo['run']) + 1}", f"Overwrite Run {int(expInfo['run'])}"]
     )
     warning_box_data = warning_box.show()
-    
+
     if not warning_box.OK:
         core.quit()
 
@@ -219,10 +208,13 @@ while os.path.exists(filename + '_roi_outputs.csv'):
     else:
         run_choice = warning_box_data[0].strip()
         # If not overwriting, set filename to next run
+        # if f"Overwrite Run {int(expInfo['run'])}" not in warning_box_data:
         if run_choice != f"Overwrite Run {expInfo['run']}":
             expInfo['run'] = int(expInfo['run']) + 1
-            filename = foldername + os.path.sep + '%s%s_DMN_feedback_%s' %(filename_prefix,expInfo['participant'],expInfo['run'])
+            filename = foldername + os.path.sep + '%s%s_DMN_feedback_%s' % (
+            filename_prefix, expInfo['participant'], expInfo['run'])
         # If overwriting, keep current filename
+        # elif f"Overwrite Run {int(expInfo['run'])}" in warning_box_data:
         elif run_choice == f"Overwrite Run {expInfo['run']}":
             print('OVERWRITE')
             print(filename)
@@ -248,19 +240,20 @@ else:
 
         # loop through prior runs, starting at most recent, until the most recent prior run with at least 140 volumes is found
         # label this most recent run with 140+ volumes as the "last run" to pull parameters from
-        last_run_complete=False
-        last_run_counter=1
-        while last_run_complete==False and last_run_counter < int(expInfo['run']):
+        last_run_complete = False
+        last_run_counter = 1
+        while last_run_complete == False and last_run_counter < int(expInfo['run']):
             last_run_filename = filename.replace("feedback_" + str(expInfo['run']),
-                                                 "feedback_" + str(int(expInfo['run'])-last_run_counter)) + '_roi_outputs.csv'
+                                                 "feedback_" + str(
+                                                     int(expInfo['run']) - last_run_counter)) + '_roi_outputs.csv'
             print(last_run_filename)
             print(expInfo['run'])
             print(expInfo['participant'])
             last_run_info = pd.read_csv(last_run_filename)
             if last_run_info.shape[0] > 140:
-                last_run_complete=True
+                last_run_complete = True
             else:
-                last_run_counter+=1
+                last_run_counter += 1
 
         # ONLY update scale factor if there is a prior COMPLETE run to use to do this
         if last_run_complete:
@@ -277,28 +270,27 @@ else:
             # if 5+ hits in either direction, decrease scale factor
             if last_run_dmn_hits > max_hits or last_run_cen_hits > max_hits:
                 expInfo['scale_factor'] = last_run_scale_factor * 0.75
-            
+
             # if not enough hits, increase scale factor
             elif last_run_cen_hits + last_run_dmn_hits < min_hits:
                 expInfo['scale_factor'] = last_run_scale_factor * 1.25
 
             # otherwise, keep scale factor the same
             else:
-                expInfo['scale_factor'] = last_run_scale_factor 
+                expInfo['scale_factor'] = last_run_scale_factor
 
             print('Last run scale factor: ', last_run_scale_factor, ' This run scale factor: ', expInfo['scale_factor'])
         else:
             print('WARNING: no prior complete runs. Settting to default scale factor.')
             expInfo['scale_factor'] = default_scale_factor
 
-    # If this breaks (no prior runs) use default scale factor    
+    # If this breaks (no prior runs) use default scale factor
     except Exception as error:
         print(error)
         print('ERROR: could not pull scale factor from previous run. Settting to default scale factor.')
         expInfo['scale_factor'] = default_scale_factor
 
-
-''' PREPARE THE SHAM PARTICIPANT BY COPYING THE MATCHED PARTICIPANT - YALE VERSION'''
+''' PREPARE THE SHAM PARTICIPANT BY COPYING THE MATCHED PARTICIPANT'''
 if SHAM:
 
     # Find the matching subject
@@ -306,7 +298,7 @@ if SHAM:
     real_code = sham_code.replace('S', 'R')
     sub_match_row = rand_list.loc[rand_list[2] == real_code]
     sub_match_num = list(sub_match_row[0])[0]
-    sub_match = str(1000 + sub_match_num)  # YALE uses 1000s
+    sub_match = str(2000 + sub_match_num)
 
     # Get the matching feedback csv path
     match_feedback_csv_path = os.path.join("data", filename_prefix + sub_match)
@@ -317,11 +309,11 @@ if SHAM:
     # Copy over that folder
     if not os.path.exists(feedback_csv_path):
         shutil.copytree(match_feedback_csv_path, feedback_csv_path)
-        
+
 '''
 For Sham subjects read the frame data from the csv file for the matching run in the 'feedback' folder
 There should exist a folder by the same subject number within the 'feedback' folder and it should 
-contain csv files from matched experimental subject having 'feedback_{run_number}' in their name
+contain csv files from matched experimental subject having 'Feedback_{run_number}' in their name
 Each run should have a corresponding csv file
 '''
 
@@ -333,7 +325,7 @@ if SHAM and expInfo['feedback_on'] == 'Feedback':
     if not os.path.exists(feedback_csv_path):
         raise FileNotFoundError(f"Folder '{feedback_csv_path}' does not exist.")
 
-    # Use fnmatch to match filenames like "*feedback_<run>_frames.csv"
+    # Use fnmatch to match filenames like "*Feedback_<run>*.csv"
     pattern = f"*feedback_{expInfo['run']}_frames.csv"
     matching_files = [f for f in os.listdir(feedback_csv_path) if fnmatch.fnmatch(f, pattern)]
     print(matching_files)
@@ -349,9 +341,9 @@ if SHAM and expInfo['feedback_on'] == 'Feedback':
     df_csv = pd.read_csv(csv_file)
     print(f"csv file: {csv_file}")
 
-RUN_TIME= str('%s') %(expInfo['Run_Time'])
-RUN_TIME=int(RUN_TIME)
-RUN_TIME=RUN_TIME
+RUN_TIME = str('%s') % (expInfo['Run_Time'])
+RUN_TIME = int(RUN_TIME)
+RUN_TIME = RUN_TIME
 
 # Convert scale factor and position to pixel space
 position_distance=expInfo['Level_1_2_3']
@@ -379,7 +371,7 @@ endExpNow = False  # flag for 'escape' or other condition => quit the exp
 
 # Start Code - component code to be run before the window creation
 # Setup the Window
-win = visual.Window(size=(1080,1080), fullscr=True, screen=1, allowGUI=False, allowStencil=False,#1024, 1024
+win = visual.Window(size=(1080,1080), fullscr=False, screen=1, allowGUI=False, allowStencil=False,#1024, 1024
     monitor='testMonitor', color=[-1,-1,-1], colorSpace='rgb',
     blendMode='avg', useFBO=True,
     )
@@ -567,6 +559,7 @@ def run_instructions(instruct_text):
 def quit_psychopy():
     """Close everything and exit nicely (ending the experiment)
     """
+    # pygame.quit()  # safe even if pygame was never initialised
     logging.flush()
 
     # properly shutdown ioHub server
@@ -602,6 +595,7 @@ def calculate_ball_position(circle_reference_position, activation, ball_x_positi
         ball_x_position=ball_x_position+ (np.imag(cursor_position) * scale_factor_z2pixels/internal_scaler / tr_to_frame_ratio )
     
     ball_position=(ball_x_position,ball_y_position)
+    #print("Ball position:", ball_position)
     return(ball_position)    
 
 
@@ -637,16 +631,16 @@ ready_text2="When you see the plus sign (+), just relax.\
 \n\nOnce the circles appear, please start the Describing practice. \
 This scan will last 2.5 min."
 
-feedback_run1_text1 = "Great job! Now, you'll get to continue your Mindful Describing with some feedback based on your actual brain activity to help your practice! \
+feedback_run1_text1 = "Great job! Now, you'll get to try moving the ball with your mindful describing practice! \
 \n\nYou will see the 2 circles and white ball again. \
-When the white ball moves up towards the top yellow circle, this means you are in a mindful brain state with your Describing practice. \
+When the white ball moves up towards the top yellow circle, this means you are in a mindful brain state with your describing practice. \
 \nIf the ball reaches either of the circles, it will move back to the center."
 
-feedback_run1_text2 = "Try to focus mostly on the Mindful Describing Practice by being aware of your sensations from moment to moment and silently making a note in your mind. \
-\n\nYou can check the screen every once in a while to see where the ball is going." 
+#feedback_run1_text2 = "Try to focus mostly on the Mindful Describing Practice by being aware of your sensations from moment to moment and silently making a note in your mind. \
+#\n\nYou can check the screen every once in a while to see where the ball is going."
 
-feedback_later_runs_text = "Great job! Next, you'll get to practice Mindful Describing for another 2.5min with more brain feedback from the ball. \
-\n\nWhen the ball moves upwards, that corresponds to the Describing Practice."
+feedback_later_runs_text = "Great job! Now, you're going practice Mindful Describing for another 2.5min with more brain feedback from the ball. \
+\n\nWhen the ball moves upwards, that corresponds to the describing practice."
 
 no_feedback_later_runs_text = "Great job! Next, you'll get to practice Describing for another 2.5min. \
 \nThis time the ball and circles will not move, so you don't need to check them."
@@ -659,7 +653,8 @@ if expInfo['feedback_on'] == "No Feedback":
         instruction_slide_list = [no_feedback_later_runs_text, ready_text2]
 elif expInfo['feedback_on'] == 'Feedback':
     if int(expInfo['run']) == 1: 
-        instruction_slide_list = [feedback_run1_text1, feedback_run1_text2, ready_text]
+        # instruction_slide_list = [feedback_run1_text1, feedback_run1_text2, ready_text]
+        instruction_slide_list = [feedback_run1_text1, ready_text2]
     else:
         instruction_slide_list = [feedback_later_runs_text, ready_text2]
 
@@ -670,10 +665,11 @@ for instructions_slide in instruction_slide_list:
 
 
  #murfi communicator
+# if not (SHAM and expInfo['feedback_on'] == 'Feedback'):
 from murfi_activation_communicator import MurfiActivationCommunicator
-roi_names = ['cen', 'dmn']
-# YALE uses external stimulus computer IP: 192.168.2.6
-communicator = MurfiActivationCommunicator('192.168.2.6',
+roi_names = ['cen', 'dmn']#, 'mpfc','wm']
+# REPLACE THIS IP WITH THE MURFI COMPUTER'S IP 192.168.2.5, EXTERNAL STIMULUS COMPUTER IS 196.168.2.6, FOR RUNNING ALL ON THE SYSTEM76 COMPUTER USE INTERNAL IP 127.0.0.1
+communicator = MurfiActivationCommunicator('127.0.0.1',
                                                15001, 210,
                                                roi_names,expInfo['tr'],murfi_FAKE)
 print ("murfi communicator ok")
@@ -721,7 +717,7 @@ while continueRoutine:
         key_resp_3.clock.reset()  # now t=0
         event.clearEvents(eventType='keyboard')
     if key_resp_3.status == STARTED:
-        theseKeys = event.getKeys(keyList=['t','+','5', 5])
+        theseKeys = event.getKeys(keyList=['t','+','5', 5, 'equal', 'shift+=','num_equal','='])
         
         # check for quit:
         if "escape" in theseKeys:
@@ -774,7 +770,7 @@ t = 0
 baselineClock.reset()  # clock 
 frameN = -1
 frame = 0
-routineTimer = core.CountdownTimer(BaseLineTime)
+routineTimer.addTime(BaseLineTime)
 # update component parameters for each repeat
 # keep track of which components have finished
 baselineComponents = []
@@ -789,6 +785,7 @@ print("starting baseline")
 while continueRoutine and routineTimer.getTime() > 0:
     # During baseline period, we still want to record MURFI outputs
     # get current time
+    # if not (SHAM and expInfo['feedback_on'] == 'Feedback'):
     communicator.update()
     roi_raw_activations=[]
 
@@ -802,7 +799,7 @@ while continueRoutine and routineTimer.getTime() > 0:
         print (f"Did not get data for frame {frame}")
         roi_raw_activations = [np.nan, np.nan]
 
-    # check for any missing values (nan) in the roi_raw_activations pulled for the current frame
+    # check for any missing values (nan) in the roi_raw_activatinp.isnan(roi_raw_activations[0])ons pulled for the current frame
     # If there is a nan value, this most likely indicates that data hasn't been acquired yet for the current volume.
     # In this case, continue, and keep trying to acquire roi_raw_activations from MURFI (without advancing the frame)
     if np.isnan(roi_raw_activations[0]) or np.isnan(roi_raw_activations[1]):
@@ -866,7 +863,8 @@ subject_key_target = event.BuilderKeyResponse()  # create an object of type KeyR
 subject_key_target.status = NOT_STARTED
 subject_key_reset = event.BuilderKeyResponse()  # create an object of type KeyResponse
 subject_key_reset.status = NOT_STARTED
-routineTimer = core.CountdownTimer(RUN_TIME)  # Create a new countdown timer with RUN_TIME seconds
+routineTimer.addTime(RUN_TIME)
+
 
 # Initialize parameters before feedback
 activity = 0
@@ -981,7 +979,7 @@ while not (SHAM and expInfo['feedback_on'] == 'Feedback') and continueRoutine an
                 circle_center=target_circles[i].pos[1], 
                 ball_center=ball.pos[1]):
 
-                # increment hit count
+                # increment hig count
                 hit_counter[i]=hit_counter[i]+1
                 print('HIT', roi_names_list[i])
                 ball.pos = (0,0)
@@ -1022,10 +1020,10 @@ while not (SHAM and expInfo['feedback_on'] == 'Feedback') and continueRoutine an
         for i in range(n_roi):
             target_circles[i].draw()
         ball.draw()
-
+        
         # flip window
         win.flip()
-
+        
         # OPTIMIZATION: Only save every 5th frame (~30fps instead of 144fps)
         # This reduces file size by 80% with no perceptible visual difference
         frame_save_counter += 1
@@ -1037,7 +1035,7 @@ while not (SHAM and expInfo['feedback_on'] == 'Feedback') and continueRoutine an
             frame_info["ball_x"] = ball.pos[0]
             frame_info["ball_y"] = ball.pos[1]
             frame_info["ball_radius"] = ball.radius
-
+            
             # Here, if ball.fillColor is a string, save it as is:
             if ball.fillColor is None:
                 ball_fill = [-1, -1, -1]  # black
@@ -1046,7 +1044,7 @@ while not (SHAM and expInfo['feedback_on'] == 'Feedback') and continueRoutine an
             frame_info["ball_color_r"] = ball_fill[0]
             frame_info["ball_color_g"] = ball_fill[1]
             frame_info["ball_color_b"] = ball_fill[2]
-
+            
             # Save details for each of the ROIs (target circles)
             for i, roi in enumerate(target_circles):
                 frame_info[f"roi{i + 1}_x"] = roi.pos[0]
@@ -1059,21 +1057,21 @@ while not (SHAM and expInfo['feedback_on'] == 'Feedback') and continueRoutine an
                     fill_color = [-1, -1, -1]
                 else:
                     fill_color = roi.fillColor
-
+                    
                 # If fill_color is [0,0,0] for some reason, also force it to black
                 if (fill_color[0] == 0 and fill_color[1] == 0 and fill_color[2] == 0):
                     fill_color = [-1, -1, -1]
-
+                    
                 frame_info[f"roi{i + 1}_color_r"] = fill_color[0]
                 frame_info[f"roi{i + 1}_color_g"] = fill_color[1]
                 frame_info[f"roi{i + 1}_color_b"] = fill_color[2]
-
+                
                 # Line Color
                 line_color = roi.lineColor
                 frame_info[f"roi{i + 1}_lineColor_r"] = line_color[0]
                 frame_info[f"roi{i + 1}_lineColor_g"] = line_color[1]
                 frame_info[f"roi{i + 1}_lineColor_b"] = line_color[2]
-
+            
             frame_data.append(frame_info)
 
     # quit if escape pressed
@@ -1087,7 +1085,6 @@ while not (SHAM and expInfo['feedback_on'] == 'Feedback') and continueRoutine an
 if SHAM and expInfo['feedback_on'] == 'Feedback':
     # Load the sham feedback CSV
     df_sham = pd.read_csv(csv_file)
-    print(f"Loaded SHAM feedback file: {csv_file}")
     
     # Compute offset: first frame's time value
     time_offset = df_sham.iloc[0]["time"]
@@ -1146,8 +1143,8 @@ if SHAM and expInfo['feedback_on'] == 'Feedback':
     num_valid_frames = len(df_sham)  # Use all downsampled frames
     max_playback_time = frame_times[-1]  # Will run for full duration
     
-    print(f"Filtered to {num_valid_frames} frames within {max_playback_time:.1f}s")
-    print(f"Starting SHAM playback with VIRTUAL hit counting")
+    #print(f"Filtered to {num_valid_frames} frames within {max_playback_time:.1f}s")
+    #print(f"Starting SHAM playback with VIRTUAL hit counting")
     
     # NEW: Initialize virtual hit counters for SHAM
     sham_virtual_cen_hits = 0
@@ -1157,7 +1154,7 @@ if SHAM and expInfo['feedback_on'] == 'Feedback':
     virtual_ball_y = 0.0
     virtual_ball_x = 0.0
     
-    # Loop only over valid frames
+    # Loop only over valid frames (within 150s window)
     for idx in range(num_valid_frames):
         
         # Check if Esc was pressed
@@ -1188,7 +1185,7 @@ if SHAM and expInfo['feedback_on'] == 'Feedback':
                 pda_outlier_sham = False
             
             # Calculate virtual ball movement based on SHAM's actual brain activity
-            # (Same logic as REAL mode, matching frame-by-frame updates)
+            # (Same logic as REAL mode, but doesn't affect visual display)
             if not pda_outlier_sham:
                 # Determine direction and activity
                 max_roi_idx = roi_activities.index(np.nanmax(roi_activities))
@@ -1355,7 +1352,8 @@ if SHAM and expInfo['feedback_on'] == 'Feedback':
         
         core.wait(0.1)  # Small wait between checks
     
-    print(f"Playback complete. Collected {frame} volumes total")
+    #print(f"SHAM playback complete. Collected {frame} volumes total")
+    #print(f"FINAL SHAM VIRTUAL HITS: CEN={sham_virtual_cen_hits}, DMN={sham_virtual_dmn_hits}")
     if frame < target_volumes:
         print(f"WARNING: Expected {target_volumes} volumes but only got {frame}")
 
@@ -1372,7 +1370,7 @@ if expInfo['feedback_on'] == 'Feedback':
 t = 0
 baselineClock.reset()  # clock 
 frameN = -1
-routineTimer = core.CountdownTimer(1.00000)  # Create a new countdown timer 
+routineTimer.addTime(1.00000)
 # update component parameters for each repeat
 # keep track of which components have finished
 baselineComponents = []
@@ -1528,14 +1526,17 @@ next_feedback_condition = expInfo['feedback_condition']
 # Shut down psychopy before starting next run
 quit_psychopy()
 
-# Start next run using subprocess (should run detached) - YALE uses .bat file
-if expInfo['feedback_condition']=='15min':
+
+if expInfo['feedback_condition'] == '15min':
     if next_run < 6:
-        subprocess.Popen(["reopen_balltask_yale.bat", str(next_participant), str(next_run),
+        subprocess.Popen(["bash", "reopen_balltask_mgh.sh", str(next_participant), str(next_run),
             str(next_feedback), str(next_feedback_condition), str(anchor)])
-elif expInfo['feedback_condition']=='30min':
-        subprocess.Popen(["reopen_balltask_yale.bat", str(next_participant), str(next_run),
-            str(next_feedback), str(next_feedback_condition), str(anchor)])
+    else:
+        print('Syncing OneDrive. Please wait')
+        subprocess.Popen(["onedrive", "--synchronize", "--single-directory", "MIND-BPD/psychopy", ">>",  "onedrive_log.tx"])
+elif expInfo['feedback_condition'] == '30min':
+    subprocess.Popen(["bash", "reopen_balltask_mgh.sh", str(next_participant), str(next_run),
+        str(next_feedback), str(next_feedback_condition), str(anchor)])
 
 # Quit python
 sys.exit('Done with run')

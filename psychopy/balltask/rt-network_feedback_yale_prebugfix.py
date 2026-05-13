@@ -92,25 +92,6 @@ expInfo = {'participant':input_participant, 'run':input_run, 'anchor': input_anc
 
 murfi_FAKE=False
 
-# Safety check: if running in simulator mode, force explicit confirmation.
-# This is a destructive setting — it replaces real MURFI feedback with random
-# Gaussian noise, which silently corrupts data. Do not bypass without reason.
-if murfi_FAKE:
-    from psychopy import gui as _gui_warn
-    _confirm_dlg = _gui_warn.Dlg(title="!! MURFI SIMULATOR MODE ENABLED !!")
-    _confirm_dlg.addText("WARNING: murfi_FAKE is set to True.")
-    _confirm_dlg.addText("The script will NOT connect to MURFI.")
-    _confirm_dlg.addText("All cen/dmn values will be random Gaussian noise.")
-    _confirm_dlg.addText("Ball feedback will not reflect the participant's brain.")
-    _confirm_dlg.addText("")
-    _confirm_dlg.addText("Type 'yes' below to proceed, or anything else to abort.")
-    _confirm_dlg.addField("Confirm (type yes):", "")
-    _confirm_response = _confirm_dlg.show()
-    if not _confirm_dlg.OK or str(_confirm_response[0]).strip().lower() != 'yes':
-        print("Aborted: murfi_FAKE is True but user did not confirm. Exiting.")
-        core.quit()
-    print(":::: USER CONFIRMED SIMULATOR MODE — PROCEEDING WITH FAKE MURFI DATA ::::")
-
 # Show dialogue box until all participant info has been entered
 while (expInfo['feedback_on'] not in ['Feedback', 'No Feedback'] or 
        expInfo['feedback_condition'] not in ['15min', '30min']):
