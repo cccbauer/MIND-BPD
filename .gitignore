@@ -28,3 +28,5 @@ Thumbs.db
 sourcedata/
 derivatives/
 
+psychopy/balltask/feedback/mgh_randlist.txt
+psychopy/balltask/feedback/mgh_randlist_orig.txt
